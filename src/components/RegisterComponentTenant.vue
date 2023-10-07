@@ -6,7 +6,7 @@
       <p class="py-6">Already Registered?</p>
       <router-link to="/login-tenant"><button class="btn btn-outline btn-primary">Login</button></router-link>
     </div>
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 hover:-translate-x-6  duration-500">
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
       <form class="card-body">
         <div class="form-control">
           <label class="label">

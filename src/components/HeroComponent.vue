@@ -18,9 +18,9 @@
                         <div class="flex items-center justify-center">
 
                             <div class="flex  w-3/4">
-                                <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">Owner</div>
+                                <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center hover:bg-neutral-content "><router-link to="/login-owner">Owner</router-link></div>
                                 <div class="divider divider-horizontal">OR</div>
-                                <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">Tenent</div>
+                                <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center hover:bg-neutral-content"><router-link to="/register-tenant">Tenant</router-link></div>
                             </div>
                         </div>
                     </div>
