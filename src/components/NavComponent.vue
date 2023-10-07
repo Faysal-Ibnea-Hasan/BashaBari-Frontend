@@ -39,21 +39,20 @@
     <!-- Profile button -->
     <div class="navbar-end">
 
-        <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                    <img src="../assets/images/pic-1.jpg" />
-                </div>
-            </label>
-            <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li><a>Link</a></li>
                 <li>
-                    <a class="justify-between">
-                        Profile
-
-                    </a>
+                    <details>
+                        <summary>
+                            Parent
+                        </summary>
+                        <ul class="p-2 bg-base-100">
+                            <li><a>Link 1</a></li>
+                            <li><a>Link 2</a></li>
+                        </ul>
+                    </details>
                 </li>
-
-                <li><a>Logout</a></li>
             </ul>
         </div>
     </div>

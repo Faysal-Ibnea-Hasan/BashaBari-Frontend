@@ -21,7 +21,7 @@
          
         </div>
         <div class="form-control mt-6">
-          <button class="btn btn-primary">Login</button>
+          <router-link to="/home-owner"><button class="btn btn-primary">Login</button></router-link>
         </div>
       </form>
     </div>
