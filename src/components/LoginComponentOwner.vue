@@ -13,13 +13,13 @@
                     </label>
                     <input type="text" placeholder="Mobile number" v-model="mobile" class="input input-bordered" required />
                 </div>
-                <!-- <div class="form-control">
+                <div class="form-control">
                     <label class="label">
                         <span class="label-text">Password</span>
                     </label>
                     <input type="password" placeholder="password" v-model="password" class="input input-bordered" required />
 
-                </div> -->
+                </div>
                 <div class="form-control mt-6">
                     <button v-on:click="login" class="btn btn-primary">Login</button>
                 </div>
@@ -46,11 +46,12 @@ export default {
             let result = await axios.post(
                 `http://127.0.0.1:8000/api/Api/Owner/Check`,{
 
-                  mobile: this.mobile
+                  mobile: this.mobile,
+                  password: this.password
                 }
             )
 
-             console.warn(this.mobile,result)
+             
             if (result.data.status == true) {
                 
                 this.$router.push({
