@@ -1,5 +1,6 @@
 <template>
 <div class="hero min-h-screen bg-base-200">
+    
     <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="text-center ms-4 lg:text-left">
             <h1 class="text-5xl font-bold">Login please!</h1>
@@ -45,15 +46,16 @@ export default {
         async login() {
             let result = await axios.post(
                 `http://127.0.0.1:8000/api/Api/Owner/Check`,{
-
-                  mobile: this.mobile,
-                  password: this.password
+                    mobile: this.mobile,
+                    password: this.password
                 }
-            )
+                )
+                
+
 
              
             if (result.data.status == true) {
-                
+                localStorage.setItem("users-info", JSON.stringify(result.data.data));
                 this.$router.push({
                     name: 'HomePageOwner'
                 })
@@ -64,6 +66,7 @@ export default {
                 })
             }
         }
-    }
+    },
+   
 }
 </script>

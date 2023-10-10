@@ -17,6 +17,15 @@ export default {
         LoginComponentOwner,
         NavComponent,
         FooterComponent
+    },
+    mounted() {
+        let users = localStorage.getItem('users-info');
+        if (users) 
+        {
+            this.$router.push({
+                name: 'HomePageOwner'
+            })
+        }
     }
 }
 </script>

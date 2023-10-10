@@ -53,7 +53,7 @@
                         </a>
                     </li>
     
-                    <li><a>Logout</a></li>
+                    <li><a v-on:click="logout">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -63,7 +63,13 @@
     
     <script>
     export default {
-        name: 'NavComponentOwner'
+        name: 'NavComponentOwner',
+        methods:{
+            logout(){
+            localStorage.clear();
+            this.$router.push({name:'LoginPageOwner'})
+        }
+        }
     }
     </script>
     

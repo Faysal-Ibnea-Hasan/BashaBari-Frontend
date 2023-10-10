@@ -17,7 +17,8 @@ export default {
         NavComponentTenant,
         HeroComponent,
         FooterComponent
-    }
+    },
+    
 
 }
 </script>
