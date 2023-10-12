@@ -6,11 +6,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
         <span>You have logged in successfully!</span>
     </div>
+    <img :src="image" alt="">
     <div class="h-screen">
 
         <div class="chat ms-5 mt-5 chat-start">
             <!-- <div v-for="item in items" :key="item.id" class="chat-bubble">Hello {{ item.name }}, Hope you are doing well.</div> -->
-            <div class="chat-bubble">Hello {{ name }}, Hope you are doing well.</div>
+            <div class="chat-bubble">Hello {{ name }} {{ id }}, Hope you are doing well.</div>
 
         </div>
         <div class="chat ms-5 mt-5 chat-start">
@@ -33,8 +34,11 @@ export default {
     name: "HomePageOwner",
     data() {
         return {
+            owner:[],
             name: null,
             mobile: null,
+            image:'',
+            id:'',
             isVisible: false,
         }
     },
@@ -52,7 +56,7 @@ export default {
         }
     },
     
-    mounted() {
+    async mounted() {
         let users = localStorage.getItem('users-info');
         
         if (!users) {
@@ -63,7 +67,15 @@ export default {
         else{
             this.name = JSON.parse(users).name
             this.mobile = JSON.parse(users).mobile
+            this.id = JSON.parse(users).id
         }
+        const id = JSON.parse(users).id
+        let getData = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Table/" + id);
+        this.owner = getData.data.data
+        this.image = 'data:image/jpg;base64,' + getData.data.data.image
+        console.log(this.image);
+            
+            
         
         this.showAlart();
         
