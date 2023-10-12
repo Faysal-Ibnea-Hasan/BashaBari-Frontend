@@ -6,7 +6,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
         <span>You have logged in successfully!</span>
     </div>
-    <img :src="image" alt="">
+    <img :src="image" alt="hjbh" class="h-28 w-28">
     <div class="h-screen">
 
         <div class="chat ms-5 mt-5 chat-start">
@@ -37,7 +37,7 @@ export default {
             owner:[],
             name: null,
             mobile: null,
-            image:'',
+            image:null,
             id:'',
             isVisible: false,
         }
@@ -71,9 +71,12 @@ export default {
         }
         const id = JSON.parse(users).id
         let getData = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Table/" + id);
-        this.owner = getData.data.data
-        this.image = 'data:image/jpg;base64,' + getData.data.data.image
-        console.log(this.image);
+        this.owner = getData.data.data //fetch all the data in the getData response
+
+        const getApiImages = getData.data.data.image //fetch only images in the getData response
+        let getImage = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Image/" + getApiImages);
+        this.image = getImage.config.url //for getting the image url and use it in the blade
+        console.log(getApiImages);
             
             
         
