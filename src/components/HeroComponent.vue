@@ -89,6 +89,17 @@ export default {
             isVisible: false,
         }
     },
+    methods:{
+        showAlart(){
+            this.isVisible = true;
+            setTimeout(()=>{
+                this.isVisible = false;
+            },5000)
+        }
+    },
+    mounted(){
+        this.showAlart();
+    }
     
 }
 </script>
