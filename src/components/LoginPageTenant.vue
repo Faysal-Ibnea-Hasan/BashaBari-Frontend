@@ -17,7 +17,16 @@
             LoginComponentTenant,
             NavComponent,
             FooterComponent
+        },
+        mounted() {
+        let users = localStorage.getItem('tenant-info');
+        if (users) 
+        {
+            this.$router.push({
+                name: 'HomePageTenant'
+            })
         }
+    }
     }
     </script>
     
