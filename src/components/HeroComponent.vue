@@ -1,10 +1,6 @@
 <template>
 <body>
-    <div class="alert alert-success" v-if="isVisible">
-        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <span>Your purchase has been confirmed!</span>
-    </div>
+    
 
     <div class="hero min-h-screen bg-base-200">
 
@@ -40,7 +36,7 @@
     </div>
     <div class="hero min-h-[75vh] bg-base-200 flex justify-between ">
 
-        <div class="card w-96 bg-base-100 shadow-xl -mt-28 ">
+        <div class="card w-96 bg-base-100 shadow-xl -mt-28 hover:-translate-y-1 hover:scale-110 duration-200 ">
             <figure class="px-10 pt-10">
                 <img src="../assets/images/pic-1.jpg" alt="Shoes" class="rounded-xl h-40 w-40" />
             </figure>
@@ -52,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="card w-96 bg-base-100 shadow-xl -mt-28 ">
+        <div class="card w-96 bg-base-100 shadow-xl -mt-28 hover:-translate-y-1 hover:scale-110 duration-200 ">
             <figure class="px-10 pt-10">
                 <img src="../assets/images/pic-1.jpg" alt="Shoes" class="rounded-xl h-40 w-40" />
             </figure>
@@ -60,11 +56,11 @@
                 <h2 class="card-title">What are we ?</h2>
                 <p>We would like to let you know about us and our pupose.</p>
                 <div class="card-actions">
-                    <button class="btn btn-primary">About Us</button>
+                    <button class="btn btn-primary ">About Us</button>
                 </div>
             </div>
         </div>
-        <div class="card w-96 bg-base-100 shadow-xl -mt-28 ">
+        <div class="card w-96 bg-base-100 shadow-xl -mt-28 hover:-translate-y-1 hover:scale-110 duration-200">
             <figure class="px-10 pt-10">
                 <img src="../assets/images/pic-1.jpg" alt="Shoes" class="rounded-xl h-40 w-40" />
             </figure>
@@ -84,22 +80,22 @@
 <script>
 export default {
     name: 'HeroComponent',
-    data(){
-        return {
-            isVisible: false,
-        }
-    },
-    methods:{
-        showAlart(){
-            this.isVisible = true;
-            setTimeout(()=>{
-                this.isVisible = false;
-            },5000)
-        }
-    },
-    mounted(){
-        this.showAlart();
-    }
+    // data(){
+    //     return {
+    //         isVisible: false,
+    //     }
+    // },
+    // methods:{
+    //     showAlart(){
+    //         this.isVisible = true;
+    //         setTimeout(()=>{
+    //             this.isVisible = false;
+    //         },5000)
+    //     }
+    // },
+    // mounted(){
+    //     this.showAlart();
+    // }
     
 }
 </script>
