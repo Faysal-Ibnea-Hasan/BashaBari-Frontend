@@ -1,6 +1,11 @@
 <template>
 <body>
     <NavComponentOwner />
+    <div class="alert alert-success" v-if="isVisible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span>You have logged in successfully!</span>
+    </div>
     <div class="h-screen">
 
         <div class="chat ms-5 mt-5 chat-start">
@@ -29,13 +34,22 @@ export default {
     data() {
         return {
             name: null,
-            mobile: null
+            mobile: null,
+            isVisible: false,
         }
     },
     components: {
         NavComponentOwner,
         HeroComponent,
         FooterComponent
+    },
+    methods:{
+        showAlart(){
+            this.isVisible = true;
+            setTimeout(()=>{
+                this.isVisible = false;
+            },5000)
+        }
     },
     
     mounted() {
@@ -51,7 +65,13 @@ export default {
             this.mobile = JSON.parse(users).mobile
         }
         
+        this.showAlart();
+        
+        
+        
+        
     },
+    
     
 
     // methods: {
