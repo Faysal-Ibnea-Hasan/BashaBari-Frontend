@@ -6,6 +6,7 @@ import LoginPageTenant from './components/LoginPageTenant.vue'
 import HomePageOwner from './components/HomePageOwner.vue'
 import HomePageTenant from './components/HomePageTenant.vue'
 import TenantList from './components/TenantList.vue'
+import BuildingComponentOwner from './components/BuildingComponentOwner.vue'
 const routes =[
     {
         name:'HelloWorld',
@@ -41,7 +42,12 @@ const routes =[
         name:'TenantList',
         path:'/list-tenant',
         component:TenantList,
-    }
+    },
+    {
+        name:'BuildingComponentOwner',
+        path:'/buildings-owner',
+        component:BuildingComponentOwner,
+    },
 ]
 const router = createRouter({
     history: createWebHistory(),

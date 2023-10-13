@@ -28,7 +28,7 @@
                     <details>
                         <summary>Properties</summary>
                         <ul class="p-2">
-                            <li><a>Buildings</a></li>
+                            <router-link to="/buildings-owner"><li><a>Buildings</a></li></router-link>
                             <li><a>Flats</a></li>
                         </ul>
                     </details>
@@ -42,7 +42,8 @@
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="../assets/images/pic-1.jpg" />
+                        
+                        <img :src="image" />
                     </div>
                 </label>
                 <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -64,6 +65,10 @@
     <script>
     export default {
         name: 'NavComponentOwner',
+        props:{
+            image:String,
+            
+        },
         methods:{
             logout(){
             localStorage.clear();
