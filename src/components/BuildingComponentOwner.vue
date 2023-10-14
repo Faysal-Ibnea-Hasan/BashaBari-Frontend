@@ -2,10 +2,22 @@
 <body>
     <NavComponentOwner />
     <div class="h-auto">
-        
+        <div class="flex place-content-center mt-5">
+
+            <div class="card w-96 bg-primary text-primary-content ">
+                <div class="card-body">
+                    <h2 class="card-title">Create Property!</h2>
+                    <p>Want to create your own property?</p>
+                    <div class="card-actions justify-end ">
+                        <button class="btn mt-3" onclick="my_modal_2.showModal()">Click Here</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div>
             <!-- Open the modal using ID.showModal() method -->
-            <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+
             <dialog id="my_modal_2" class="modal">
 
                 <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-3">
@@ -28,7 +40,7 @@
                             <input type="date" placeholder="Developed Date" v-model="post_building.date" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
                         <form method="dialog">
-
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             <button v-on:click="post_building_data" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
                         </form>
 
@@ -40,7 +52,7 @@
 
             </dialog>
         </div>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-28 mb-5 ">
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-24 mb-5 ">
             <div class="h-48 hover:-translate-y-1 hover:scale-110 duration-200   rounded-lg bg-gray-200" v-for="item in buildings" :key="item.id">
                 <div class="card h-48 rounded-lg card-side bg-base-100 shadow-xl">
                     <figure><img src="../assets/images/welcome_photo.jpg" alt="Movie" class="h-32 w-32 ms-2" /></figure>
