@@ -9,7 +9,12 @@
     </div>
     <div class="flex place-content-center mt-2 ">
 
-        <img :src="image" alt="hjbh" class="h-28 w-28 rounded-full drop-shadow-xl ">
+        <img :src="image" alt="" class="h-28 w-28 rounded-full drop-shadow-xl ">
+        <div class="chat mt-5 chat-start">
+            <!-- <div v-for="item in items" :key="item.id" class="chat-bubble">Hello {{ item.name }}, Hope you are doing well.</div> -->
+            <div class="chat-bubble">Welcome {{ name }}, Hope you are doing great!</div>
+
+        </div>
     </div>
     <div class="flex place-content-center mt-2">
 
@@ -17,43 +22,37 @@
     </div>
     <div class="h-screen">
 
-        <div class="chat ms-5 mt-5 chat-start">
-            <!-- <div v-for="item in items" :key="item.id" class="chat-bubble">Hello {{ item.name }}, Hope you are doing well.</div> -->
-            <div class="chat-bubble">Welcome {{ name }}, Hope you are doing great!</div>
+        
+        
+        <div class="details mt-5 flex place-content-center">
 
-        </div>
-        <div class="chat ms-5 mt-5 chat-start">
-            <div class="chat-bubble">Your mobile number is {{ mobile }} .</div>
-        </div>
-        <div class="flow-root rounded-lg border border-gray-100 py-3 shadow-sm">
-            <dl class="-my-3 divide-y divide-gray-100 text-sm">
-                
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                    <dt class="font-medium text-gray-900">Name</dt>
-                    <dd class="text-gray-700 sm:col-span-2">{{ owner.name }}</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                    <dt class="font-medium text-gray-900">Mobile</dt>
-                    <dd class="text-gray-700 sm:col-span-2">Guitarist</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                    <dt class="font-medium text-gray-900">Salary</dt>
-                    <dd class="text-gray-700 sm:col-span-2">$1,000,000+</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                    <dt class="font-medium text-gray-900">Bio</dt>
-                    <dd class="text-gray-700 sm:col-span-2">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis
-                        debitis explicabo doloremque impedit nesciunt dolorem facere, dolor
-                        quasi veritatis quia fugit aperiam aspernatur neque molestiae labore
-                        aliquam soluta architecto?
-                    </dd>
-                </div>
-            </dl>
+            <div class="flow-root w-6/12 rounded-lg border border-gray-100 py-3 shadow-sm">
+                <dl class="-my-3 divide-y divide-gray-100 text-sm">
+                    
+    
+                    <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Name</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ owner.name }}</dd>
+                    </div>
+    
+                    <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Mobile</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ owner.mobile }}</dd>
+                    </div>
+    
+                    <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Address</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ owner.address }}</dd>
+                    </div>
+    
+                    <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">National ID</dt>
+                        <dd class="text-gray-700 sm:col-span-2">
+                            {{ owner.nid }}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
         </div>
 
     </div>

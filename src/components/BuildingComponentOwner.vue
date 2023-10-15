@@ -51,22 +51,142 @@
                 </section>
 
             </dialog>
+            <dialog id="my_modal_3" class="modal">
+
+                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-3">
+                    <img alt="Trainer" src="../assets/images/pic-1.jpg" class="h-32 w-full object-cover md:h-full" />
+
+                    <div class="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
+                        <p class="text-sm font-semibold uppercase tracking-widest">
+                            <input type="text" hidden placeholder="Building Name" v-model="update_building.owner_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                        </p>
+                        <p class="text-sm font-semibold uppercase tracking-widest">
+                            <input type="text" hidden placeholder="Building Name" v-model="update_building.id" class="input input-bordered w-full max-w-xs mt-2" />
+                        </p>
+                        <p class="text-sm font-semibold uppercase tracking-widest">
+                            <input type="text" name="name" placeholder="Building Name" v-model="update_building.name" class="input input-bordered w-full max-w-xs mt-2" />
+                        </p>
+                        <p class="text-sm font-semibold uppercase tracking-widest">
+                            <input type="text" name="address" placeholder="Building Address" v-model="update_building.address" class="input input-bordered w-full max-w-xs mt-2" />
+                        </p>
+                        <p class="text-sm font-semibold uppercase tracking-widest">
+                            <input type="text" name="developer" placeholder="Developer" v-model="update_building.developer" class="input input-bordered w-full max-w-xs mt-2" />
+                        </p>
+                        <p class="text-sm font-semibold uppercase tracking-widest">
+                            <input type="date" name="date" placeholder="Developed Date" v-model="update_building.date" class="input input-bordered w-full max-w-xs mt-2" />
+                        </p>
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            <button v-on:click="updateBuilding" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
+                        </form>
+
+                        <p class="mt-8 text-xs font-medium uppercase text-gray-400">
+                            Offer valid until 24th March, 2021 *
+                        </p>
+                    </div>
+                </section>
+
+            </dialog>
+            <dialog id="my_modal_1" class="modal">
+
+                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl ">
+
+                    <div class="details flex place-content-center">
+
+                        <div class="flow-root w-9/12 rounded-lg border border-gray-100 py-3 shadow-sm">
+                            <dl class="-my-3 divide-y divide-gray-100 text-sm">
+
+                                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                                    <dt class="font-medium text-gray-900">Building Name</dt>
+                                    <dd class="text-gray-700 sm:col-span-2">{{ update_building.name }}</dd>
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                                    <dt class="font-medium text-gray-900">Building Address</dt>
+                                    <dd class="text-gray-700 sm:col-span-2">{{ update_building.address }}</dd>
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                                    <dt class="font-medium text-gray-900">Developer</dt>
+                                    <dd class="text-gray-700 sm:col-span-2">{{ update_building.developer }}</dd>
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                                    <dt class="font-medium text-gray-900">Developed Date</dt>
+                                    <dd class="text-gray-700 sm:col-span-2">
+                                        {{ update_building.date}}
+                                    </dd>
+                                </div>
+                                <form method="dialog">
+                                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+
+                                </form>
+                            </dl>
+                        </div>
+                    </div>
+                </section>
+
+            </dialog>
         </div>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-24 mb-5 ">
-            <div class="h-48 hover:-translate-y-1 hover:scale-110 duration-200   rounded-lg bg-gray-200" v-for="item in buildings" :key="item.id">
-                <div class="card h-48 rounded-lg card-side bg-base-100 shadow-xl">
-                    <figure><img src="../assets/images/welcome_photo.jpg" alt="Movie" class="h-32 w-32 ms-2" /></figure>
+
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-24 mb-5 h-auto">
+
+            <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings" :key="item.id">
+                <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
+
+                <div class="mt-2">
+                    <dl>
+                        <div class="flex place-content-center">
+                            <dd class=" text-gray-500 font-medium">{{ item.name }}</dd>
+                        </div>
+                    </dl>
+
+                    <div class="button-group flex place-content-center">
+                        <span class="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm mt-3">
+                            <button v-on:click="getBuildingId(item.id)" onclick="my_modal_3.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                                Edit
+                            </button>
+
+                            <button v-on:click="getBuildingId(item.id)" onclick="my_modal_1.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                                View
+                            </button>
+
+                            <button v-on:click="deleteBuilding(item.id)" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                                Delete
+                            </button>
+                        </span>
+                    </div>
+
+                </div>
+            </a>
+            <!-- <div class="h-72 rounded-lg bg-base-100 shadow-xl" v-for="item in buildings" :key="item.id">
+                <div class="card h-56 rounded-lg card-side bg-base-100">
+                    <figure><img src="../assets/images/pic-1.jpg" alt="Movie" class="h-32 w-32 ms-2" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">{{ item.name }}</h2>
-                        <p>Address: {{ item.address }}</p>
-                        <p>Developer: {{ item.developer }}</p>
-                        <p>Developed Date: {{ item.date }}</p>
 
                     </div>
+
                 </div>
-            </div>
+                <div class="button-group flex place-content-center">
+                    <span class="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm mt-3">
+                        <button v-on:click="getBuildingId(item.id)" onclick="my_modal_3.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                            Edit
+                        </button>
+
+                        <button v-on:click="getBuildingId(item.id)" onclick="my_modal_1.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                            View
+                        </button>
+
+                        <button v-on:click="deleteBuilding(item.id)" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                            Delete
+                        </button>
+                    </span>
+                </div>
+            </div> -->
 
         </div>
+
     </div>
 
     <FooterComponent />
@@ -92,14 +212,53 @@ export default {
                 address: '',
                 developer: '',
                 date: ''
+            },
+            update_building: {
+                owner_Id: '',
+                id: '',
+                name: '',
+                address: '',
+                developer: '',
+                date: ''
             }
         }
+
     },
     components: {
         NavComponentOwner,
         FooterComponent,
     },
     methods: {
+        async getBuildingId(id) {
+            let getBuildingId = await axios.get("http://127.0.0.1:8000/api/Api/Building/Table/" + id);
+            this.update_building.id = getBuildingId.data.data.id;
+            this.update_building = getBuildingId.data.data
+            // console.warn(getBuildingId);
+            console.warn(this.update_building.id)
+        },
+        async updateBuilding() {
+            let users = localStorage.getItem('users-info');
+
+            this.update_building.owner_Id = JSON.parse(users).id
+            const updateBuilding = await axios.put("http://127.0.0.1:8000/api/Api/Building/Updated/" + this.update_building.id, {
+                owner_Id: this.update_building.owner_Id,
+                name: this.update_building.name,
+                address: this.update_building.address,
+                developer: this.update_building.developer,
+                date: this.update_building.date
+            })
+            console.warn(updateBuilding)
+
+            if (updateBuilding.status == 200) {
+                this.loadData();
+            }
+        },
+        async deleteBuilding(id) {
+            const deleteBuilding = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteBuilding/" + id);
+            if (deleteBuilding.status == 200) {
+                this.loadData();
+            }
+        },
 
         async post_building_data() {
             let users = localStorage.getItem('users-info');
@@ -113,7 +272,6 @@ export default {
                 developer: this.post_building.developer,
                 date: this.post_building.date
             });
-            console.warn(post);
 
             if (post.data.status == true) {
                 this.loadData();
