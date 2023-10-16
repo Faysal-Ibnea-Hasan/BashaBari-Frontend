@@ -42,7 +42,7 @@
         <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
-                    <img src="../assets/images/pic-1.jpg" />
+                    <img :src="image" />
                 </div>
             </label>
             <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -61,17 +61,34 @@
 </div>
 </template>
 
-    
 <script>
+import axios from 'axios';
+
 export default {
     name: 'NavComponentTenant',
+    data() {
+        return {
+            image: ''
+        }
+    },
     methods: {
         logout() {
             localStorage.clear();
             this.$router.push({
                 name: 'LoginPageTenant'
             })
+        },
+        async getData_Tenant() {
+            let users = localStorage.getItem('tenant-info');
+            const id = JSON.parse(users).id
+            let getData = await axios.get("http://127.0.0.1:8000/api/Api/Tenant/Table/" + id);
+            this.tenant = getData.data.data //fetch all the data in the getData response
+            this.image = getData.data.imageUrl
+
         }
+    },
+    mounted() {
+        this.getData_Tenant();
     }
 }
 </script>

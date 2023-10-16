@@ -60,7 +60,7 @@
 
                 <article class="group" v-for="(item,index) in arr" :key="index">
                     <div class="image flex place-content-center">
-                        <img alt="Lava" src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-32 w-32 object-cover shadow-xl rounded-full transition group-hover:grayscale-[50%]" />
+                        <img :src="t_images[setIndex]" class="h-32 w-32 object-cover shadow-xl rounded-full transition group-hover:grayscale-[50%]" />
                     </div>
 
                     <div class="p-4">
@@ -106,10 +106,14 @@ export default {
         return {
             tenants_Id: [],
             tenants: [],
+            t_images: [],
+            t_imageId: [],
+            t_imageIds: [],
             tenantsById: [],
             results: [],
             apiResponses: [],
             extractedData: [],
+            response2: [],
         }
     },
     methods: {
@@ -118,7 +122,7 @@ export default {
             this.tenantsById.id = getTenantId.data.data.id;
             this.tenantsById = getTenantId.data.data
             // console.warn(getBuildingId);
-            console.warn(this.tenantsById);
+            // console.warn(this.tenantsById);
         },
     },
 
@@ -129,15 +133,28 @@ export default {
 
         const response1 = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Owner/" + id);
         let ids = response1.data.data.map(item => item.tenant_Id)
+        // console.warn(response1);
         this.tenants_Id = ids.map(item => item)
 
-        // console.log(this.tenants_Id);
+        //  console.log(this.tenants_Id);
 
         for (const id of this.tenants_Id) {
 
             const response2 = await axios.get(`http://127.0.0.1:8000/api/Api/Tenant/TableById/${id}`);
             this.tenants.push(response2.data.data)
-            // console.log(this.tenants)
+            let t_ids = response2.data.data.map(item => item.id)
+            this.t_imageId = t_ids.map(item => item)
+            // console.warn(response2.data.data)
+            this.response2 = response2.data.data.map(item => item.id)
+            this.t_imageIds.push(this.response2);
+            // console.warn(this.response2);
+        }
+        // console.warn(this.response2);
+        console.warn(this.t_imageIds);
+        for(const id of this.t_imageIds){
+            let getIamge = await axios.get(`http://127.0.0.1:8000/api/Api/Tenant/Table/${id}`);
+            this.t_images.push(getIamge.data.imageUrl);
+            console.warn(this.t_images);
         }
 
     },
