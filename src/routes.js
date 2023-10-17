@@ -7,6 +7,7 @@ import HomePageOwner from './components/HomePageOwner.vue'
 import HomePageTenant from './components/HomePageTenant.vue'
 import TenantList from './components/TenantList.vue'
 import BuildingComponentOwner from './components/BuildingComponentOwner.vue'
+import AssignTenantComponent from './components/AssignTenantComponent.vue'
 const routes =[
     {
         name:'HelloWorld',
@@ -47,6 +48,11 @@ const routes =[
         name:'BuildingComponentOwner',
         path:'/buildings-owner',
         component:BuildingComponentOwner,
+    },
+    {
+        name:'AssignTenantComponent',
+        path:'/assign-tenant',
+        component:AssignTenantComponent,
     },
 ]
 const router = createRouter({

@@ -37,6 +37,9 @@
                     </ul>
                 </details>
             </li>
+            <router-link to="/assign-tenant">
+                <li><a>Assign Tenants</a></li>
+            </router-link>
         </ul>
     </div>
 

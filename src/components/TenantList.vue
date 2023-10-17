@@ -2,18 +2,7 @@
 <body>
     <NavComponentOwner />
     <div class="h-screen">
-        <div class="flex items-center justify-center mt-5">
-            <div class="card w-96 bg-neutral text-neutral-content">
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Wooh!</h2>
-                    <p>Want to add some more tenants?</p>
-                    <div class="card-actions justify-end">
-                        <button  class="btn btn-primary">Add Tenant</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <dialog id="my_modal_1" class="modal">
 
             <section class="modal-box overflow-hidden rounded-lg  shadow-2xl ">
