@@ -33,13 +33,17 @@
                         <router-link to="/buildings-owner">
                             <li><a>Buildings</a></li>
                         </router-link>
-                        <li><a>Flats</a></li>
+                        <router-link to="/flat-owner">
+                            <li><a>Flats</a></li>
+                        </router-link>
+                        
                     </ul>
                 </details>
             </li>
             <router-link to="/assign-tenant">
                 <li><a>Assign Tenants</a></li>
             </router-link>
+            
         </ul>
     </div>
 

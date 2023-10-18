@@ -8,6 +8,8 @@ import HomePageTenant from './components/HomePageTenant.vue'
 import TenantList from './components/TenantList.vue'
 import BuildingComponentOwner from './components/BuildingComponentOwner.vue'
 import AssignTenantComponent from './components/AssignTenantComponent.vue'
+import FlatComponentOwner from './components/FlatComponentOwner.vue'
+import FlatDetailsComponentOwner from './components/FlatDetailsComponentOwner.vue'
 const routes =[
     {
         name:'HelloWorld',
@@ -53,6 +55,16 @@ const routes =[
         name:'AssignTenantComponent',
         path:'/assign-tenant',
         component:AssignTenantComponent,
+    },
+    {
+        name:'FlatComponentOwner',
+        path:'/flat-owner',
+        component:FlatComponentOwner,
+    },
+    {
+        name:'FlatDetailsComponentOwner',
+        path:'/flat-details-owner/:building_Id', //Catch the building Id when route clicked
+        component:FlatDetailsComponentOwner,
     },
 ]
 const router = createRouter({
