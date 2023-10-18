@@ -17,6 +17,7 @@
             </div>
         </div>
         <!-- End Announcement Banner -->
+        <!--Create Flat Modal Start-->
         <dialog id="my_modal_2" class="modal">
 
             <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
@@ -58,6 +59,53 @@
             </section>
 
         </dialog>
+        <!--Create Flat Modal End-->
+        <!--Update Flat Modal Start-->
+        <dialog id="my_modal_1" class="modal">
+
+            <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
+
+                <div class="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="text" hidden placeholder="Owner ID" v-model="owner_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="text" hidden placeholder="Building ID" v-model="building_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="text" placeholder="Unit Name" name="unit_name " v-model="update_flat_details.unit_name" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="number" placeholder="Floor" name="floor" v-model="update_flat_details.floor" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="text" placeholder="Area" name="area" v-model="update_flat_details.area" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="number" placeholder="Room" name="room" v-model="update_flat_details.room" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="number" placeholder="Washroom" name="washroom" v-model="update_flat_details.washroom" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="number" placeholder="Balconi" name="balconi" v-model="update_flat_details.balconi" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="text" placeholder="Rent Value" name="rent_value" v-model="update_flat_details.rent_value" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <button v-on:click="update_flats" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
+                    </form>
+
+                </div>
+            </section>
+
+        </dialog>
+        <!--Update Flat Modal End-->
+
+
+        <!--Details Modal Start-->
         <dialog id="my_modal_3" class="modal">
 
             <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
@@ -104,18 +152,19 @@
                         </div>
 
                         <form method="dialog">
-                                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 
-                                </form>
+                        </form>
 
-                        
                     </dl>
                 </div>
             </section>
 
         </dialog>
+        <!--Details Modal End-->
+        <!--Card Start-->
         <div class="mt-10 mb-10 m grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-            <a onclick="my_modal_3.showModal()" v-on:click="get_flat_details_popup(item.id)" href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings_flats" :key="item.id">
+            <a  href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings_flats" :key="item.id">
                 <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
 
                 <div class="mt-2">
@@ -132,46 +181,80 @@
                             <dd class="font-medium">{{ item.unit_name }}</dd>
                         </div>
                     </dl>
+                    <div class="flex place-content-center">
+                        <div class="mt-6 flex items-center gap-8 text-xs">
+                            <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                                </svg>
 
-                    <div class="mt-6 flex items-center gap-8 text-xs">
-                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                            <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
+                                <div class="mt-1.5 sm:mt-0">
+                                    <p class="text-gray-500">Area</p>
 
-                            <div class="mt-1.5 sm:mt-0">
-                                <p class="text-gray-500">Area</p>
-
-                                <p class="font-medium">{{ item.area }}</p>
+                                    <p class="font-medium">{{ item.area }}</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                            <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
+                            <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
 
-                            <div class="mt-1.5 sm:mt-0">
-                                <p class="text-gray-500">Bedroom</p>
+                                <div class="mt-1.5 sm:mt-0">
+                                    <p class="text-gray-500">Bedroom</p>
 
-                                <p class="font-medium">{{ item.room }}</p>
+                                    <p class="font-medium">{{ item.room }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                            <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
+                            <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                </svg>
 
-                            <div class="mt-1.5 sm:mt-0">
-                                <p class="text-gray-500">Bathroom</p>
+                                <div class="mt-1.5 sm:mt-0">
+                                    <p class="text-gray-500">Bathroom</p>
 
-                                <p class="font-medium">{{ item.washroom }}</p>
+                                    <p class="font-medium">{{ item.washroom }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!--Button Group Start -->
+                    <div class="flex place-content-center mt-10 mb-5">
+
+                        <div class="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1">
+                            <button onclick="my_modal_1.showModal()"  v-on:click="get_flat_details_popup(item.id)"  class="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                </svg>
+
+                                Edit
+                            </button>
+
+                            <button onclick="my_modal_3.showModal()" v-on:click="get_flat_details_popup(item.id)" class="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+
+                                View
+                            </button>
+
+                            <button v-on:click="delete_flat(item.id)" class="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm text-blue-500 shadow-sm focus:relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                </svg>
+
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                    <!--Button Group End -->
                 </div>
             </a>
         </div>
+        <!--Card End-->
 
     </div>
     <FooterComponent />
@@ -190,9 +273,19 @@ export default {
             owner_Id: '',
             building_Id: '',
             buildings_flats: [],
-            popup:[],
+            popup: [],
             create_flat_details: {
 
+                unit_name: '',
+                floor: '',
+                area: '',
+                room: '',
+                washroom: '',
+                balconi: '',
+                rent_value: '',
+            },
+            update_flat_details: {
+                id: '',
                 unit_name: '',
                 floor: '',
                 area: '',
@@ -246,10 +339,35 @@ export default {
                 this.get_building_flats();
             }
         },
-        async get_flat_details_popup(id){
+        async get_flat_details_popup(id) {
             let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
             let responseData = get_flat_details_popup.data.data
+            this.update_flat_details.id = get_flat_details_popup.data.data.id;
             this.popup = responseData
+        },
+        async delete_flat(id){
+            let delete_flat = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteFlat/" + id);
+            if(delete_flat.status == 200){
+                this.get_building_flats();
+            }
+        },
+        async update_flats(){
+            let update_flats = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Updated/"+this.update_flat_details.id,
+            {
+                owner_Id: this.owner_Id,
+                building_Id: this.building_Id,
+                unit_name: this.update_flat_details.unit_name,
+                floor: this.update_flat_details.floor,
+                area: this.update_flat_details.area,
+                room: this.update_flat_details.room,
+                washroom: this.update_flat_details.washroom,
+                balconi: this.update_flat_details.balconi,
+                rent_value: this.update_flat_details.rent_value,
+            });
+            console.warn(update_flats);
+            if (update_flats.data.status == true) {
+                this.get_building_flats();
+            }
         }
 
     },

@@ -2,18 +2,21 @@
 <body>
     <NavComponentOwner />
     <div class="h-auto">
-        <div class="flex place-content-center mt-5">
-
-            <div class="card w-96 bg-primary text-primary-content ">
-                <div class="card-body">
-                    <h2 class="card-title">Create Property!</h2>
-                    <p>Want to create your own property?</p>
-                    <div class="card-actions justify-end ">
-                        <button class="btn mt-3" onclick="my_modal_2.showModal()">Click Here</button>
-                    </div>
-                </div>
+        <!-- Announcement Banner -->
+        <div class="max-w-[85rem] mt-5 mb-5 px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="bg-blue-600 bg-[url('../svg/component/abstract-1.svg')] bg-no-repeat bg-cover bg-center p-4 rounded-md text-center">
+                <p class="mr-2 inline-block text-white">
+                    Want to create your own building?
+                </p>
+                <button onclick="my_modal_2.showModal()" class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-full border-2 border-white font-semibold text-white hover:bg-white/[.1] hover:border-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 transition-all text-sm" href="../figma.html">
+                    Click to Create
+                    <svg class="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
             </div>
         </div>
+        <!-- End Announcement Banner -->
 
         <div>
             <!-- Open the modal using ID.showModal() method -->
@@ -128,63 +131,39 @@
 
             </dialog>
         </div>
+        <div class="mb-10 mt-10">
+            <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-24 h-auto">
 
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-24 mb-5 h-auto">
+                <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings" :key="item.id">
+                    <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
 
-            <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings" :key="item.id">
-                <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
+                    <div class="mt-2">
+                        <dl>
+                            <div class="flex place-content-center">
+                                <dd class=" text-gray-500 font-medium">{{ item.name }}</dd>
+                            </div>
+                        </dl>
 
-                <div class="mt-2">
-                    <dl>
-                        <div class="flex place-content-center">
-                            <dd class=" text-gray-500 font-medium">{{ item.name }}</dd>
+                        <div class="button-group flex place-content-center">
+                            <span class="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm mt-3">
+                                <button v-on:click="getBuildingId(item.id)" onclick="my_modal_3.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                                    Edit
+                                </button>
+
+                                <button v-on:click="getBuildingId(item.id)" onclick="my_modal_1.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                                    View
+                                </button>
+
+                                <button v-on:click="deleteBuilding(item.id)" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
+                                    Delete
+                                </button>
+                            </span>
                         </div>
-                    </dl>
-
-                    <div class="button-group flex place-content-center">
-                        <span class="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm mt-3">
-                            <button v-on:click="getBuildingId(item.id)" onclick="my_modal_3.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-                                Edit
-                            </button>
-
-                            <button v-on:click="getBuildingId(item.id)" onclick="my_modal_1.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-                                View
-                            </button>
-
-                            <button v-on:click="deleteBuilding(item.id)" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-                                Delete
-                            </button>
-                        </span>
-                    </div>
-
-                </div>
-            </a>
-            <!-- <div class="h-72 rounded-lg bg-base-100 shadow-xl" v-for="item in buildings" :key="item.id">
-                <div class="card h-56 rounded-lg card-side bg-base-100">
-                    <figure><img src="../assets/images/pic-1.jpg" alt="Movie" class="h-32 w-32 ms-2" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{{ item.name }}</h2>
 
                     </div>
+                </a>
 
-                </div>
-                <div class="button-group flex place-content-center">
-                    <span class="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm mt-3">
-                        <button v-on:click="getBuildingId(item.id)" onclick="my_modal_3.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-                            Edit
-                        </button>
-
-                        <button v-on:click="getBuildingId(item.id)" onclick="my_modal_1.showModal()" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-                            View
-                        </button>
-
-                        <button v-on:click="deleteBuilding(item.id)" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-                            Delete
-                        </button>
-                    </span>
-                </div>
-            </div> -->
-
+            </div>
         </div>
 
     </div>

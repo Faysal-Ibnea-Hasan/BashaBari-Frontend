@@ -59,6 +59,7 @@ export default {
         return {
             owner_Id: '',
             owner_buildings:[],
+            
         }
     },
     components: {
