@@ -33,7 +33,6 @@
                         <dt class="font-medium text-gray-900">Owner's Contact Number</dt>
                         <dd class="text-gray-700 sm:col-span-2">{{ owner_mobile }}</dd>
                     </div>
-                    
 
                     <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                         <dt class="font-medium text-gray-900">Parking Facility</dt>
@@ -44,9 +43,66 @@
                 </dl>
             </div>
         </div>
+        <!--Details Modal Start-->
+        <dialog id="my_modal_3" class="modal">
+
+            <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
+
+                <div class="flow-root">
+                    <dl class="-my-3 divide-y divide-gray-100 text-sm">
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Unit Name</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.unit_name }}</dd>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Floor</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.floor }}</dd>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Area</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.area }}</dd>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Room</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.room }}</dd>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Washroom</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.washroom }}</dd>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Balconi</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.balconi }}</dd>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Rent Value</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.rent_value }}</dd>
+                        </div>
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Building ID</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.building_Id }}</dd>
+                        </div>
+
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+
+                        </form>
+
+                    </dl>
+                </div>
+            </section>
+
+        </dialog>
+        <!--Details Modal End-->
         <!--Card Start-->
         <div class="mt-10 mb-10 m grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-            <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings_flats" :key="item.id">
+            <a onclick="my_modal_3.showModal()" v-on:click="get_flat_details_popup(item.id)" href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings_flats" :key="item.id">
                 <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
 
                 <div class="mt-2">
@@ -63,7 +119,7 @@
                             <dd class="font-medium">{{ item.unit_name }}</dd>
                         </div>
                     </dl>
-                    <div class="flex place-content-center">
+                    <div class="flex">
                         <div class="mt-6 flex items-center gap-8 text-xs">
                             <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                                 <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -103,7 +159,7 @@
                     </div>
 
                     <!--Button Group Start -->
-                    <div class="flex place-content-center mt-10 mb-5">
+                    <!-- <div class="flex place-content-center mt-10 mb-5">
 
                         <div class="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1">
                             <button onclick="my_modal_1.showModal()" v-on:click="get_flat_details_popup(item.id)" class="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
@@ -131,7 +187,7 @@
                                 Delete
                             </button>
                         </div>
-                    </div>
+                    </div> -->
                     <!--Button Group End -->
                 </div>
             </a>
@@ -152,9 +208,10 @@ export default {
     name: "FindFlatComponentTenant",
     data() {
         return {
-            owner_Id:'',
+            owner_Id: '',
             owner_name: '',
             owner_mobile: '',
+            popup:[],
             buildings_flats: [],
             building_details: [],
         }
@@ -193,15 +250,19 @@ export default {
             this.owner_mobile = response2.mobile
             console.warn(response2);
         },
-        
-
+        async get_flat_details_popup(id) {
+            let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
+            let responseData = get_flat_details_popup.data.data
+            
+            this.popup = responseData
+        },
 
     },
     mounted() {
         this.check_tenant();
         this.get_building_flats();
         this.get_building_details();
-        
+
     }
 
 }

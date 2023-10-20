@@ -143,11 +143,11 @@
                         </div>
 
                         <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                            <dt class="font-medium text-gray-900">Balconi</dt>
+                            <dt class="font-medium text-gray-900">Rent Value</dt>
                             <dd class="text-gray-700 sm:col-span-2">{{ popup.rent_value }}</dd>
                         </div>
                         <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                            <dt class="font-medium text-gray-900">Balconi</dt>
+                            <dt class="font-medium text-gray-900">Building ID</dt>
                             <dd class="text-gray-700 sm:col-span-2">{{ popup.building_Id }}</dd>
                         </div>
 
