@@ -10,6 +10,7 @@ import BuildingComponentOwner from './components/BuildingComponentOwner.vue'
 import AssignTenantComponent from './components/AssignTenantComponent.vue'
 import FlatComponentOwner from './components/FlatComponentOwner.vue'
 import FlatDetailsComponentOwner from './components/FlatDetailsComponentOwner.vue'
+import FindBuildingComponentTenant from './components/FindBuildingComponentTenant.vue'
 const routes =[
     {
         name:'HelloWorld',
@@ -65,6 +66,11 @@ const routes =[
         name:'FlatDetailsComponentOwner',
         path:'/flat-details-owner/:building_Id', //Catch the building Id when route clicked
         component:FlatDetailsComponentOwner,
+    },
+    {
+        name:'FindBuildingComponentTenant',
+        path:'/find-buildings', 
+        component:FindBuildingComponentTenant,
     },
 ]
 const router = createRouter({

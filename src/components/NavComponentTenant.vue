@@ -22,7 +22,10 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a>Item 1</a></li>
+            <router-link to="/find-buildings">
+                <li><a>Find your next home</a></li>
+            </router-link>
+            
             <li tabindex="0">
                 <details>
                     <summary>Parent</summary>
