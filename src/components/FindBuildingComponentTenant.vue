@@ -2,15 +2,29 @@
 <body>
     <NavComponentTenant />
     <div class="h-auto">
-        <div class="dropdown dropdown-hover">
-            <label tabindex="0" class="btn m-1">Hover</label>
-            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>Item 1</a></li>
-                <li><a>Item 2</a></li>
-            </ul>
+        
+        
+        <div class="flex mt-10 mb-10 place-content-center">
+            <div class="h-32 w-64">
+            <select v-on:click="get_buildings_byArea" v-model="area" class="select w-full max-w-xs">
+                <option value="">Please Select Area</option>
+                <option value="Mirpur-1">Mirpur-1</option>
+                <option value="Mirpur-2">Mirpur-2</option>
+                <option value="Mirpur-6">Mirpur-6</option>
+                <option value="Mirpur-7">Mirpur-7</option>
+                <option value="Mirpur-10">Mirpur-10</option>
+                <option value="Mirpur-11">Mirpur-11</option>
+                <option value="Mirpur-12">Mirpur-12</option>
+                <option value="Mirpur-13">Mirpur-13</option>
+                <option value="Mirpur-14">Mirpur-14</option>
+            </select>
         </div>
+        </div>
+        
+
         <div class="grid mt-10 mb-10 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-            <a href="#" class="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8" v-for="item in buildings" :key="item.id">
+            
+                <router-link :to="'/find-flats/' + item.building_Id" href="#" class="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8" v-for="item in buildings" :key="item.id">
                 <span class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
 
                 <div class="sm:flex sm:justify-between sm:gap-4">
@@ -44,7 +58,9 @@
                         <dd class="text-xs text-gray-500">{{ item.parking }}</dd>
                     </div>
                 </dl>
-            </a>
+            </router-link>
+        
+            
         </div>
 
     </div>
@@ -59,34 +75,42 @@ import FooterComponent from './FooterComponent.vue';
 
 export default {
     name: "FindBuildingComponentTenant",
-    data(){
+    data() {
         return {
-            buildings:[],
+            buildings: [],
+            area: '',
         }
     },
     components: {
         NavComponentTenant,
         FooterComponent
     },
-    methods:{
-        check_tenant(){
+    methods: {
+        check_tenant() {
             let users = localStorage.getItem('tenant-info');
 
-            if (!users)
-            {
+            if (!users) {
                 this.$router.push({
                     name: 'LoginPageTenant'
                 })
-            } 
+            }
         },
-        async get_buildings(){
+        async get_buildings() {
             let get_buildings = await axios.get("http://127.0.0.1:8000/api/Api/Building/Table");
             let response = get_buildings.data.data
             this.buildings = response
             console.warn(response)
         },
+        async get_buildings_byArea() {
+            let get_buildings_byArea = await axios.post("http://127.0.0.1:8000/api/Api/Building/ByArea", {
+                area: this.area
+            });
+            let response = get_buildings_byArea.data.data
+            this.buildings = response
+
+        }
     },
-    mounted(){
+    mounted() {
         this.check_tenant();
         this.get_buildings();
     }

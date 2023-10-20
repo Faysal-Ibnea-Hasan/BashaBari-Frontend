@@ -11,6 +11,7 @@ import AssignTenantComponent from './components/AssignTenantComponent.vue'
 import FlatComponentOwner from './components/FlatComponentOwner.vue'
 import FlatDetailsComponentOwner from './components/FlatDetailsComponentOwner.vue'
 import FindBuildingComponentTenant from './components/FindBuildingComponentTenant.vue'
+import FindFlatComponentTenant from './components/FindFlatComponentTenant.vue'
 const routes =[
     {
         name:'HelloWorld',
@@ -71,6 +72,11 @@ const routes =[
         name:'FindBuildingComponentTenant',
         path:'/find-buildings', 
         component:FindBuildingComponentTenant,
+    },
+    {
+        name:'FindFlatComponentTenant',
+        path:'/find-flats/:building_Id', 
+        component:FindFlatComponentTenant,
     },
 ]
 const router = createRouter({
