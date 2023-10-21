@@ -5,7 +5,7 @@
     <span>Oops! Looks like you don't have an account yet.</span>
 </div>
 
-<div class="hero min-h-screen bg-base-200">
+<div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
 
     <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="text-center ms-4 lg:text-left">
@@ -46,6 +46,7 @@ export default {
             mobile: '',
             password: '',
             isVisible: false,
+            backgroundImage:('src/assets/images/subtle-prism.svg')
         }
     },
     methods: {

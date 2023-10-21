@@ -18,7 +18,7 @@
                 <li><a>Item 3</a></li>
             </ul>
         </div>
-        <router-link to="/"><a class="btn btn-ghost normal-case text-xl">BashaBari</a></router-link>
+        <router-link to="/home-tenant"><a class="btn btn-ghost normal-case text-xl">BashaBari</a></router-link>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">

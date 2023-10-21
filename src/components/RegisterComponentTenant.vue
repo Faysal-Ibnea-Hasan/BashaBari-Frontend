@@ -1,5 +1,5 @@
 <template>
-    <div class="hero min-h-screen bg-base-200">
+    <div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center ms-4 lg:text-left">
       <h1 class="text-5xl font-bold">Register now!</h1>
@@ -60,7 +60,8 @@ import axios from 'axios';
               address:'',
               nid:'',
               password:''
-            }
+            },
+            backgroundImage:('src/assets/images/scattered-forcefields.svg')
           }
         },
         methods:{

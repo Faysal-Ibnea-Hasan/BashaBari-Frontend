@@ -4,7 +4,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
     <span>Oops! Looks like you don't have an account yet.</span>
 </div>
-<div class="hero min-h-screen bg-base-200">
+<div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
     <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="text-center ms-4 lg:text-left">
             <h1 class="text-5xl font-bold">Login now!</h1>
@@ -43,7 +43,8 @@ export default {
         return {
             mobile: '',
             password: '',
-            isVisible: false
+            isVisible: false,
+            backgroundImage:('src/assets/images/scattered-forcefields.svg')
         }
     },
     methods: {

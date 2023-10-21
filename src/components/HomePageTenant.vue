@@ -1,53 +1,69 @@
 <template>
 <body>
     <NavComponentTenant />
-    <div class="alert alert-success" v-if="isVisible">
+    <!-- <div class="alert alert-success" v-if="isVisible">
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
         <span>You have logged in successfully!</span>
+    </div> -->
+    <!-- Announcement Banner -->
+    <div class="max-w-[85rem] mt-10 px-4 sm:px-6 lg:px-8 mx-auto">
+
+        <div :style="{ backgroundImage:'url('+backgroundImage+')'}" class=" bg-no-repeat bg-cover bg-center p-4 rounded-md text-center">
+            <p class="mr-2 inline-block text-white">
+                Hello <strong>{{ name }}</strong>, Your Tenant ID is
+            </p>
+            <div class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-full border-2 border-white font-semibold text-white hover:bg-white/[.1] hover:border-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 transition-all text-sm" href="../figma.html">
+                {{ tenant.tenant_Id }}
+
+            </div>
+        </div>
     </div>
+    <!-- End Announcement Banner -->
     <div class="h-auto">
+        <!--Chat Bubble
 
-        <div class="chat ms-5 mt-5 chat-start">
-            <!-- <div v-for="item in items" :key="item.id" class="chat-bubble">Hello {{ item.name }}, Hope you are doing well.</div> -->
-            <div class="chat-bubble">Hello {{ name }}, Hope you are doing well.</div>
+            <div class="chat ms-5 mt-5 chat-start">
+                 <div v-for="item in items" :key="item.id" class="chat-bubble">Hello {{ item.name }}, Hope you are doing well.</div> 
+                <div class="chat-bubble">Hello {{ name }}, Hope you are doing well.</div>
 
-        </div>
-        <div class="chat ms-5 mt-5 chat-start">
-            <div class="chat-bubble">Your mobile number is {{ mobile }} .</div>
-        </div>
-        <!--
-  Heads up! 👋
+            </div>
+            <div class="chat ms-5 mt-5 chat-start">
+                <div class="chat-bubble">Your mobile number is {{ mobile }} .</div>
+            </div>
+        -->
 
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
--->
+        <section>
+            <div class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div class="bg-purple-500 p-8 md:p-12 lg:px-16 lg:py-24">
+                        <div class="mx-auto max-w-xl mt-10 text-center">
+                            <h2 class="text-2xl font-bold text-white md:text-3xl">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                            </h2>
 
-        <section class="mt-10 mb-10 relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
-            <div class="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r "></div>
+                            <p class="hidden text-white/90 sm:mt-4 sm:block">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas
+                                tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim
+                                et fermentum, augue. Aliquet amet volutpat quisque ut interdum
+                                tincidunt duis.
+                            </p>
 
-            <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-                <div class="max-w-xl text-center ltr:sm:text-left ">
-                    <h1 class="text-3xl font-extrabold sm:text-5xl">
-                        Let us find your
+                            <div class="mt-4 md:mt-8">
+                                <router-link to="/find-buildings">
 
-                        <strong class="block font-extrabold text-rose-700">
-                            Forever Home.
-                        </strong>
-                    </h1>
+                                    <button class="inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400">
+                                        Find Your Next Home
+                                    </button>
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p class="mt-4 max-w-lg sm:text-xl/relaxed">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-                        tenetur fuga ducimus numquam ea!
-                    </p>
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-1">
+                        <img alt="Student" src="../assets/images/house-demo-1.jpg" class="h-40 w-full object-cover sm:h-56 md:h-full" />
 
-                    <div class="mt-8 flex flex-wrap gap-4 text-center">
-                        <a href="#" class="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
-                            Get Started
-                        </a>
-
-                        <a href="#" class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto">
-                            Learn More
-                        </a>
+                        <!-- <img alt="Student" src="../assets/images/home-demo-2.jpg" class="h-40 w-full object-cover sm:h-56 md:h-full" /> -->
                     </div>
                 </div>
             </div>
@@ -71,24 +87,25 @@ export default {
             name: '',
             mobile: '',
             isVisible: false,
-            tenant:[],
+            tenant: [],
             image: '',
+            backgroundImage: ('src/assets/images/subtle-prism.svg')
         }
     },
-   
+
     components: {
         NavComponentTenant,
         HeroComponent,
         FooterComponent
     },
     methods: {
-        showAlert() {
-            this.isVisible = true
-            setTimeout(() => {
-                this.isVisible = false;
-            }, 5000)
+        // showAlert() {
+        //     this.isVisible = true
+        //     setTimeout(() => {
+        //         this.isVisible = false;
+        //     }, 5000)
 
-        },
+        // },
         check_tenant() {
             let users = localStorage.getItem('tenant-info');
 
@@ -115,7 +132,7 @@ export default {
         this.check_tenant();
         this.getData_Tenant();
 
-        this.showAlert();
+        // this.showAlert();
 
     },
 
