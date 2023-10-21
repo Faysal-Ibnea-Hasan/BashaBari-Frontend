@@ -9,7 +9,7 @@
                 <h1 class="text-3xl font-extrabold sm:text-5xl">Welcome To BashaBari!</h1>
                 <p class="mt-4 sm:text-xl/relaxed">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 <!-- You can open the modal using ID.showModal() method -->
-                <button class="mt-8 inline-block rounded bg-primary px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring" onclick="my_modal_3.showModal()">Get Started</button>
+                <button class="mt-8 inline-block rounded bg-primary px-12 py-3 text-sm font-medium text-white transition hover:bg-primary-focus focus:outline-none focus:ring" onclick="my_modal_3.showModal()">Get Started</button>
                 <dialog id="my_modal_3" class="modal">
                     <div class="modal-box">
                         <form method="dialog">

@@ -50,6 +50,12 @@
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Rent Value" v-model="create_flat_details.rent_value" class="input input-bordered w-full max-w-xs mt-2" />
                     </p>
+                    <select v-model="create_flat_details.status" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Status</option>
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                            <option value="Will Be Available">Will Be Available</option>
+                        </select>
                     <form method="dialog">
                         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         <button v-on:click="post_flat_details" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
@@ -93,9 +99,15 @@
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Rent Value" name="rent_value" v-model="update_flat_details.rent_value" class="input input-bordered w-full max-w-xs mt-2" />
                     </p>
+                    <select v-model="update_flat_details.status" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Status</option>
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                            <option value="Will Be Available">Will Be Available</option>
+                        </select>
                     <form method="dialog">
                         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                        <button v-on:click="update_flats" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
+                        <button v-on:click="update_flats" class="btn mt-4 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
                     </form>
 
                 </div>
@@ -149,6 +161,10 @@
                         <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                             <dt class="font-medium text-gray-900">Building ID</dt>
                             <dd class="text-gray-700 sm:col-span-2">{{ popup.building_Id }}</dd>
+                        </div>
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Status</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.status }}</dd>
                         </div>
 
                         <form method="dialog">
@@ -283,6 +299,7 @@ export default {
                 washroom: '',
                 balconi: '',
                 rent_value: '',
+                status:'',
             },
             update_flat_details: {
                 id: '',
@@ -293,6 +310,7 @@ export default {
                 washroom: '',
                 balconi: '',
                 rent_value: '',
+                status: '',
             }
         }
     },
@@ -334,6 +352,7 @@ export default {
                 washroom: this.create_flat_details.washroom,
                 balconi: this.create_flat_details.balconi,
                 rent_value: this.create_flat_details.rent_value,
+                status: this.create_flat_details.status,
             });
             if (post_flat_details.data.status == true) {
                 this.get_building_flats();
@@ -343,6 +362,7 @@ export default {
             let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
             let responseData = get_flat_details_popup.data.data
             this.update_flat_details.id = get_flat_details_popup.data.data.id;
+            this.update_flat_details = responseData
             this.popup = responseData
         },
         async delete_flat(id){
@@ -363,6 +383,7 @@ export default {
                 washroom: this.update_flat_details.washroom,
                 balconi: this.update_flat_details.balconi,
                 rent_value: this.update_flat_details.rent_value,
+                status: this.update_flat_details.status,
             });
             console.warn(update_flats);
             if (update_flats.data.status == true) {

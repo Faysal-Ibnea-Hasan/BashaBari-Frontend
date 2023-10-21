@@ -23,10 +23,10 @@
 
             <dialog id="my_modal_2" class="modal">
 
-                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-3">
-                    <img alt="Trainer" src="../assets/images/pic-1.jpg" class="h-32 w-full object-cover md:h-full" />
+                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
+                    
 
-                    <div class="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
+                    <div class="text-center -mt-10 h-max sm:p-6 md:col-span-2 lg:p-8">
                         <p class="text-sm font-semibold uppercase tracking-widest">
                             <input type="text" hidden placeholder="Building Name" v-model="post_building.post_id" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
@@ -39,27 +39,58 @@
                         <p class="text-sm font-semibold uppercase tracking-widest">
                             <input type="text" placeholder="Developer" v-model="post_building.developer" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
+                        <select v-model="post_building.parking" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Parking Facility</option>
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                        </select>
+                        <select v-model="post_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Area</option>
+                        
+                            <option value="Mirpur-1">Mirpur-1</option>
+                            <option value="Mirpur-2">Mirpur-2</option>
+                            <option value="Mirpur-6">Mirpur-6</option>
+                            <option value="Mirpur-7">Mirpur-7</option>
+                            <option value="Mirpur-10">Mirpur-10</option>
+                            <option value="Mirpur-11">Mirpur-11</option>
+                            <option value="Mirpur-12">Mirpur-12</option>
+                            <option value="Mirpur-13">Mirpur-13</option>
+                            <option value="Mirpur-14">Mirpur-14</option>
+                        </select>
+                        <select v-model="post_building.city" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">City</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <select v-model="post_building.district" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">District</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <select v-model="post_building.postal_code" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Postal Code</option>
+                            <option value="1216">1216</option>
+                            <option value="Others">Others</option>
+                        </select>
                         <p class="text-sm font-semibold uppercase tracking-widest">
                             <input type="date" placeholder="Developed Date" v-model="post_building.date" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
                         <form method="dialog">
                             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            <button v-on:click="post_building_data" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
+                            <button v-on:click="post_building_data" class="btn  inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
                         </form>
 
-                        <p class="mt-8 text-xs font-medium uppercase text-gray-400">
-                            Offer valid until 24th March, 2021 *
-                        </p>
+                        
                     </div>
                 </section>
 
             </dialog>
             <dialog id="my_modal_3" class="modal">
 
-                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-3">
-                    <img alt="Trainer" src="../assets/images/pic-1.jpg" class="h-32 w-full object-cover md:h-full" />
+                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
+                    
 
-                    <div class="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
+                    <div class="p-4 -mt-10 text-center sm:p-6 md:col-span-2 lg:p-8">
                         <p class="text-sm font-semibold uppercase tracking-widest">
                             <input type="text" hidden placeholder="Building Name" v-model="update_building.owner_Id" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
@@ -75,17 +106,48 @@
                         <p class="text-sm font-semibold uppercase tracking-widest">
                             <input type="text" name="developer" placeholder="Developer" v-model="update_building.developer" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
+                        <select v-model="update_building.parking" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Parking Facility</option>
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                        </select>
+                        <select v-model="update_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Area</option>
+                        
+                            <option value="Mirpur-1">Mirpur-1</option>
+                            <option value="Mirpur-2">Mirpur-2</option>
+                            <option value="Mirpur-6">Mirpur-6</option>
+                            <option value="Mirpur-7">Mirpur-7</option>
+                            <option value="Mirpur-10">Mirpur-10</option>
+                            <option value="Mirpur-11">Mirpur-11</option>
+                            <option value="Mirpur-12">Mirpur-12</option>
+                            <option value="Mirpur-13">Mirpur-13</option>
+                            <option value="Mirpur-14">Mirpur-14</option>
+                        </select>
+                        <select v-model="update_building.city" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">City</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <select v-model="update_building.district" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">District</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <select v-model="update_building.postal_code" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                            <option disabled value="">Postal Code</option>
+                            <option value="1216">1216</option>
+                            <option value="Others">Others</option>
+                        </select>
                         <p class="text-sm font-semibold uppercase tracking-widest">
                             <input type="date" name="date" placeholder="Developed Date" v-model="update_building.date" class="input input-bordered w-full max-w-xs mt-2" />
                         </p>
                         <form method="dialog">
                             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            <button v-on:click="updateBuilding" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
+                            <button v-on:click="updateBuilding" class="btn inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
                         </form>
 
-                        <p class="mt-8 text-xs font-medium uppercase text-gray-400">
-                            Offer valid until 24th March, 2021 *
-                        </p>
+                        
                     </div>
                 </section>
 
@@ -112,6 +174,10 @@
                                 <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                                     <dt class="font-medium text-gray-900">Developer</dt>
                                     <dd class="text-gray-700 sm:col-span-2">{{ update_building.developer }}</dd>
+                                </div>
+                                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                                    <dt class="font-medium text-gray-900">Location/Area</dt>
+                                    <dd class="text-gray-700 sm:col-span-2">{{ update_building.area }}</dd>
                                 </div>
 
                                 <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
@@ -190,6 +256,11 @@ export default {
                 name: '',
                 address: '',
                 developer: '',
+                area: '',
+                parking: '',
+                city: '',
+                district: '',
+                postal_code: '',
                 date: ''
             },
             update_building: {
@@ -198,6 +269,11 @@ export default {
                 name: '',
                 address: '',
                 developer: '',
+                area: '',
+                parking: '',
+                city: '',
+                district: '',
+                postal_code: '',
                 date: ''
             }
         }
@@ -224,6 +300,11 @@ export default {
                 name: this.update_building.name,
                 address: this.update_building.address,
                 developer: this.update_building.developer,
+                area: this.update_building.area,
+                parking: this.update_building.parking,
+                city: this.update_building.city,
+                district: this.update_building.district,
+                postal_code: this.update_building.postal_code,
                 date: this.update_building.date
             })
             console.warn(updateBuilding)
@@ -249,6 +330,11 @@ export default {
                 name: this.post_building.name,
                 address: this.post_building.address,
                 developer: this.post_building.developer,
+                area: this.post_building.area,
+                parking: this.post_building.parking,
+                city: this.post_building.city,
+                district: this.post_building.district,
+                postal_code: this.post_building.postal_code,
                 date: this.post_building.date
             });
 
