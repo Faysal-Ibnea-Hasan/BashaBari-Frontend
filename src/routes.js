@@ -12,6 +12,7 @@ import FlatComponentOwner from './components/FlatComponentOwner.vue'
 import FlatDetailsComponentOwner from './components/FlatDetailsComponentOwner.vue'
 import FindBuildingComponentTenant from './components/FindBuildingComponentTenant.vue'
 import FindFlatComponentTenant from './components/FindFlatComponentTenant.vue'
+
 const routes =[
     {
         name:'HelloWorld',

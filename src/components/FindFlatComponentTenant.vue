@@ -101,65 +101,71 @@
         </dialog>
         <!--Details Modal End-->
         <!--Card Start-->
-        <div class="mt-10 mb-10 m grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-            <a onclick="my_modal_3.showModal()" v-on:click="get_flat_details_popup(item.id)" href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" v-for="item in buildings_flats" :key="item.id">
-                <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
 
-                <div class="mt-2">
-                    <dl>
-                        <div>
-                            <dt class="sr-only">Rent</dt>
+        <div class="mt-10 mb-10 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+            <div class="indicator" v-for="item in buildings_flats" :key="item.id">
+                <span class="indicator-item badge badge-primary">{{ item.status }}</span>
+                <a href="#" onclick="my_modal_3.showModal()" v-on:click="get_flat_details_popup(item.id)" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" >
+                
 
-                            <dd class="text-sm text-gray-500">৳{{ item.rent_value }}</dd>
-                        </div>
+                    <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
+                
 
-                        <div>
-                            <dt class="sr-only">Unit Name</dt>
+                    <div class="mt-2">
+                        <dl>
+                            <div>
+                                <dt class="sr-only">Rent</dt>
 
-                            <dd class="font-medium">{{ item.unit_name }}</dd>
-                        </div>
-                    </dl>
-                    <div class="flex">
-                        <div class="mt-6 flex items-center gap-8 text-xs">
-                            <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                                <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                                </svg>
-
-                                <div class="mt-1.5 sm:mt-0">
-                                    <p class="text-gray-500">Area</p>
-
-                                    <p class="font-medium">{{ item.area }}</p>
-                                </div>
+                                <dd class="text-sm text-gray-500">৳{{ item.rent_value }}</dd>
                             </div>
 
-                            <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                                <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                </svg>
+                            <div>
+                                <dt class="sr-only">Unit Name</dt>
 
-                                <div class="mt-1.5 sm:mt-0">
-                                    <p class="text-gray-500">Bedroom</p>
-
-                                    <p class="font-medium">{{ item.room }}</p>
-                                </div>
+                                <dd class="font-medium">{{ item.unit_name }}</dd>
                             </div>
-                            <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                                <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                                </svg>
+                        </dl>
+                        <div class="flex">
+                            <div class="mt-6 flex items-center gap-8 text-xs">
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                    <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                                    </svg>
 
-                                <div class="mt-1.5 sm:mt-0">
-                                    <p class="text-gray-500">Bathroom</p>
+                                    <div class="mt-1.5 sm:mt-0">
+                                        <p class="text-gray-500">Area</p>
 
-                                    <p class="font-medium">{{ item.washroom }}</p>
+                                        <p class="font-medium">{{ item.area }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                    <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                    </svg>
+
+                                    <div class="mt-1.5 sm:mt-0">
+                                        <p class="text-gray-500">Bedroom</p>
+
+                                        <p class="font-medium">{{ item.room }}</p>
+                                    </div>
+                                </div>
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                    <svg class="h-4 w-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                    </svg>
+
+                                    <div class="mt-1.5 sm:mt-0">
+                                        <p class="text-gray-500">Bathroom</p>
+
+                                        <p class="font-medium">{{ item.washroom }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!--Button Group Start -->
-                    <!-- <div class="flex place-content-center mt-10 mb-5">
+                        <!--Button Group Start -->
+                        <!-- <div class="flex place-content-center mt-10 mb-5">
 
                         <div class="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1">
                             <button onclick="my_modal_1.showModal()" v-on:click="get_flat_details_popup(item.id)" class="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
@@ -188,9 +194,12 @@
                             </button>
                         </div>
                     </div> -->
-                    <!--Button Group End -->
-                </div>
-            </a>
+                        <!--Button Group End -->
+                    </div>
+
+                </a>
+            </div>
+            
         </div>
         <!--Card End-->
     </div>
@@ -211,7 +220,7 @@ export default {
             owner_Id: '',
             owner_name: '',
             owner_mobile: '',
-            popup:[],
+            popup: [],
             buildings_flats: [],
             building_details: [],
         }
@@ -242,20 +251,22 @@ export default {
             let response = get_building_details.data.data
             this.building_details = response
             this.owner_Id = this.building_details[0].owner_Id
-            console.warn(this.owner_Id)
+            // console.warn(this.owner_Id)
 
             let get_owner_details = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Table/" + this.owner_Id);
             let response2 = get_owner_details.data.data
             this.owner_name = response2.name
             this.owner_mobile = response2.mobile
-            console.warn(response2);
+            // console.warn(response2);
         },
         async get_flat_details_popup(id) {
             let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
             let responseData = get_flat_details_popup.data.data
-            
+            console.warn(responseData);
+
             this.popup = responseData
         },
+        
 
     },
     mounted() {
