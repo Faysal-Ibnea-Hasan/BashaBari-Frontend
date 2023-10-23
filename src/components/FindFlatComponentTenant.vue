@@ -101,10 +101,23 @@
         </dialog>
         <!--Details Modal End-->
         <!--Card Start-->
+        <div class="flex mt-10 mb-10 place-content-center">
+            <div class="h-32 w-64">
+            <select v-on:click="get_building_flats" v-model="status" class="select w-full max-w-xs">
+                <option value="">All</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+                <option value="Will Be Available">Will Be Available</option>
+                
+            </select>
+        </div>
+        </div>
 
         <div class="mt-10 mb-10 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
             <div class="indicator" v-for="item in buildings_flats" :key="item.id">
-                <span class="indicator-item badge badge-primary">{{ item.status }}</span>
+                <span v-if="item.status == 'Not Available'" class="indicator-item badge badge-error">{{ item.status }}</span>
+                <span v-else-if="item.status == 'Will Be Available'" class="indicator-item badge badge-primary">{{ item.status }}</span>
+                <span v-else-if="item.status == 'Available'" class="indicator-item badge badge-success">{{ item.status }}</span>
                 <a href="#" onclick="my_modal_3.showModal()" v-on:click="get_flat_details_popup(item.id)" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" >
                 
 
@@ -223,6 +236,8 @@ export default {
             popup: [],
             buildings_flats: [],
             building_details: [],
+            status: '',
+            
         }
     },
     components: {
@@ -241,10 +256,19 @@ export default {
         },
         async get_building_flats() {
 
-            let get_building_flats = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByBuilding/" + this.$route.params.building_Id);
+            let get_building_flats = await axios.post("http://127.0.0.1:8000/api/Api/Flat/TableByBuilding/" + this.$route.params.building_Id,{
+                status:this.status
+            });
             let responseData = get_building_flats.data.data
             this.buildings_flats = responseData
-            // console.warn(responseData);
+            // if(this.buildings_flats.map(item=>item.status == "Not Available")){
+            //     this.badge = 'bg-red-500';
+            // }
+            // else if(this.buildings_flats.map(item=>item.status == "Will Be Available")){
+            //     this.badge = 'bg-red-100';
+            // }
+            
+            console.warn(this.buildings_flats.map(item=>item.status == "Not Available"));
         },
         async get_building_details() {
             let get_building_details = await axios.get("http://127.0.0.1:8000/api/Api/Building/ByBuilding_Id/" + this.$route.params.building_Id);
@@ -262,13 +286,14 @@ export default {
         async get_flat_details_popup(id) {
             let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
             let responseData = get_flat_details_popup.data.data
-            console.warn(responseData);
+            // console.warn(responseData);
 
             this.popup = responseData
         },
         
 
     },
+    
     mounted() {
         this.check_tenant();
         this.get_building_flats();
