@@ -35,7 +35,10 @@
                     </ul>
                 </details>
             </li>
-            <li><a>Item 3</a></li>
+            <router-link to="/notice-tenant">
+
+                <li><a>Notice</a></li>
+            </router-link>
         </ul>
     </div>
 

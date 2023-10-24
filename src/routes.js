@@ -14,6 +14,7 @@ import FindBuildingComponentTenant from './components/FindBuildingComponentTenan
 import FindFlatComponentTenant from './components/FindFlatComponentTenant.vue'
 import ResidentialDetailsComponentTenant from './components/ResidentialDetailsComponentTenant.vue'
 import NoticeComponentOwner from './components/NoticeComponentOwner.vue'
+import NoticeComponentTenant from './components/NoticeComponentTenant.vue'
 
 const routes =[
     {
@@ -90,6 +91,11 @@ const routes =[
         name:'NoticeComponentOwner',
         path:'/notice-owner', 
         component:NoticeComponentOwner,
+    },
+    {
+        name:'NoticeComponentTenant',
+        path:'/notice-tenant',  
+        component:NoticeComponentTenant,
     },
 ]
 const router = createRouter({
