@@ -43,6 +43,9 @@
             <router-link to="/assign-tenant">
                 <li><a>Assign Tenants</a></li>
             </router-link>
+            <router-link to="/notice-owner">
+                <li><a>Notice</a></li>
+            </router-link>
             
         </ul>
     </div>
