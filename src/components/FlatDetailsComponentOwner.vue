@@ -159,8 +159,8 @@
                             <dd class="text-gray-700 sm:col-span-2">{{ popup.rent_value }}</dd>
                         </div>
                         <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                            <dt class="font-medium text-gray-900">Building ID</dt>
-                            <dd class="text-gray-700 sm:col-span-2">{{ popup.building_Id }}</dd>
+                            <dt class="font-medium text-gray-900">Flat ID</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.flat_Id }}</dd>
                         </div>
                         <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                             <dt class="font-medium text-gray-900">Status</dt>
@@ -334,7 +334,7 @@ export default {
             this.owner_Id = id
             this.building_Id = this.$route.params.building_Id
 
-            let get_building_flats = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByBuilding/" + this.$route.params.building_Id);
+            let get_building_flats = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByBuildingID/" + this.$route.params.building_Id);
             let responseData = get_building_flats.data.data
             this.buildings_flats = responseData
             console.warn(this.building_Id);

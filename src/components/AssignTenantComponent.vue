@@ -4,7 +4,7 @@
     <div class="h-auto">
         <!-- Announcement Banner -->
         <div class="max-w-[85rem] mt-5 mb-5 px-4 sm:px-6 lg:px-8 mx-auto">
-            <div class="bg-blue-600 bg-[url('../svg/component/abstract-1.svg')] bg-no-repeat bg-cover bg-center p-4 rounded-md text-center">
+            <div class="bg-blue-600 bg-no-repeat bg-cover bg-center p-4 rounded-md text-center">
                 <p class="mr-2 inline-block text-white">
                     Assign Tenant To Your Building
                 </p>
@@ -29,11 +29,17 @@
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Building ID" v-model="post_assignData.building_Id" class="input input-bordered w-full max-w-xs mt-2" />
                     </p>
-                    <p class="text-sm font-semibold uppercase tracking-widest">
-                        <input type="text" placeholder="Flat ID" v-model="post_assignData.flat_Id" class="input input-bordered w-full max-w-xs mt-2" />
-                    </p>
+                    
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Tenant ID" v-model="post_assignData.tenant_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <select v-model="post_assignData.flat_Id" class="mt-2 select select-bordered w-full max-w-xs">
+                            <option disabled value="">Select Flat ID</option>
+                        
+                        <option v-for="item in available_flat" :key="item.id" :value="item.flat_Id">{{ item.flat_Id }}</option>
+                        
+                    </select>
                     </p>
 
                     <form method="dialog">
@@ -91,6 +97,7 @@ export default {
     data() {
         return {
             assignData: [],
+            available_flat: [],
             owner_Id: '',
             post_assignData: {
                 owner_Id: '',
@@ -122,7 +129,13 @@ export default {
             let response = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Owner/" + this.owner_Id);
             let responseData = response.data.data
             this.assignData = responseData
-            console.warn(this.assignData)
+            // console.warn(this.assignData)
+        },
+        async get_available_flat() {
+            const get_available_flat = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Available/" + this.owner_Id);
+            let responseData = get_available_flat.data.data
+            this.available_flat = responseData
+            // console.warn(get_available_flat)
         },
         async post_assignDatas() {
             let response = await axios.post("http://127.0.0.1:8000/api/Api/Rent/Create_Form_Post", {
@@ -146,6 +159,7 @@ export default {
     mounted() {
         this.get_assignData();
         this.check_owner();
+        this.get_available_flat();
     }
 }
 </script>

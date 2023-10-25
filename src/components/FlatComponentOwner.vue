@@ -44,7 +44,7 @@
                 
 
                 
-    <FooterComponent />
+    
 </body>
 </template>
 
