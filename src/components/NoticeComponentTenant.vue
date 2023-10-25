@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <FooterComponent />
+    
 </body>
 </template>
 
@@ -59,10 +59,21 @@ export default {
             const get_notice_by_building_id = await axios.get("http://127.0.0.1:8000/api/Api/Notice/TableByBuildingID/" + this.building_Id);
             let responseData1 = get_notice_by_building_id.data.data
             this.notice = responseData1
+
+            
             
             
             // console.warn(this.new_notice)
         },
+        truncateDatabase(){
+            setTimeout(async () => {
+                let truncateData = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNoticeAfterTime")
+            }, 10000);
+            if(truncateData.data.status == true) {
+                this.get_tenant_building();
+            }
+        }
+         
         
 
     },

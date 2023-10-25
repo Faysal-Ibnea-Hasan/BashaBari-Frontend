@@ -122,7 +122,7 @@
         </div>
     </div>
 
-<FooterComponent />
+    
 </body>
 </template>
 
@@ -189,10 +189,23 @@ export default {
                 title: this.post_notice.title,
                 description: this.post_notice.description,
                 date: this.post_notice.date
-            })
+            });
             if (create_notice.data.status == true) {
                 this.get_notice_by_owner_Id();
             }
+            const create_notice_log = await axios.post("http://127.0.0.1:8000/api/Api/NoticeLog/Create_Form_Post", {
+                owner_Id: this.owner_Id,
+                building_Id: this.post_notice.building_Id,
+                title: this.post_notice.title,
+                description: this.post_notice.description,
+                date: this.post_notice.date
+            });
+            
+
+            setTimeout(async () => {
+                let truncateData = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNoticeAfterTime/" + this.owner_Id)
+            }, 86400000);
+
         },
         async remove_notice(id) {
             let remove_notice = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNotice/" + id)
@@ -214,7 +227,7 @@ export default {
             if (update_notice.data.status == true) {
                 this.get_notice_by_owner_Id();
             }
-        }
+        },
 
     },
     mounted() {
