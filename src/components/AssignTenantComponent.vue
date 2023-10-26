@@ -151,7 +151,7 @@ export default {
         async remove_tenant(id) {
             let remove_tenant = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteRent/" + id)
             if (remove_tenant.status == 200) {
-                this.get_assignData();
+                let update_flat_status = await axios.put("")
             }
 
         }

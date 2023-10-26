@@ -63,6 +63,7 @@
             </ul>
         </div>
     </div>
+    
     <!-- Profile button -->
 </div>
 </template>
