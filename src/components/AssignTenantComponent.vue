@@ -29,17 +29,17 @@
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Building ID" v-model="post_assignData.building_Id" class="input input-bordered w-full max-w-xs mt-2" />
                     </p>
-                    
+
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Tenant ID" v-model="post_assignData.tenant_Id" class="input input-bordered w-full max-w-xs mt-2" />
                     </p>
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <select v-model="post_assignData.flat_Id" class="mt-2 select select-bordered w-full max-w-xs">
                             <option disabled value="">Select Flat ID</option>
-                        
-                        <option v-for="item in available_flat" :key="item.id" :value="item.flat_Id">{{ item.flat_Id }}</option>
-                        
-                    </select>
+
+                            <option v-for="item in available_flat" :key="item.id" :value="item.flat_Id">{{ item.flat_Id }}</option>
+
+                        </select>
                     </p>
 
                     <form method="dialog">
@@ -53,6 +53,21 @@
                 </div>
             </section>
 
+        </dialog>
+        <!-- Open the modal using ID.showModal() method -->
+
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg">Are You Sure?</h3>
+                <p class="py-4">You Want To Remove Your Tenant </p>
+                <div class="modal-action">
+                    <button class="btn btn-error" v-on:click="remove_tenant()">Confirm</button>
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
         </dialog>
         <div class="overflow-x-auto">
             <table class="table table-zebra">
@@ -75,7 +90,7 @@
                         <td>{{ item.flat_Id }}</td>
                         <td>{{ item.tenant_Id }}</td>
                         <td>
-                            <button v-on:click="remove_tenant(item.id)" class="btn btn-sm btn-error">Remove</button>
+                            <button onclick="my_modal_1.showModal()" v-on:click="get_id(item.flat_Id,item.id)" class="btn btn-sm btn-error">Remove</button>
                         </td>
                     </tr>
 
@@ -99,12 +114,16 @@ export default {
             assignData: [],
             available_flat: [],
             owner_Id: '',
+            status_available: 'Available',
+            
             post_assignData: {
                 owner_Id: '',
                 building_Id: '',
                 flat_Id: '',
                 tenant_Id: '',
-            }
+            },
+            id: '',
+            id1: '',
         }
     },
     components: {
@@ -148,10 +167,22 @@ export default {
                 this.get_assignData();
             }
         },
-        async remove_tenant(id) {
-            let remove_tenant = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteRent/" + id)
+        async get_id(flat_Id,id) {
+            const get_id = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByFlatID/" + flat_Id);
+            let responseData = get_id.data.data;
+            this.id1 = id
+            this.update_flat_details = responseData
+            this.id = responseData[0].id
+            console.warn(this.update_flat_details);
+        },
+        async remove_tenant() {
+            let remove_tenant = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteRent/" + this.id1)
             if (remove_tenant.status == 200) {
-                let update_flat_status = await axios.put("")
+                let update_flat_status = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Status/Updated/" + this.id, {
+                    
+                    status: this.status_available,
+                })
+                this.get_assignData();
             }
 
         }
