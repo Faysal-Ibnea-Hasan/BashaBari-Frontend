@@ -61,10 +61,11 @@
                 <h3 class="font-bold text-lg">Are You Sure?</h3>
                 <p class="py-4">You Want To Remove Your Tenant </p>
                 <div class="modal-action">
-                    <button class="btn btn-error" v-on:click="remove_tenant()">Confirm</button>
+                    
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
-                        <button class="btn">Close</button>
+                        <button class="btn btn-error " v-on:click="remove_tenant()">Confirm</button>
+                        <button class="btn btn-neutral ms-2">Cancel</button>
                     </form>
                 </div>
             </div>
@@ -98,7 +99,7 @@
             </table>
         </div>
     </div>
-    <FooterComponent />
+    
 </body>
 </template>
 

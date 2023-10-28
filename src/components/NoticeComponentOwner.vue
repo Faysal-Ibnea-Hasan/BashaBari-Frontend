@@ -205,6 +205,7 @@ export default {
             setTimeout(async () => {
                 let truncateData = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNoticeAfterTime/" + this.owner_Id)
             }, 86400000);
+            
 
         },
         async remove_notice(id) {
