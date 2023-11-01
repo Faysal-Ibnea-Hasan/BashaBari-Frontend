@@ -81,7 +81,7 @@
 
     </div>
 
-    <FooterComponent />
+    
 </body>
 </template>
 

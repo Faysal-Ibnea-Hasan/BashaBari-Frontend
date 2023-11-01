@@ -121,7 +121,8 @@ export default {
             this.$router.push({
                 name: 'LoginPageOwner'
             })
-        } else {
+        } 
+        else {
             this.name = JSON.parse(users).name
             this.mobile = JSON.parse(users).mobile
             this.id = JSON.parse(users).id

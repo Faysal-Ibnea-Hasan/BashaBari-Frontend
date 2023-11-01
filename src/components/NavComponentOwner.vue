@@ -46,6 +46,9 @@
             <router-link to="/notice-owner">
                 <li><a>Notice</a></li>
             </router-link>
+            <router-link to="/problem_&_support-owner">
+                <li><a>Problem & Support</a></li>
+            </router-link>
             
         </ul>
     </div>

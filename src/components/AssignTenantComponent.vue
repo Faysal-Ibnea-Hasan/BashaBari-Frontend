@@ -47,9 +47,9 @@
                         <button v-on:click="post_assignDatas" class="btn mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
                     </form>
 
-                    <p class="mt-8 text-xs font-medium uppercase text-gray-400">
+                    <!-- <p class="mt-8 text-xs font-medium uppercase text-gray-400">
                         Offer valid until 24th March, 2021 *
-                    </p>
+                    </p> -->
                 </div>
             </section>
 
@@ -78,7 +78,8 @@
                         <th>Owner ID</th>
                         <th>Building ID</th>
                         <th>Flat ID</th>
-                        <th>Tenant ID</th>
+                        
+                        <th>Tenant</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -89,7 +90,8 @@
                         <td>{{ item.owner_Id }}</td>
                         <td>{{ item.building_Id }}</td>
                         <td>{{ item.flat_Id }}</td>
-                        <td>{{ item.tenant_Id }}</td>
+                        
+                        <td>{{ item.tenants.name }} ({{ item.tenant_Id }})</td>
                         <td>
                             <button onclick="my_modal_1.showModal()" v-on:click="get_id(item.flat_Id,item.id)" class="btn btn-sm btn-error">Remove</button>
                         </td>
@@ -149,7 +151,7 @@ export default {
             let response = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Owner/" + this.owner_Id);
             let responseData = response.data.data
             this.assignData = responseData
-            // console.warn(this.assignData)
+            console.warn(this.assignData)
         },
         async get_available_flat() {
             const get_available_flat = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Available/" + this.owner_Id);

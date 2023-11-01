@@ -1,12 +1,11 @@
 <template>
-<div class="alert alert-error" v-if="isVisible">
-    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-    <span>Oops! Looks like you don't have an account yet.</span>
-</div>
-
+    <div class=" alert alert-error" v-if="isVisible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span>Oops! Looks like you don't have an account yet.</span>
+    </div>
 <div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
-
+    
     <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="text-center ms-4 lg:text-left">
             <h1 class="text-5xl font-bold">Login please!</h1>
@@ -46,7 +45,7 @@ export default {
             mobile: '',
             password: '',
             isVisible: false,
-            backgroundImage:('src/assets/images/subtle-prism.svg')
+            backgroundImage: ('src/assets/images/subtle-prism.svg')
         }
     },
     methods: {
@@ -66,7 +65,6 @@ export default {
 
             } else if (result.data.status == false) {
 
-                
                 this.showAlart();
             }
         },
@@ -77,7 +75,6 @@ export default {
             }, 5000)
         }
     },
-    
 
 }
 </script>

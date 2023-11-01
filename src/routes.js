@@ -15,6 +15,7 @@ import FindFlatComponentTenant from './components/FindFlatComponentTenant.vue'
 import ResidentialDetailsComponentTenant from './components/ResidentialDetailsComponentTenant.vue'
 import NoticeComponentOwner from './components/NoticeComponentOwner.vue'
 import NoticeComponentTenant from './components/NoticeComponentTenant.vue'
+import ProblemAndSupportOwner from './components/ProblemAndSupportOwner.vue'
 
 const routes =[
     {
@@ -26,6 +27,7 @@ const routes =[
         name:'LoginPageOwner',
         path:'/login-owner',
         component:LoginPageOwner,
+        
     },
     {
         name:'RegisterPageTenant',
@@ -46,6 +48,7 @@ const routes =[
         name:'HomePageOwner',
         path:'/home-owner',
         component:HomePageOwner,
+        
     },
     {
         name:'TenantList',
@@ -96,6 +99,11 @@ const routes =[
         name:'NoticeComponentTenant',
         path:'/notice-tenant',  
         component:NoticeComponentTenant,
+    },
+    {
+        name:'ProblemAndSupportOwner',
+        path:'/problem_&_support-owner',   
+        component:ProblemAndSupportOwner,
     },
 ]
 const router = createRouter({
