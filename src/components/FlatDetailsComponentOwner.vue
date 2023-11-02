@@ -86,6 +86,9 @@
                     <p class="text-sm font-semibold uppercase tracking-widest">
                         <input type="text" placeholder="Tenant ID" v-model="flat_Id" class="input input-bordered w-full max-w-xs mt-2" />
                     </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="date" placeholder="Join Date" v-model="post_assignData.joined_at" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
 
                     <form method="dialog">
                         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -343,6 +346,7 @@ export default {
                 building_Id: '',
                 flat_Id: '',
                 tenant_Id: '',
+                joined_at:'',
             },
             create_flat_details: {
 
@@ -451,6 +455,14 @@ export default {
                 building_Id: this.building_Id,
                 flat_Id: this.flat_Id,
                 tenant_Id: this.post_assignData.tenant_Id,
+                joined_at:this.post_assignData.joined_at
+            });
+            let responselog = await axios.post("http://127.0.0.1:8000/api/Api/RentLog/Create_Form_Post", {
+                owner_Id: this.owner_Id,
+                building_Id: this.building_Id,
+                flat_Id: this.flat_Id,
+                tenant_Id: this.post_assignData.tenant_Id,
+                joined_at:this.post_assignData.joined_at
             });
             if (response.data.status == true) {
                 let update_flat_status = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Updated/" + this.update_flat_details.id, {

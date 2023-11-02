@@ -2,6 +2,7 @@
 <body>
     <NavComponentOwner />
     <div class="h-auto">
+        <!-- {{ currentDate }} -->
         <!-- Announcement Banner -->
         <div class="max-w-[85rem] mt-5 mb-5 px-4 sm:px-6 lg:px-8 mx-auto">
             <div class="bg-blue-600 bg-no-repeat bg-cover bg-center p-4 rounded-md text-center">
@@ -41,6 +42,9 @@
 
                         </select>
                     </p>
+                    <p class="text-sm font-semibold uppercase tracking-widest">
+                        <input type="date" placeholder="Join Date" v-model="post_assignData.joined_at" class="input input-bordered w-full max-w-xs mt-2" />
+                    </p>
 
                     <form method="dialog">
                         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -78,8 +82,10 @@
                         <th>Owner ID</th>
                         <th>Building ID</th>
                         <th>Flat ID</th>
-                        
                         <th>Tenant</th>
+                        <th>Joined Date</th>
+                        <!-- <th>Left Date</th> -->
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -90,10 +96,12 @@
                         <td>{{ item.owner_Id }}</td>
                         <td>{{ item.building_Id }}</td>
                         <td>{{ item.flat_Id }}</td>
-                        
                         <td>{{ item.tenants.name }} ({{ item.tenant_Id }})</td>
+                        <td>{{ item.joined_at }}</td>
+                        <!-- <td>{{ item.left_at }}</td> -->
+                        
                         <td>
-                            <button onclick="my_modal_1.showModal()" v-on:click="get_id(item.flat_Id,item.id)" class="btn btn-sm btn-error">Remove</button>
+                            <button onclick="my_modal_1.showModal()" v-on:click="get_id(item.flat_Id,item.id,item.tenant_Id)" class="btn btn-sm btn-error">Remove</button>
                         </td>
                     </tr>
 
@@ -117,13 +125,15 @@ export default {
             assignData: [],
             available_flat: [],
             owner_Id: '',
+            currentDate:new Date().toISOString().split('T')[0],
             status_available: 'Available',
-            
+            tenant_Id: '',
             post_assignData: {
                 owner_Id: '',
                 building_Id: '',
                 flat_Id: '',
                 tenant_Id: '',
+                joined_at: '',
             },
             id: '',
             id1: '',
@@ -170,20 +180,26 @@ export default {
                 this.get_assignData();
             }
         },
-        async get_id(flat_Id,id) {
+        async get_id(flat_Id,id,tenant_Id) {
             const get_id = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByFlatID/" + flat_Id);
             let responseData = get_id.data.data;
             this.id1 = id
+            this.tenant_Id = tenant_Id
             this.update_flat_details = responseData
             this.id = responseData[0].id
-            console.warn(this.update_flat_details);
+            console.warn(this.tenant_Id);
         },
         async remove_tenant() {
             let remove_tenant = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteRent/" + this.id1)
+            
             if (remove_tenant.status == 200) {
+                
                 let update_flat_status = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Status/Updated/" + this.id, {
                     
                     status: this.status_available,
+                })
+                let update_tenant = await axios.post("http://127.0.0.1:8000/api/Api/RentLog/UpdatedDate/" + this.tenant_Id,{
+                    left_at:this.currentDate
                 })
                 this.get_assignData();
             }
