@@ -17,6 +17,8 @@ import NoticeComponentOwner from './components/NoticeComponentOwner.vue'
 import NoticeComponentTenant from './components/NoticeComponentTenant.vue'
 import ProblemAndSupportOwner from './components/ProblemAndSupportOwner.vue'
 import ProblemDashboardOwner from './components/ProblemDashboardOwner.vue'
+import ProblemAndSupportTenant from './components/ProblemAndSupportTenant.vue'
+import ProblemDashboardTenant from './components/ProblemDashboardTenant.vue'
 
 const routes =[
     {
@@ -110,6 +112,16 @@ const routes =[
         name:'ProblemDashboardOwner',
         path:'/problem-dashboard-owner',   
         component:ProblemDashboardOwner,
+    },
+    {
+        name:'ProblemAndSupportTenant',
+        path:'/problem_&_support-tenant',   
+        component:ProblemAndSupportTenant,
+    },
+    {
+        name:'ProblemDashboardTenant',
+        path:'/problem-dashboard-tenant',   
+        component:ProblemDashboardTenant,
     },
 ]
 const router = createRouter({

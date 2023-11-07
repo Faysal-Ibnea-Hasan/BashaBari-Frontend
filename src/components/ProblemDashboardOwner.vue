@@ -63,7 +63,7 @@ export default {
 
         },
         async get_building() {
-            let get_building = await axios.get("http://127.0.0.1:8000/api/Api/Building/Owner/" + this.owner_Id);
+            let get_building = await axios.get("http://127.0.0.1:8000/api/Api/Building/OwnerProblem/" + this.owner_Id);
             let response = get_building.data.data
             this.details = response
             console.warn(this.details)

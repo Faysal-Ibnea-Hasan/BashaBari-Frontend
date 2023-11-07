@@ -39,6 +39,10 @@
 
                 <li><a>Notice</a></li>
             </router-link>
+            <router-link to="/problem_&_support-tenant">
+
+                <li><a>Problem & Support</a></li>
+            </router-link>
         </ul>
     </div>
 
