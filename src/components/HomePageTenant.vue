@@ -208,7 +208,7 @@ export default {
         async getData_Tenant() {
             let users = localStorage.getItem('tenant-info');
             const id = JSON.parse(users).id
-            let getData = await axios.get("http://127.0.0.1:8000/api/Api/Tenant/Table/" + id);
+            let getData = await axios.get("https://shomadhan.top/api/Api/Tenant/Table/" + id);
             console.warn(getData);
             this.tenant = getData.data.data //fetch all the data in the getData response
             this.image = getData.data.imageUrl

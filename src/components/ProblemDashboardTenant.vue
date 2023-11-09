@@ -53,46 +53,99 @@
         </dialog>
 
     </div>
-    <div class="overflow-x-auto">
-        <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-            <thead class="ltr:text-left rtl:text-right">
-                <tr>
-                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                        Building ID
-                    </th>
-                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                        Title
-                    </th>
-                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                        Description
-                    </th>
-                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                        Date
-                    </th>
-                    <th class="px-4 py-2"></th>
-                </tr>
-            </thead>
+    <!-- Table Section -->
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <!-- Card -->
+        <div class="flex flex-col">
+            <div class="-m-1.5 overflow-x-auto">
+                <div class="p-1.5 min-w-full inline-block align-middle">
+                    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
 
-            <tbody class="divide-y divide-gray-200">
-                <tr>
-                    <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        <!-- Table -->
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-slate-800">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-start">
+                                        <div class="flex items-center gap-x-2">
+                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                Title
+                                            </span>
+                                        </div>
+                                    </th>
 
-                    </td>
-                    <td class="whitespace-nowrap px-4 py-2 text-gray-700"></td>
-                    <td class="whitespace-nowrap px-4 py-2 text-gray-700"></td>
-                    <td class="whitespace-nowrap px-4 py-2 text-gray-700"></td>
-                    <td class="whitespace-nowrap px-4 py-2">
-                        <a onclick="my_modal_3.showModal()" href="#" class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                            Update
-                        </a>
-                        <!-- <a v-on:click="remove_notice(item.id)" href="#" class="inline-block rounded bg-indigo-600 ms-2 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                            Delete
-                        </a> -->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                    <th scope="col" class="px-6 py-3 text-start">
+                                        <div class="flex items-center gap-x-2">
+                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                Description
+                                            </span>
+                                        </div>
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 text-start">
+                                        <div class="flex items-center gap-x-2">
+                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                Date
+                                            </span>
+                                        </div>
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 text-start">
+                                        <div class="flex items-center gap-x-2">
+                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                Status
+                                            </span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800" v-for="item in problems" :key="item.id">
+                                    <td class="h-px w-px whitespace-nowrap align-top">
+                                        <a class="block p-6" href="#">
+                                            <div class="flex items-center gap-x-4">
+                                                
+                                                <div>
+                                                    <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.title }}</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </td>
+
+                                    <td class="h-px w-72 min-w-[18rem] align-top">
+                                        <a class="block p-6" href="#">
+                                            
+                                            
+                                            <span class="block text-sm text-gray-500">{{ item.description }}</span>
+                                        </a>
+                                    </td>
+                                    <td class="h-px w-px whitespace-nowrap align-top">
+                                        <a class="block p-6" href="#">
+                                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ item.date }}</span>
+                                        </a>
+                                    </td>
+                                    <td class="h-px w-px whitespace-nowrap align-top">
+                                        <a class="block p-6" href="#">
+                                            <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500">
+                                                <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                                </svg>
+                                                {{ item.status }}
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- End Table -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Card -->
     </div>
+    <!-- End Table Section -->
 </body>
 </template>
 
@@ -118,6 +171,7 @@ export default {
             flat_state: ref('initial value'),
             building_state: ref('initial value'),
             assignDetails: [],
+            problems: [],
         }
     },
     components: {
@@ -134,7 +188,7 @@ export default {
             } else {
                 this.tenant_Id = JSON.parse(users).tenant_Id
             }
-            console.warn(this.tenant_Id);
+            //console.warn(this.tenant_Id);
         },
 
         async get_assign_by_tenantID() {
@@ -157,13 +211,23 @@ export default {
                 date: this.date,
                 status: this.status,
             })
+            if(post_problem.data.status == true) {
+                this.get_problems_by_tenant();
+            }
 
+        },
+        async get_problems_by_tenant() {
+            let get_problems_by_tenant = await axios.get("http://127.0.0.1:8000/api/Api/Problem/TableByTenantId/" + this.tenant_Id);
+            let response = get_problems_by_tenant.data.data;
+            this.problems = response
+            console.warn(this.problems);
         }
 
     },
     mounted() {
         this.check_tenant();
         this.get_assign_by_tenantID();
+        this.get_problems_by_tenant();
     }
 }
 </script>
