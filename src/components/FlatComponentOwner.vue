@@ -81,7 +81,7 @@ export default {
             const id = JSON.parse(users).id
             this.owner_Id = id
 
-            let get_owner_building = await axios.get("http://127.0.0.1:8000/api/Api/Building/Owner/" + this.owner_Id);
+            let get_owner_building = await axios.get("https://shomadhan.top/admin/api/Api/Building/Owner/" + this.owner_Id);
             let responseData = get_owner_building.data.data
             this.owner_buildings = responseData
             console.warn(this.owner_buildings);

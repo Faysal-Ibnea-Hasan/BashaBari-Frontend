@@ -321,13 +321,13 @@
         <!--Card End-->
 
     </div>
-    <FooterComponent />
+    
 </body>
 </template>
 
 <script>
 import NavComponentOwner from './NavComponentOwner.vue';
-import FooterComponent from './FooterComponent.vue';
+
 import axios from 'axios';
 
 export default {
@@ -374,7 +374,7 @@ export default {
     },
     components: {
         NavComponentOwner,
-        FooterComponent
+        
     },
     methods: {
         check_owner() {
@@ -392,7 +392,7 @@ export default {
             this.owner_Id = id
             this.building_Id = this.$route.params.building_Id
 
-            let get_building_flats = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByBuildingID/" + this.$route.params.building_Id);
+            let get_building_flats = await axios.get("https://shomadhan.top/admin/api/Api/Flat/TableByBuildingID/" + this.$route.params.building_Id);
             let responseData = get_building_flats.data.data
             this.buildings_flats = responseData
             // console.warn(this.building_Id);
@@ -400,7 +400,7 @@ export default {
         },
 
         async post_flat_details() {
-            let post_flat_details = await axios.post("http://127.0.0.1:8000/api/Api/Flat/Create_Form_Post", {
+            let post_flat_details = await axios.post("https://shomadhan.top/admin/api/Api/Flat/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.building_Id,
                 unit_name: this.create_flat_details.unit_name,
@@ -417,7 +417,7 @@ export default {
             }
         },
         async get_flat_details_popup(id) {
-            let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
+            let get_flat_details_popup = await axios.get("https://shomadhan.top/admin/api/Api/Flat/Table/" + id);
             let responseData = get_flat_details_popup.data.data
             this.update_flat_details.id = get_flat_details_popup.data.data.id;
             this.flat_Id = responseData.flat_Id
@@ -426,13 +426,13 @@ export default {
             console.warn(this.flat_Id);
         },
         async delete_flat(id) {
-            let delete_flat = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteFlat/" + id);
+            let delete_flat = await axios.delete("https://shomadhan.top/admin/api/Api/DeleteFlat/" + id);
             if (delete_flat.status == 200) {
                 this.get_building_flats();
             }
         },
         async update_flats() {
-            let update_flats = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Updated/" + this.update_flat_details.id, {
+            let update_flats = await axios.put("https://shomadhan.top/admin/api/Api/Flat/Updated/" + this.update_flat_details.id, {
                 owner_Id: this.owner_Id,
                 building_Id: this.building_Id,
                 unit_name: this.update_flat_details.unit_name,
@@ -450,14 +450,14 @@ export default {
             }
         },
         async post_assignDatas() {
-            let response = await axios.post("http://127.0.0.1:8000/api/Api/Rent/Create_Form_Post", {
+            let response = await axios.post("https://shomadhan.top/admin/api/Api/Rent/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.building_Id,
                 flat_Id: this.flat_Id,
                 tenant_Id: this.post_assignData.tenant_Id,
                 joined_at:this.post_assignData.joined_at
             });
-            let responselog = await axios.post("http://127.0.0.1:8000/api/Api/RentLog/Create_Form_Post", {
+            let responselog = await axios.post("https://shomadhan.top/admin/api/Api/RentLog/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.building_Id,
                 flat_Id: this.flat_Id,
@@ -465,7 +465,7 @@ export default {
                 joined_at:this.post_assignData.joined_at
             });
             if (response.data.status == true) {
-                let update_flat_status = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Updated/" + this.update_flat_details.id, {
+                let update_flat_status = await axios.put("https://shomadhan.top/admin/api/Api/Flat/Updated/" + this.update_flat_details.id, {
                     owner_Id: this.owner_Id,
                     building_Id: this.building_Id,
                     unit_name: this.update_flat_details.unit_name,

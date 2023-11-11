@@ -50,7 +50,7 @@ export default {
     methods: {
         async login() {
             let result = await axios.post(
-                `https://shomadhan.top/api/Api/Tenant/Check`, {
+                `https://shomadhan.top/admin/api/Api/Tenant/Check`, {
 
                     mobile: this.mobile,
                     password: this.password

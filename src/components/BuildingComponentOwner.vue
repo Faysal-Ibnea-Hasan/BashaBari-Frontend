@@ -285,7 +285,7 @@ export default {
     },
     methods: {
         async getBuildingId(id) {
-            let getBuildingId = await axios.get("http://127.0.0.1:8000/api/Api/Building/Table/" + id);
+            let getBuildingId = await axios.get("https://shomadhan.top/admin/api/Api/Building/Table/" + id);
             this.update_building.id = getBuildingId.data.data.id;
             this.update_building = getBuildingId.data.data
             // console.warn(getBuildingId);
@@ -295,7 +295,7 @@ export default {
             let users = localStorage.getItem('users-info');
 
             this.update_building.owner_Id = JSON.parse(users).id
-            const updateBuilding = await axios.put("http://127.0.0.1:8000/api/Api/Building/Updated/" + this.update_building.id, {
+            const updateBuilding = await axios.put("https://shomadhan.top/admin/api/Api/Building/Updated/" + this.update_building.id, {
                 owner_Id: this.update_building.owner_Id,
                 name: this.update_building.name,
                 address: this.update_building.address,
@@ -314,7 +314,7 @@ export default {
             }
         },
         async deleteBuilding(id) {
-            const deleteBuilding = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteBuilding/" + id);
+            const deleteBuilding = await axios.delete("https://shomadhan.top/admin/api/Api/DeleteBuilding/" + id);
             if (deleteBuilding.status == 200) {
                 this.loadData();
             }
@@ -325,7 +325,7 @@ export default {
 
             this.post_building.post_id = JSON.parse(users).id
 
-            const post = await axios.post("http://127.0.0.1:8000/api/Api/Building/Create_Form_Post", {
+            const post = await axios.post("https://shomadhan.top/admin/api/Api/Building/Create_Form_Post", {
                 owner_Id: this.post_building.post_id,
                 name: this.post_building.name,
                 address: this.post_building.address,
@@ -354,17 +354,17 @@ export default {
                 this.id = JSON.parse(users).id
             }
             let id = JSON.parse(users).id
-            let getData = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Table/" + id);
+            let getData = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + id);
             this.owner = getData.data.data //fetch all the data in the getData response
 
             const getApiImages = getData.data.data.image //fetch only images in the getData response
-            let getImage = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Image/" + getApiImages);
+            let getImage = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Image/" + getApiImages);
             this.image = getImage.config.url //for getting the image url and use it in the template
 
-            let getBuildings = await axios.get("http://127.0.0.1:8000/api/Api/Building/Owner/" + id);
+            let getBuildings = await axios.get("https://shomadhan.top/admin/api/Api/Building/Owner/" + id);
             this.buildings = getBuildings.data.data
 
-            // let getBuilding = await axios.get("http://127.0.0.1:8000/api/Api/Building/Table/" + this.building_Ids); //send array of building_Ids to get data from api
+            // let getBuilding = await axios.get("https://shomadhan.top/admin/api/Api/Building/Table/" + this.building_Ids); //send array of building_Ids to get data from api
             // this.buildings = getBuilding.data.data
 
         }

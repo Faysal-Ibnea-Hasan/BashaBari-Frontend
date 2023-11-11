@@ -96,13 +96,13 @@ export default {
             }
         },
         async get_buildings() {
-            let get_buildings = await axios.get("http://127.0.0.1:8000/api/Api/Building/Table");
+            let get_buildings = await axios.get("https://shomadhan.top/admin/api/Api/Building/Table");
             let response = get_buildings.data.data
             this.buildings = response
             console.warn(response)
         },
         async get_buildings_byArea() {
-            let get_buildings_byArea = await axios.post("http://127.0.0.1:8000/api/Api/Building/ByArea", {
+            let get_buildings_byArea = await axios.post("https://shomadhan.top/admin/api/Api/Building/ByArea", {
                 area: this.area
             });
             let response = get_buildings_byArea.data.data

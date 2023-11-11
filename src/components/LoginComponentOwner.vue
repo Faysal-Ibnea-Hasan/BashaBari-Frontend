@@ -51,7 +51,7 @@ export default {
     methods: {
         async login() {
             let result = await axios.post(
-                `http://127.0.0.1:8000/api/Api/Owner/Check`, {
+                `https://shomadhan.top/admin/api/Api/Owner/Check`, {
                     mobile: this.mobile,
                     password: this.password
                 }

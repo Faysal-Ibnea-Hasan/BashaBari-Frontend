@@ -158,19 +158,19 @@ export default {
             const id = JSON.parse(users).id
             this.owner_Id = id
 
-            let response = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Owner/" + this.owner_Id);
+            let response = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Owner/" + this.owner_Id);
             let responseData = response.data.data
             this.assignData = responseData
             console.warn(this.assignData)
         },
         async get_available_flat() {
-            const get_available_flat = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Available/" + this.owner_Id);
+            const get_available_flat = await axios.get("https://shomadhan.top/admin/api/Api/Flat/Available/" + this.owner_Id);
             let responseData = get_available_flat.data.data
             this.available_flat = responseData
             // console.warn(get_available_flat)
         },
         async post_assignDatas() {
-            let response = await axios.post("http://127.0.0.1:8000/api/Api/Rent/Create_Form_Post", {
+            let response = await axios.post("https://shomadhan.top/admin/api/Api/Rent/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.post_assignData.building_Id,
                 flat_Id: this.post_assignData.flat_Id,
@@ -181,7 +181,7 @@ export default {
             }
         },
         async get_id(flat_Id,id,tenant_Id) {
-            const get_id = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByFlatID/" + flat_Id);
+            const get_id = await axios.get("https://shomadhan.top/admin/api/Api/Flat/TableByFlatID/" + flat_Id);
             let responseData = get_id.data.data;
             this.id1 = id
             this.tenant_Id = tenant_Id
@@ -190,15 +190,15 @@ export default {
             console.warn(this.tenant_Id);
         },
         async remove_tenant() {
-            let remove_tenant = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteRent/" + this.id1)
+            let remove_tenant = await axios.delete("https://shomadhan.top/admin/api/Api/DeleteRent/" + this.id1)
             
             if (remove_tenant.status == 200) {
                 
-                let update_flat_status = await axios.put("http://127.0.0.1:8000/api/Api/Flat/Status/Updated/" + this.id, {
+                let update_flat_status = await axios.put("https://shomadhan.top/admin/api/Api/Flat/Status/Updated/" + this.id, {
                     
                     status: this.status_available,
                 })
-                let update_tenant = await axios.post("http://127.0.0.1:8000/api/Api/RentLog/UpdatedDate/" + this.tenant_Id,{
+                let update_tenant = await axios.post("https://shomadhan.top/admin/api/Api/RentLog/UpdatedDate/" + this.tenant_Id,{
                     left_at:this.currentDate
                 })
                 this.get_assignData();

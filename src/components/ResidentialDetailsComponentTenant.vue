@@ -140,24 +140,24 @@ export default {
             }
         },
         async get_tenant_details() {
-            const get_tenant_details = await axios.get("http://127.0.0.1:8000/api/Api/Tenant/TableById/" + this.tenant_Id)
+            const get_tenant_details = await axios.get("https://shomadhan.top/admin/api/Api/Tenant/TableById/" + this.tenant_Id)
             let responseData = get_tenant_details.data.data
             this.tenant_details = responseData
             // console.warn(this.tenant_details);
         },
         async get_tenant_rent_details() {
-            const get_tenant_rent_details = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Tenant/" + this.tenant_Id);
+            const get_tenant_rent_details = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id);
             let responseData = get_tenant_rent_details.data.data;
             this.rent_details = responseData
             this.owner_Id = this.rent_details[0].owner_Id;
             this.building_Id = this.rent_details[0].building_Id;
             this.flat_Id = this.rent_details[0].flat_Id;
 
-            const get_tenant_building_details = await axios.get("http://127.0.0.1:8000/api/Api/Building/ByBuilding_Id/" + this.building_Id);
+            const get_tenant_building_details = await axios.get("https://shomadhan.top/admin/api/Api/Building/ByBuilding_Id/" + this.building_Id);
             let responseData1 = get_tenant_building_details.data.data;
             this.building_details = responseData1;
 
-            const get_tenant_flat_details = await axios.get("http://127.0.0.1:8000/api/Api/Flat/TableByFlatID/" + this.flat_Id);
+            const get_tenant_flat_details = await axios.get("https://shomadhan.top/admin/api/Api/Flat/TableByFlatID/" + this.flat_Id);
             let responseData2 = get_tenant_flat_details.data.data
             this.flat_details = responseData2
             console.warn(get_tenant_flat_details);

@@ -256,7 +256,7 @@ export default {
         },
         async get_building_flats() {
 
-            let get_building_flats = await axios.post("http://127.0.0.1:8000/api/Api/Flat/TableByBuilding/" + this.$route.params.building_Id,{
+            let get_building_flats = await axios.post("https://shomadhan.top/admin/api/Api/Flat/TableByBuilding/" + this.$route.params.building_Id,{
                 status:this.status
             });
             let responseData = get_building_flats.data.data
@@ -271,20 +271,20 @@ export default {
             console.warn(this.buildings_flats.map(item=>item.status == "Not Available"));
         },
         async get_building_details() {
-            let get_building_details = await axios.get("http://127.0.0.1:8000/api/Api/Building/ByBuilding_Id/" + this.$route.params.building_Id);
+            let get_building_details = await axios.get("https://shomadhan.top/admin/api/Api/Building/ByBuilding_Id/" + this.$route.params.building_Id);
             let response = get_building_details.data.data
             this.building_details = response
             this.owner_Id = this.building_details[0].owner_Id
             // console.warn(this.owner_Id)
 
-            let get_owner_details = await axios.get("http://127.0.0.1:8000/api/Api/Owner/Table/" + this.owner_Id);
+            let get_owner_details = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + this.owner_Id);
             let response2 = get_owner_details.data.data
             this.owner_name = response2.name
             this.owner_mobile = response2.mobile
             // console.warn(response2);
         },
         async get_flat_details_popup(id) {
-            let get_flat_details_popup = await axios.get("http://127.0.0.1:8000/api/Api/Flat/Table/" + id);
+            let get_flat_details_popup = await axios.get("https://shomadhan.top/admin/api/Api/Flat/Table/" + id);
             let responseData = get_flat_details_popup.data.data
             // console.warn(responseData);
 

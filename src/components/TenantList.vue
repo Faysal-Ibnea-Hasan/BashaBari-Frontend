@@ -107,7 +107,7 @@ export default {
     },
     methods: {
         async getTenantId(id) {
-            let getTenantId = await axios.get("http://127.0.0.1:8000/api/Api/Tenant/Table/" + id);
+            let getTenantId = await axios.get("https://shomadhan.top/admin/api/Api/Tenant/Table/" + id);
             this.tenantsById.id = getTenantId.data.data.id;
             this.tenantsById = getTenantId.data.data
             // console.warn(getBuildingId);
@@ -120,7 +120,7 @@ export default {
 
         const id = JSON.parse(users).id
 
-        const response1 = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Owner/" + id);
+        const response1 = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Owner/" + id);
         let ids = response1.data.data.map(item => item.tenant_Id)
         // console.warn(response1);
         this.tenants_Id = ids.map(item => item)
@@ -129,7 +129,7 @@ export default {
 
         for (const id of this.tenants_Id) {
 
-            const response2 = await axios.get(`http://127.0.0.1:8000/api/Api/Tenant/TableById/${id}`);
+            const response2 = await axios.get(`https://shomadhan.top/admin/api/Api/Tenant/TableById/${id}`);
             this.tenants.push(response2.data.data)
             let t_ids = response2.data.data.map(item => item.id)
             this.t_imageId = t_ids.map(item => item)
@@ -141,7 +141,7 @@ export default {
         // console.warn(this.response2);
         console.warn(this.t_imageIds);
         for(const id of this.t_imageIds){
-            let getIamge = await axios.get(`http://127.0.0.1:8000/api/Api/Tenant/Table/${id}`);
+            let getIamge = await axios.get(`https://shomadhan.top/admin/api/Api/Tenant/Table/${id}`);
             this.t_images.push(getIamge.data.imageUrl);
             console.warn(this.t_images);
         }

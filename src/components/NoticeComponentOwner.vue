@@ -170,20 +170,20 @@ export default {
             // console.warn(this.owner_Id);
         },
         async get_notice_by_owner_Id() {
-            const get_notice_by_owner_Id = await axios.get("http://127.0.0.1:8000/api/Api/Notice/TableByOwnerID/" + this.owner_Id);
+            const get_notice_by_owner_Id = await axios.get("https://shomadhan.top/admin/api/Api/Notice/TableByOwnerID/" + this.owner_Id);
             let responseData = get_notice_by_owner_Id.data.data
             this.notice = responseData
             console.warn(this.notice);
         },
         async get_notice_by_Id(id) {
-            const get_notice_by_owner_Id = await axios.get("http://127.0.0.1:8000/api/Api/Notice/Table/" + id);
+            const get_notice_by_owner_Id = await axios.get("https://shomadhan.top/admin/api/Api/Notice/Table/" + id);
             let responseData = get_notice_by_owner_Id.data.data
             this.put_notice.id = responseData.id
             this.put_notice = responseData
 
         },
         async create_notice() {
-            const create_notice = await axios.post("http://127.0.0.1:8000/api/Api/Notice/Create_Form_Post", {
+            const create_notice = await axios.post("https://shomadhan.top/admin/api/Api/Notice/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.post_notice.building_Id,
                 title: this.post_notice.title,
@@ -193,7 +193,7 @@ export default {
             if (create_notice.data.status == true) {
                 this.get_notice_by_owner_Id();
             }
-            const create_notice_log = await axios.post("http://127.0.0.1:8000/api/Api/NoticeLog/Create_Form_Post", {
+            const create_notice_log = await axios.post("https://shomadhan.top/admin/api/Api/NoticeLog/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.post_notice.building_Id,
                 title: this.post_notice.title,
@@ -203,20 +203,20 @@ export default {
             
 
             setTimeout(async () => {
-                let truncateData = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNoticeAfterTime/" + this.owner_Id)
+                let truncateData = await axios.delete("https://shomadhan.top/admin/api/Api/DeleteNoticeAfterTime/" + this.owner_Id)
             }, 86400000);
             
 
         },
         async remove_notice(id) {
-            let remove_notice = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNotice/" + id)
+            let remove_notice = await axios.delete("https://shomadhan.top/admin/api/Api/DeleteNotice/" + id)
             if (remove_notice.status == 200) {
                 this.get_notice_by_owner_Id();
             }
 
         },
         async update_notice() {
-            let update_notice = await axios.put("http://127.0.0.1:8000/api/Api/Notice/Updated/" + this.put_notice.id, {
+            let update_notice = await axios.put("https://shomadhan.top/admin/api/Api/Notice/Updated/" + this.put_notice.id, {
                 owner_Id: this.owner_Id,
                 building_Id: this.put_notice.building_Id,
                 title: this.put_notice.title,

@@ -192,7 +192,7 @@ export default {
         },
 
         async get_assign_by_tenantID() {
-            let get_assign_by_tenantID = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Tenant/" + this.tenant_Id);
+            let get_assign_by_tenantID = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id);
             const response = get_assign_by_tenantID.data.data;
             this.assignDetails = response;
 
@@ -202,7 +202,7 @@ export default {
             //console.warn(this.state);
         },
         async post_problem() {
-            let post_problem = await axios.post("http://127.0.0.1:8000/api/Api/Problem/Create_Form_Post", {
+            let post_problem = await axios.post("https://shomadhan.top/admin/api/Api/Problem/Create_Form_Post", {
                 building_Id: this.building_state,
                 flat_Id: this.flat_state,
                 tenant_Id: this.tenant_Id,
@@ -217,7 +217,7 @@ export default {
 
         },
         async get_problems_by_tenant() {
-            let get_problems_by_tenant = await axios.get("http://127.0.0.1:8000/api/Api/Problem/TableByTenantId/" + this.tenant_Id);
+            let get_problems_by_tenant = await axios.get("https://shomadhan.top/admin/api/Api/Problem/TableByTenantId/" + this.tenant_Id);
             let response = get_problems_by_tenant.data.data;
             this.problems = response
             console.warn(this.problems);

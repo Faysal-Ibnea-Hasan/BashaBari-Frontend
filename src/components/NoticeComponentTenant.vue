@@ -52,11 +52,11 @@ export default {
             
         },
         async get_tenant_building() {
-            const get_tenant_building = await axios.get("http://127.0.0.1:8000/api/Api/Rent/Tenant/" + this.tenant_Id);
+            const get_tenant_building = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id);
             let responseData = get_tenant_building.data.data;
             this.building_Id = responseData[0].building_Id
             // console.warn(this.building_Id)
-            const get_notice_by_building_id = await axios.get("http://127.0.0.1:8000/api/Api/Notice/TableByBuildingID/" + this.building_Id);
+            const get_notice_by_building_id = await axios.get("https://shomadhan.top/admin/api/Api/Notice/TableByBuildingID/" + this.building_Id);
             let responseData1 = get_notice_by_building_id.data.data
             this.notice = responseData1
 
@@ -67,7 +67,7 @@ export default {
         },
         truncateDatabase(){
             setTimeout(async () => {
-                let truncateData = await axios.delete("http://127.0.0.1:8000/api/Api/DeleteNoticeAfterTime")
+                let truncateData = await axios.delete("https://shomadhan.top/admin/api/Api/DeleteNoticeAfterTime")
             }, 10000);
             if(truncateData.data.status == true) {
                 this.get_tenant_building();
