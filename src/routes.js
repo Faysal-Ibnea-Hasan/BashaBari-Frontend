@@ -23,11 +23,13 @@ import ProblemDashboardTenant from './components/ProblemDashboardTenant.vue'
 const routes =[
     {
         name:'HelloWorld',
+        base:'https://shomadhan.top/',
         path:'/',
         component:HelloWorld,
     },
     {
         name:'LoginPageOwner',
+        base:'https://shomadhan.top/',
         path:'/login-owner',
         component:LoginPageOwner,
         
@@ -35,97 +37,116 @@ const routes =[
     {
         name:'RegisterPageTenant',
         path:'/register-tenant',
+        base:'https://shomadhan.top/',
         component:RegisterPageTenant,
     },
     {
         name:'LoginPageTenant',
         path:'/login-tenant',
+        base:'https://shomadhan.top/',
         component:LoginPageTenant,
     },
     {
         name:'HomePageTenant',
         path:'/home-tenant',
+        base:'https://shomadhan.top/',
         component:HomePageTenant,
     },
     {
         name:'HomePageOwner',
         path:'/home-owner',
+        base:'https://shomadhan.top/',
         component:HomePageOwner,
         
     },
     {
         name:'TenantList',
         path:'/list-tenant',
+        base:'https://shomadhan.top/',
         component:TenantList,
     },
     {
         name:'BuildingComponentOwner',
         path:'/buildings-owner',
+        base:'https://shomadhan.top/',
         component:BuildingComponentOwner,
     },
     {
         name:'AssignTenantComponent',
         path:'/assign-tenant',
+        base:'https://shomadhan.top/',
         component:AssignTenantComponent,
     },
     {
         name:'FlatComponentOwner',
         path:'/flat-owner',
+        base:'https://shomadhan.top/',
         component:FlatComponentOwner,
     },
     {
         name:'FlatDetailsComponentOwner',
+        base:'https://shomadhan.top/',
         path:'/flat-details-owner/:building_Id', //Catch the building Id when route clicked
         component:FlatDetailsComponentOwner,
     },
     {
         name:'FindBuildingComponentTenant',
         path:'/find-buildings', 
+        base:'https://shomadhan.top/',
         component:FindBuildingComponentTenant,
     },
     {
         name:'FindFlatComponentTenant',
-        path:'/find-flats/:building_Id', 
+        path:'/find-flats/:building_Id',
+        base:'https://shomadhan.top/', 
         component:FindFlatComponentTenant,
     },
     {
         name:'ResidentialDetailsComponentTenant',
         path:'/residential-details', 
+        base:'https://shomadhan.top/',
         component:ResidentialDetailsComponentTenant,
     },
     {
         name:'NoticeComponentOwner',
         path:'/notice-owner', 
+        base:'https://shomadhan.top/',
         component:NoticeComponentOwner,
     },
     {
         name:'NoticeComponentTenant',
-        path:'/notice-tenant',  
+        path:'/notice-tenant',
+        base:'https://shomadhan.top/',  
         component:NoticeComponentTenant,
     },
     {
         name:'ProblemAndSupportOwner',
+        base:'https://shomadhan.top/',
         path:'/problem_&_support-owner',   
         component:ProblemAndSupportOwner,
     },
     {
         name:'ProblemDashboardOwner',
-        path:'/problem-dashboard-owner',   
+        path:'/problem-dashboard-owner',
+        base:'https://shomadhan.top/',   
         component:ProblemDashboardOwner,
     },
     {
         name:'ProblemAndSupportTenant',
-        path:'/problem_&_support-tenant',   
+        path:'/problem_&_support-tenant', 
+        base:'https://shomadhan.top/',  
         component:ProblemAndSupportTenant,
     },
     {
         name:'ProblemDashboardTenant',
-        path:'/problem-dashboard-tenant',   
+        path:'/problem-dashboard-tenant',
+        base:'https://shomadhan.top/',   
         component:ProblemDashboardTenant,
     },
 ]
 const router = createRouter({
     history: createWebHistory(),
+    mode: history,
     routes
 })
 export default router
