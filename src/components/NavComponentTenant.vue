@@ -7,7 +7,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>Item 1</a></li>
+                <router-link to="/find-buildings">
+                    <li><a>Find your next home</a></li>
+                </router-link>
                 <li>
                     <a>Parent</a>
                     <ul class="p-2">
@@ -15,7 +17,14 @@
                         <li><a>Submenu 2</a></li>
                     </ul>
                 </li>
-                <li><a>Item 3</a></li>
+                <router-link to="/notice-tenant">
+
+                    <li><a>Notice</a></li>
+                </router-link>
+                <router-link to="/problem_&_support-tenant">
+
+                    <li><a>Problem & Support</a></li>
+                </router-link>
             </ul>
         </div>
         <router-link to="/home-tenant"><a class="btn btn-ghost normal-case text-xl">BashaBari</a></router-link>
@@ -25,7 +34,7 @@
             <router-link to="/find-buildings">
                 <li><a>Find your next home</a></li>
             </router-link>
-            
+
             <li tabindex="0">
                 <details>
                     <summary>Parent</summary>
@@ -67,7 +76,7 @@
             </ul>
         </div>
     </div>
-    
+
     <!-- Profile button -->
 </div>
 </template>

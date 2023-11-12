@@ -9,7 +9,7 @@
     <!-- Announcement Banner -->
     <div class="max-w-[85rem] mt-10 px-4 sm:px-6 lg:px-8 mx-auto">
 
-        <div :style="{ backgroundImage:'url('+backgroundImage+')'}" class=" bg-no-repeat bg-cover bg-center p-4 rounded-md text-center">
+        <div class=" bg-no-repeat bg-cover bg-purple-700 bg-center p-4 rounded-md text-center">
             <p class="mr-2 inline-block text-white">
                 Hello <strong>{{ name }}</strong>, Your Tenant ID is
             </p>
