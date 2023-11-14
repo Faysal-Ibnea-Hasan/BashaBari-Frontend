@@ -1,11 +1,23 @@
 <template>
-<div class="alert alert-error" v-if="isVisible">
-    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-    <span>Oops! Looks like you don't have an account yet.</span>
-</div>
 <div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
+
     <div class="hero-content flex-col lg:flex-row-reverse">
+        <!-- <div v-if="isVisible" class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div class="flex items-center justify-center w-12 bg-red-500">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
+                </svg>
+            </div>
+
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <span class="font-semibold text-red-500 dark:text-red-400">Error</span>
+                    <p class="text-sm text-gray-600 dark:text-gray-200">
+                        Your email is already used!
+                    </p>
+                </div>
+            </div>
+        </div> -->
         <div class="text-center ms-4 lg:text-left">
             <h1 class="text-5xl font-bold">Login now!</h1>
             <p class="py-6">Not Registered?</p>
@@ -32,11 +44,14 @@
             </div>
         </div>
     </div>
+
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Swal from 'sweetalert2'
+
 export default {
     name: "LoginComponentTenant",
     data() {
@@ -44,7 +59,7 @@ export default {
             mobile: '',
             password: '',
             isVisible: false,
-            backgroundImage:('src/assets/images/scattered-forcefields.svg')
+            backgroundImage: ('src/assets/images/scattered-forcefields.svg')
         }
     },
     methods: {
@@ -63,7 +78,13 @@ export default {
                     name: 'HomePageTenant'
                 })
             } else if (result.data.status == false) {
-                this.showAlart();
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Looks like you don't have an account yet!",
+                    footer: 'Please get registared and try again'
+                });
+
             }
         },
         showAlart() {
@@ -71,7 +92,8 @@ export default {
             setTimeout(() => {
                 this.isVisible = false;
             }, 5000)
-        }
+        },
+
     }
 }
 </script>
