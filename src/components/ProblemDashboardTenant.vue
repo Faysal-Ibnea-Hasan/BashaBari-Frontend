@@ -96,6 +96,13 @@
                                             </span>
                                         </div>
                                     </th>
+                                    <th scope="col" class="px-6 py-3 text-start">
+                                        <div class="flex items-center gap-x-2">
+                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                Mark as solved
+                                            </span>
+                                        </div>
+                                    </th>
                                 </tr>
                             </thead>
 
@@ -104,7 +111,7 @@
                                     <td class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
                                             <div class="flex items-center gap-x-4">
-                                                
+
                                                 <div>
                                                     <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.title }}</span>
                                                 </div>
@@ -114,8 +121,7 @@
 
                                     <td class="h-px w-72 min-w-[18rem] align-top">
                                         <a class="block p-6" href="#">
-                                            
-                                            
+
                                             <span class="block text-sm text-gray-500">{{ item.description }}</span>
                                         </a>
                                     </td>
@@ -124,7 +130,18 @@
                                             <span class="text-sm text-gray-600 dark:text-gray-400">{{ item.date }}</span>
                                         </a>
                                     </td>
-                                    <td class="h-px w-px whitespace-nowrap align-top">
+                                    <td v-if="item.status == 'Unsolved'" class="h-px w-px whitespace-nowrap align-top">
+                                        <a class="block p-6" href="#">
+                                            <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-red-100 text-red-800 rounded-full dark:bg-red-500/10 dark:text-red-500">
+                                                <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                                </svg>
+                                                {{ item.status }}
+                                            </span>
+                                        </a>
+                                    </td>
+
+                                    <td v-else-if="item.status == 'Solved'" class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
                                             <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500">
                                                 <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -134,6 +151,16 @@
                                             </span>
                                         </a>
                                     </td>
+                                    <td class="h-px w-px whitespace-nowrap align-top">
+                                        <a class="block p-6" href="#">
+                                            <button v-if="item.status == 'Unsolved'" v-on:click="update_problem_status(item.id)" class="btn btn-success btn-xs">
+                                                <svg class="w-[16px] h-[16px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    </td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -211,7 +238,7 @@ export default {
                 date: this.date,
                 status: this.status,
             })
-            if(post_problem.data.status == true) {
+            if (post_problem.data.status == true) {
                 this.get_problems_by_tenant();
             }
 
@@ -220,7 +247,16 @@ export default {
             let get_problems_by_tenant = await axios.get("https://shomadhan.top/admin/api/Api/Problem/TableByTenantId/" + this.tenant_Id);
             let response = get_problems_by_tenant.data.data;
             this.problems = response
-            console.warn(this.problems);
+            //console.warn(this.problems);
+        },
+        async update_problem_status(id){
+            let update_problem_status = await axios.put("https://shomadhan.top/admin/api/Api/Problem/UpdatedStatus/"+ id,{
+                status: "Solved",
+            })
+            if(update_problem_status.data.status == true) {
+                this.get_problems_by_tenant();
+            }
+            //console.warn(update_problem_status)
         }
 
     },
