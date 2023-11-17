@@ -175,6 +175,7 @@ export default {
             mobile: '',
             isVisible: false,
             tenant: [],
+            tenant_Id: '',
             image: '',
             backgroundImage: ('src/assets/images/subtle-prism.svg')
         }
@@ -203,21 +204,31 @@ export default {
             } else {
                 this.name = JSON.parse(users).name
                 this.mobile = JSON.parse(users).mobile
+                this.tenant_Id = JSON.parse(users).tenant_Id
             }
         },
         async getData_Tenant() {
             let users = localStorage.getItem('tenant-info');
             const id = JSON.parse(users).id
             let getData = await axios.get("https://shomadhan.top/admin/api/Api/Tenant/Table/" + id);
-            console.warn(getData);
+            //console.warn(getData);
             this.tenant = getData.data.data //fetch all the data in the getData response
             this.image = getData.data.imageUrl
-            console.warn(this.image);
-        }
+            //console.warn(this.image);
+        },
+       // async get_rent_by_tenantID() {
+           // let get_assign_by_tenantID = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id)
+            //localStorage.setItem("status", JSON.stringify(get_assign_by_tenantID.data.status));
+            // let status = localStorage.getItem("status");
+            // this.status = JSON.parse(status);
+            //console.warn(this.status)
+        //}
+
     },
-    async mounted() {
+    mounted() {
         this.check_tenant();
         this.getData_Tenant();
+        //this.get_rent_by_tenantID();
 
         // this.showAlert();
 

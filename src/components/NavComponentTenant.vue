@@ -37,20 +37,28 @@
 
             <li tabindex="0">
                 <details>
-                    <summary>Parent</summary>
+                    <summary >Parent</summary>
                     <ul class="p-2">
                         <li><a>Submenu 1</a></li>
                         <li><a>Submenu 2</a></li>
                     </ul>
                 </details>
             </li>
-            <router-link to="/notice-tenant">
 
-                <li><a>Notice</a></li>
+            <router-link v-if="status == false" to="/notice-tenant">
+                <button disabled><li class=" disabled"><a>Notice</a></li></button>
             </router-link>
-            <router-link to="/problem_&_support-tenant">
+            <router-link v-if="status == true" to="/notice-tenant">
+                <button><li><a>Notice</a></li></button>
+            </router-link>
 
-                <li><a>Problem & Support</a></li>
+            <router-link v-if="status == false" to="/problem_&_support-tenant">
+
+                <button disabled><li class="disabled"><a>Problem & Support</a></li></button>
+            </router-link>
+            <router-link v-if="status == true" to="/problem_&_support-tenant">
+
+                <button><li><a>Problem & Support</a></li></button>
             </router-link>
         </ul>
     </div>
@@ -83,12 +91,21 @@
 
 <script>
 import axios from 'axios';
+import {
+    ref
+} from 'vue';
 
 export default {
     name: 'NavComponentTenant',
+    
     data() {
         return {
-            image: ''
+            image: '',
+            tenant_Id: '',
+            status: '',
+            
+            
+
         }
     },
     methods: {
@@ -101,14 +118,36 @@ export default {
         async getData_Tenant() {
             let users = localStorage.getItem('tenant-info');
             const id = JSON.parse(users).id
+            const tenant_Id = JSON.parse(users).tenant_Id;
+            this.tenant_Id = tenant_Id;
             let getData = await axios.get("https://shomadhan.top/admin/api/Api/Tenant/Table/" + id);
             this.tenant = getData.data.data //fetch all the data in the getData response
             this.image = getData.data.imageUrl
+
+        },
+        async get_rent_by_tenantID() {
+            // let get_assign_by_tenantID = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id)
+            
+
+            // localStorage.setItem("status", JSON.stringify(get_assign_by_tenantID.data.status));
+            let status = localStorage.getItem("status");
+            this.status = JSON.parse(status);
+            console.warn(this.status)
+            
+            
+            
 
         }
     },
     mounted() {
         this.getData_Tenant();
-    }
+
+        this.get_rent_by_tenantID();
+
+       // console.warn(this.isVisible)
+
+    },
+    
+
 }
 </script>

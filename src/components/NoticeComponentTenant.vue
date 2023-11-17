@@ -54,7 +54,7 @@ export default {
         async get_tenant_building() {
             const get_tenant_building = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id);
             let responseData = get_tenant_building.data.data;
-            this.building_Id = responseData[0].building_Id
+            this.building_Id = responseData.building_Id
             // console.warn(this.building_Id)
             const get_notice_by_building_id = await axios.get("https://shomadhan.top/admin/api/Api/Notice/TableByBuildingID/" + this.building_Id);
             let responseData1 = get_notice_by_building_id.data.data

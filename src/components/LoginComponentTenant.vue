@@ -58,6 +58,7 @@ export default {
         return {
             mobile: '',
             password: '',
+            tenant_Id: '',
             isVisible: false,
             backgroundImage: ('src/assets/images/scattered-forcefields.svg')
         }
@@ -74,6 +75,12 @@ export default {
 
             if (result.data.status == true) {
                 localStorage.setItem("tenant-info", JSON.stringify(result.data.data));
+                let tenant_Id = localStorage.getItem("tenant-info");
+                this.tenant_Id = JSON.parse(tenant_Id).tenant_Id;
+                console.warn(this.tenant_Id)
+                let get_assign_by_tenantID = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id)
+                localStorage.setItem("status", JSON.stringify(get_assign_by_tenantID.data.status));
+                console.warn(get_assign_by_tenantID)
                 this.$router.push({
                     name: 'HomePageTenant'
                 })

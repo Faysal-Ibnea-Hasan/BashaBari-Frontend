@@ -268,7 +268,7 @@ export default {
             //     this.badge = 'bg-red-100';
             // }
             
-            console.warn(this.buildings_flats.map(item=>item.status == "Not Available"));
+            //console.warn(this.buildings_flats.map(item=>item.status == "Not Available"));
         },
         async get_building_details() {
             let get_building_details = await axios.get("https://shomadhan.top/admin/api/Api/Building/ByBuilding_Id/" + this.$route.params.building_Id);

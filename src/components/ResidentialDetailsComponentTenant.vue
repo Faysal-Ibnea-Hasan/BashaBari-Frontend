@@ -149,9 +149,10 @@ export default {
             const get_tenant_rent_details = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id);
             let responseData = get_tenant_rent_details.data.data;
             this.rent_details = responseData
-            this.owner_Id = this.rent_details[0].owner_Id;
-            this.building_Id = this.rent_details[0].building_Id;
-            this.flat_Id = this.rent_details[0].flat_Id;
+            //console.warn(responseData);
+            this.owner_Id = this.rent_details.owner_Id;
+            this.building_Id = this.rent_details.building_Id;
+            this.flat_Id = this.rent_details.flat_Id;
 
             const get_tenant_building_details = await axios.get("https://shomadhan.top/admin/api/Api/Building/ByBuilding_Id/" + this.building_Id);
             let responseData1 = get_tenant_building_details.data.data;
@@ -160,7 +161,7 @@ export default {
             const get_tenant_flat_details = await axios.get("https://shomadhan.top/admin/api/Api/Flat/TableByFlatID/" + this.flat_Id);
             let responseData2 = get_tenant_flat_details.data.data
             this.flat_details = responseData2
-            console.warn(get_tenant_flat_details);
+            //console.warn(get_tenant_flat_details);
 
         },
 

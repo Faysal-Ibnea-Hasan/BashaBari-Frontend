@@ -223,10 +223,10 @@ export default {
             const response = get_assign_by_tenantID.data.data;
             this.assignDetails = response;
 
-            this.flat_state = response[0].flat_Id
-            this.building_state = response[0].building_Id
+            this.flat_state = response.flat_Id
+            this.building_state = response.building_Id
 
-            //console.warn(this.state);
+            //console.warn(this.flat_state);
         },
         async post_problem() {
             let post_problem = await axios.post("https://shomadhan.top/admin/api/Api/Problem/Create_Form_Post", {
