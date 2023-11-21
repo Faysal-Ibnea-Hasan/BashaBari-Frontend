@@ -7,7 +7,7 @@
     
 
     <!-- Profile button -->
-    <div class="navbar-end">
+    <!-- <div class="navbar-end">
 
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <!-- Profile button -->
 </div>
 </template>
