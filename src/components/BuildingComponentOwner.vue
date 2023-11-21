@@ -234,13 +234,13 @@
 
     </div>
 
-    <FooterComponent />
+    
 </body>
 </template>
 
 <script>
 import NavComponentOwner from './NavComponentOwner.vue'
-import FooterComponent from './FooterComponent.vue';
+
 import axios from 'axios';
 export default {
     name: "BuildingComponentOwner",
@@ -281,7 +281,7 @@ export default {
     },
     components: {
         NavComponentOwner,
-        FooterComponent,
+        
     },
     methods: {
         async getBuildingId(id) {
@@ -357,12 +357,13 @@ export default {
             let getData = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + id);
             this.owner = getData.data.data //fetch all the data in the getData response
 
-            const getApiImages = getData.data.data.image //fetch only images in the getData response
-            let getImage = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Image/" + getApiImages);
-            this.image = getImage.config.url //for getting the image url and use it in the template
+            // const getApiImages = getData.data.data.image //fetch only images in the getData response
+            // let getImage = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Image/" + getApiImages);
+            // this.image = getImage.config.url //for getting the image url and use it in the template
 
             let getBuildings = await axios.get("https://shomadhan.top/admin/api/Api/Building/Owner/" + id);
             this.buildings = getBuildings.data.data
+            console.warn(this.buildings);
 
             // let getBuilding = await axios.get("https://shomadhan.top/admin/api/Api/Building/Table/" + this.building_Ids); //send array of building_Ids to get data from api
             // this.buildings = getBuilding.data.data

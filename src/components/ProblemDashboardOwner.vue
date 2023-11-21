@@ -119,13 +119,13 @@
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                             <thead class="bg-gray-50 dark:bg-slate-800">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-start">
+                                    <!-- <th scope="col" class="px-6 py-3 text-start">
                                         <div class="flex items-center gap-x-2">
                                             <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                 Building Name
                                             </span>
                                         </div>
-                                    </th>
+                                    </th> -->
 
                                     <th scope="col" class="px-6 py-3 text-start">
                                         <div class="flex items-center gap-x-2">
@@ -162,8 +162,8 @@
                             </thead>
 
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                <tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800" v-for="item in details" :key="item.id">
-                                    <td class="h-px w-px whitespace-nowrap align-top">
+                                <tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800" v-for="item in problems[0]" :key="item.id" >
+                                    <!-- <td class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
                                             <div class="flex items-center gap-x-4">
                                                 <img class="flex-shrink-0 h-[2.375rem] w-[2.375rem] rounded-lg" src="../assets/images/welcome_photo.jpg" alt="Image Description">
@@ -172,13 +172,13 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </td>
+                                    </td> -->
                                     <td class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
                                             <div class="flex items-center gap-x-3">
                                                 <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full" src="../assets/images/room.jpg" alt="Image Description">
                                                 <div class="grow">
-                                                    <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.problems.flat_Id }}</span>
+                                                    <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.flat_Id }}</span>
                                                     <!-- <span class="block text-sm text-gray-500">christina@site.com</span> -->
                                                 </div>
                                             </div>
@@ -187,38 +187,39 @@
                                     <td class="h-px w-72 min-w-[18rem] align-top">
                                         <a class="block p-6" href="#">
 
-                                            <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.problems.title }}</span>
-                                            <span class="block text-sm text-gray-500">{{ item.problems.description }}</span>
+                                            <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.title }}</span>
+                                            <span class="block text-sm text-gray-500">{{ item.description }}</span>
                                         </a>
                                     </td>
                                     <td class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
-                                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ item.problems.date }}</span>
+                                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ item.date }}</span>
                                         </a>
                                     </td>
-                                    <td v-if="item.problems.status == 'Unsolved'" class="h-px w-px whitespace-nowrap align-top">
+                                    <td v-if="item.status == 'Unsolved'" class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
                                             <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-red-100 text-red-800 rounded-full dark:bg-red-500/10 dark:text-red-500">
                                                 <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
                                                 </svg>
-                                                {{ item.problems.status }}
+                                                {{ item.status }}
                                             </span>
                                         </a>
                                     </td>
 
-                                    <td v-else-if="item.problems.status == 'Solved'" class="h-px w-px whitespace-nowrap align-top">
+                                    <td v-else-if="item.status == 'Solved'" class="h-px w-px whitespace-nowrap align-top">
                                         <a class="block p-6" href="#">
                                             <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500">
                                                 <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                                                 </svg>
-                                                {{ item.problems.status }}
+                                                {{ item.status }}
                                             </span>
                                         </a>
                                     </td>
                                 </tr>
                             </tbody>
+                            
                         </table>
 
                         <!-- End Table -->
@@ -277,6 +278,7 @@ export default {
         return {
             owner_Id: '',
             details: [],
+            problems: [],
         }
     },
     methods: {
@@ -298,7 +300,8 @@ export default {
             let get_building = await axios.get("https://shomadhan.top/admin/api/Api/Building/OwnerProblem/" + this.owner_Id);
             let response = get_building.data.data
             this.details = response
-            console.warn(this.details)
+            this.problems = this.details.map(item => item.problems)
+            console.warn(this.problems[0])
         }
 
     },
