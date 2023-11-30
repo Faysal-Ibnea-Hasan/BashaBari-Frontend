@@ -3,7 +3,7 @@
 
     <NavComponent />
     <LoginComponentOwner />
-    <FooterComponent />
+    <!-- <FooterComponent /> -->
 </body>
 </template>
 

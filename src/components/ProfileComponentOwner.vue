@@ -211,7 +211,7 @@ export default {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: "Your password doesn't match!",
+                    text: "Your Password Doesn't Match!",
                     
                 });
             }

@@ -1,23 +1,8 @@
 <template>
-<div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
+<!-- <div :style="{backgroundImage:'url('+backgroundImage+')'}" class="hero min-h-screen bg-base-200">
 
     <div class="hero-content flex-col lg:flex-row-reverse">
-        <!-- <div v-if="isVisible" class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-            <div class="flex items-center justify-center w-12 bg-red-500">
-                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
-                </svg>
-            </div>
 
-            <div class="px-4 py-2 -mx-3">
-                <div class="mx-3">
-                    <span class="font-semibold text-red-500 dark:text-red-400">Error</span>
-                    <p class="text-sm text-gray-600 dark:text-gray-200">
-                        Your email is already used!
-                    </p>
-                </div>
-            </div>
-        </div> -->
         <div class="text-center ms-4 lg:text-left">
             <h1 class="text-5xl font-bold">Login now!</h1>
             <p class="py-6">Not Registered?</p>
@@ -45,6 +30,60 @@
         </div>
     </div>
 
+</div> -->
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-lg">
+       
+
+        <form @submit.prevent="login" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+            <p class="text-center text-lg font-medium">Sign in to your account</p>
+
+            <div>
+                <label for="mobile" class="sr-only">Mobile</label>
+
+                <div class="relative">
+                    <input v-model="mobile" type="text" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" placeholder="Enter Mobile Number" />
+
+                    <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <div>
+                <label for="password" class="sr-only">Password</label>
+
+                <div class="relative">
+                    <input v-model="password" :type="showPassword ? 'text':'password'" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" placeholder="Enter password" />
+
+                    <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                        <svg @click="togglePassword" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <button type="submit" class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">
+                Sign in
+            </button>
+
+            <p class="text-center text-sm text-gray-500">
+                No account?
+                <router-link to="/register-tenant" class="underline" href="">Sign up</router-link>
+            </p>
+        </form>
+    </div>
 </div>
 </template>
 
@@ -59,8 +98,9 @@ export default {
             mobile: '',
             password: '',
             tenant_Id: '',
-            isVisible: false,
-            backgroundImage: ('src/assets/images/scattered-forcefields.svg')
+            // isVisible: false,
+            // backgroundImage: ('src/assets/images/scattered-forcefields.svg')
+            showPassword: false
         }
     },
     methods: {
@@ -81,6 +121,13 @@ export default {
                 let get_assign_by_tenantID = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id)
                 localStorage.setItem("status", JSON.stringify(get_assign_by_tenantID.data.status));
                 console.warn(get_assign_by_tenantID)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Logged in Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 this.$router.push({
                     name: 'HomePageTenant'
                 })
@@ -93,6 +140,9 @@ export default {
                 });
 
             }
+        },
+        togglePassword() {
+            this.showPassword = !this.showPassword;
         },
         showAlart() {
             this.isVisible = true;
