@@ -180,6 +180,7 @@
         </div>
     </section>
     <!--Verify Owner Section End-->
+
     <section class="bg-gray-900 text-white">
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
             <div class="mx-auto max-w-lg text-center">
@@ -276,6 +277,55 @@
                 </a>
             </div>
 
+        </div>
+    </section>
+
+    <section class="py-14 mt-5">
+        <div class="max-w-auto mx-auto px-4 text-gray-600 md:px-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl">
+                    We are currently having
+                </h3>
+                <p class="mt-3">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis sollicitudin quam ut tincidunt.
+                </p>
+            </div>
+            <div class="mt-12">
+                <ul class="flex flex-col items-center justify-center gap-y-10 sm:flex-row sm:flex-wrap lg:divide-x">
+                    <li class="text-center px-12 md:px-16">
+                        <h4 class="text-4xl text-indigo-600 font-semibold">
+                            {{owners}}
+                        </h4>
+                        <p class="mt-3 font-medium text-transform: uppercase">
+                            Total owners
+                        </p>
+                    </li>
+                    <li class="text-center px-12 md:px-16">
+                        <h4 class="text-4xl text-indigo-600 font-semibold">
+                            {{tenants}}
+                        </h4>
+                        <p class="mt-3 font-medium text-transform: uppercase">
+                            Total tenants
+                        </p>
+                    </li>
+                    <li class="text-center px-12 md:px-16">
+                        <h4 class="text-4xl text-indigo-600 font-semibold">
+                            {{buildings}}
+                        </h4>
+                        <p class="mt-3 font-medium text-transform: uppercase">
+                            Total buildings
+                        </p>
+                    </li>
+                    <li class="text-center px-12 md:px-16">
+                        <h4 class="text-4xl text-indigo-600 font-semibold">
+                            {{flats}}
+                        </h4>
+                        <p class="mt-3 font-medium text-transform: uppercase">
+                            Total flats
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
     <!-- Features -->
@@ -521,6 +571,7 @@
             </div>
         </div>
     </dialog>
+
     <section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center">
         <div class="p-8 md:p-12 lg:px-16 lg:py-24">
             <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
@@ -588,24 +639,38 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'HeroComponent',
-    // data(){
-    //     return {
-    //         isVisible: false,
-    //     }
-    // },
-    // methods:{
-    //     showAlart(){
-    //         this.isVisible = true;
-    //         setTimeout(()=>{
-    //             this.isVisible = false;
-    //         },5000)
-    //     }
-    // },
-    // mounted(){
-    //     this.showAlart();
-    // }
+    data() {
+        return {
+            owners:'',
+            tenants:'',
+            buildings:'',
+            flats:'',
+            
+        }
+    },
+    methods:{
+        // showAlart(){
+        //     this.isVisible = true;
+        //     setTimeout(()=>{
+        //         this.isVisible = false;
+        //     },5000)
+        // }
+        async get_dashboard(){
+            let get_dashboard = await axios.get("https://shomadhan.top/admin/api/Api/Dashboard");
+            this.owners = get_dashboard.data.totalOwner
+            this.tenants = get_dashboard.data.totalTenant
+            this.buildings = get_dashboard.data.totalBuilding
+            this.flats = get_dashboard.data.totalFlat
+        }
+
+    },
+    mounted(){
+        this.get_dashboard();
+    }
 
 }
 </script>

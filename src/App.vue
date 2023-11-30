@@ -1,9 +1,10 @@
 <template>
-<router-view v-slot="{ Component }">
+<!-- <router-view v-slot="{ Component }">
   <transition name="fade" mode="out-in">
     <Component :is="Component"/>
   </transition>
-</router-view>
+</router-view> -->
+<router-view></router-view>
 </template>
 
 <script>

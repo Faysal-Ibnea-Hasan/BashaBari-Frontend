@@ -65,10 +65,10 @@
             </label>
             <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li>
-                    <a class="justify-between">
+                    <router-link to="/owner-profile" class="justify-between">
                         Profile
 
-                    </a>
+                    </router-link>
                 </li>
 
                 <li><a v-on:click="logout">Logout</a></li>
