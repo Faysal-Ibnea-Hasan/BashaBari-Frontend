@@ -80,7 +80,7 @@
 <section class="bg-white">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-            <img alt="Night" src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="absolute inset-0 h-full w-full object-cover opacity-80" />
+            <img alt="Night" src="../assets/images/Reg.jpg" class="absolute inset-0 h-full w-full object-cover opacity-80" />
 
             <div class="hidden lg:relative lg:block lg:p-12">
                 <a class="block text-white" href="/">
@@ -91,7 +91,7 @@
                 </a>
 
                 <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-                    Welcome to Squid 🦑
+                    Welcome to your home 
                 </h2>
 
                 <p class="mt-4 leading-relaxed text-white/90">
@@ -124,49 +124,49 @@
                 <form @submit.prevent="registerTenant" class="mt-8 grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                         <label for="Fullname" class="block text-sm font-medium text-gray-700">
-                            Full Name
+                            Full Name (optional)
                         </label>
 
-                        <input v-model="tenants.name" type="text" id="Fullname" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input v-model="tenants.name" type="text" id="Fullname" class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                         <label for="Mobile" class="block text-sm font-medium text-gray-700">
-                            Mobile Number
+                            Mobile Number*
                         </label>
 
-                        <input v-model="tenants.mobile" type="text" id="Mobile"  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input v-model="tenants.mobile" type="text" id="Mobile" required  class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                         <label for="Address" class="block text-sm font-medium text-gray-700">
-                            Address
+                            Address (optional)
                         </label>
 
-                        <input v-model="tenants.address" type="text" id="Address"  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input v-model="tenants.address" type="text" id="Address"  class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="NID" class="block text-sm font-medium text-gray-700">
-                            National Identity Number
+                            National Identity Number (optional)
                         </label>
 
-                        <input v-model="tenants.nid" type="text" id="NID"  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input v-model="tenants.nid" type="text" id="NID"  class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                         <label for="Password" class="block text-sm font-medium text-gray-700">
-                            Password
+                            Password*
                         </label>
 
-                        <input v-model="initial_password" type="password" id="Password" name="password" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input v-model="initial_password" required type="password" id="Password" name="password" class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                         <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700">
-                            Password Confirmation
+                            Password Confirmation*
                         </label>
 
-                        <input v-model="tenants.password" type="password" id="PasswordConfirmation" name="password_confirmation" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input v-model="tenants.password" required type="password" id="PasswordConfirmation" name="password_confirmation" class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <!-- <div class="col-span-6">

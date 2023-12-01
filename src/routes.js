@@ -20,6 +20,7 @@ import ProblemDashboardOwner from './components/ProblemDashboardOwner.vue'
 import ProblemAndSupportTenant from './components/ProblemAndSupportTenant.vue'
 import ProblemDashboardTenant from './components/ProblemDashboardTenant.vue'
 import ProfileComponentOwner from './components/ProfileComponentOwner.vue'
+import ProfileComponentTenant from './components/ProfileComponentTenant.vue'
 
 const routes =[
     {
@@ -149,6 +150,12 @@ const routes =[
         path:'/owner-profile',
         base:'https://shomadhan.top/',   
         component:ProfileComponentOwner,
+    },
+    {
+        name:'ProfileComponentTenant',
+        path:'/tenant-profile',
+        base:'https://shomadhan.top/',   
+        component:ProfileComponentTenant,
     },
 ]
 const router = createRouter({

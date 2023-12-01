@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="divider divider-horizontal">OR</div>
                                 <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center hover:bg-neutral-content">
-                                    <router-link to="/register-tenant">Tenant</router-link>
+                                    <router-link to="/login-tenant">Tenant</router-link>
                                 </div>
                             </div>
                         </div>

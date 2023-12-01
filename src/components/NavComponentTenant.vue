@@ -74,10 +74,10 @@
             </label>
             <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li>
-                    <a class="justify-between">
+                    <router-link to="/tenant-profile" class="justify-between">
                         Profile
 
-                    </a>
+                    </router-link>
                 </li>
 
                 <li><a v-on:click="logout">Logout</a></li>
@@ -103,6 +103,7 @@ export default {
             image: '',
             tenant_Id: '',
             status: '',
+            name: ref('')
             
             
 
@@ -118,6 +119,8 @@ export default {
         async getData_Tenant() {
             let users = localStorage.getItem('tenant-info');
             const id = JSON.parse(users).id
+            this.name = JSON.parse(users).name
+            //console.warn(this.name)
             const tenant_Id = JSON.parse(users).tenant_Id;
             this.tenant_Id = tenant_Id;
             let getData = await axios.get("https://shomadhan.top/admin/api/Api/Tenant/Table/" + id);
@@ -132,7 +135,7 @@ export default {
             // localStorage.setItem("status", JSON.stringify(get_assign_by_tenantID.data.status));
             let status = localStorage.getItem("status");
             this.status = JSON.parse(status);
-            console.warn(this.status)
+            //console.warn(this.status)
             
             
             
