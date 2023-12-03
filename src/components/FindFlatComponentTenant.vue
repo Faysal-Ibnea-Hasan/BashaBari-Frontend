@@ -256,7 +256,7 @@ export default {
         },
         async get_building_flats() {
 
-            let get_building_flats = await axios.post("https://shomadhan.top/admin/api/Api/Flat/TableByBuilding/" + this.$route.params.building_Id,{
+            let get_building_flats = await axios.post(`https://shomadhan.top/admin/api/Api/Flat/TableByBuilding?building_Id=${this.$route.params.building_Id}`,{
                 status:this.status
             });
             let responseData = get_building_flats.data.data

@@ -7,25 +7,42 @@
     
 
     <!-- Profile button -->
-    <!-- <div class="navbar-end">
+    <div class="navbar-end">
 
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
-                <li><a>Link</a></li>
+                
                 <li>
                     <details>
                         <summary>
-                            Parent
+                            Owner
                         </summary>
-                        <ul class="p-2 bg-base-100">
-                            <li><a>Link 1</a></li>
-                            <li><a>Link 2</a></li>
+                        <ul class="w-32 p-2 bg-base-100">
+                            <li><a>Add Listing</a></li>
+                            <li><a>How It Works</a></li>
+                            <li><a>Login</a></li>
                         </ul>
                     </details>
                 </li>
+                <li>
+                    <details>
+                        <summary>
+                            Tenant
+                        </summary>
+                        <ul class="w-48 p-2 bg-base-100">
+                            <li><a>Search Rentals</a></li>
+                            <li><a>Create Search Agent</a></li>
+                            <li><a>FAQ</a></li>
+                            <li><a>Login</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a>Create Search Agent</a></li>
+                <li><a>Blog</a></li>
+                <li><a>Search Properties</a></li>
             </ul>
         </div>
-    </div> -->
+    </div>
     <!-- Profile button -->
 </div>
 </template>

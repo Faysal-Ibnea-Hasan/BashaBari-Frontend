@@ -392,10 +392,10 @@ export default {
             this.owner_Id = id
             this.building_Id = this.$route.params.building_Id
 
-            let get_building_flats = await axios.get("https://shomadhan.top/admin/api/Api/Flat/TableByBuildingID/" + this.$route.params.building_Id);
+            let get_building_flats = await axios.get(`https://shomadhan.top/admin/api/Api/Flat/TableByBuildingID?building_Id=${this.building_Id}`);
             let responseData = get_building_flats.data.data
             this.buildings_flats = responseData
-            // console.warn(this.building_Id);
+            console.warn(get_building_flats);
 
         },
 
