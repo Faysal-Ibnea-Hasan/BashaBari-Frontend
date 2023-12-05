@@ -21,10 +21,9 @@
         <div>
             <!-- Open the modal using ID.showModal() method -->
 
-            <dialog id="my_modal_2" class="modal">
+            <!-- <dialog id="my_modal_2" class="modal">
 
                 <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
-                    
 
                     <div class="text-center -mt-10 h-max sm:p-6 md:col-span-2 lg:p-8">
                         <p class="text-sm font-semibold uppercase tracking-widest">
@@ -46,7 +45,7 @@
                         </select>
                         <select v-model="post_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
                             <option disabled value="">Area</option>
-                        
+
                             <option value="Mirpur-1">Mirpur-1</option>
                             <option value="Mirpur-2">Mirpur-2</option>
                             <option value="Mirpur-6">Mirpur-6</option>
@@ -80,15 +79,297 @@
                             <button v-on:click="post_building_data" class="btn  inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
                         </form>
 
-                        
                     </div>
                 </section>
 
+            </dialog> -->
+            <!-- You can open the modal using ID.showModal() method -->
+
+            <dialog id="my_modal_2" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                    <!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+                    <section class="bg-gray-100">
+                        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+                                <div class="lg:col-span-2 lg:py-12">
+                                    <p class="max-w-xl text-lg">
+                                        At the same time, the fact that we are wholly owned and totally independent from
+                                        manufacturer and other group control gives you confidence that we will only recommend what
+                                        is right for you.
+                                    </p>
+
+                                    <div class="mt-8">
+                                        <a href="" class="text-2xl font-bold text-pink-600"> 0151 475 4450 </a>
+
+                                        <address class="mt-2 not-italic">282 Kevin Brook, Imogeneborough, CA 58517</address>
+                                    </div>
+                                </div>
+
+                                <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                                    <form @submit.prevent="post_building_data" class="space-y-4">
+
+                                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                                            <input hidden class="w-full rounded-lg  border-gray-200 p-3 text-sm" placeholder="id" v-model="post_building.post_id" />
+                                            <div>
+                                                <label class="sr-only" for="name">Name</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Building Name" v-model="post_building.name" type="text" id="name" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="address">Address</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Building Address" v-model="post_building.address" type="text" id="email" />
+                                            </div>
+
+                                            <div>
+                                                <label class="sr-only" for="phone">Phone</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Developer" v-model="post_building.developer" type="text" id="phone" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="price_range">Price Range</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Price Range" v-model="post_building.price_range" type="text" id="price_range" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="date">Developed Date</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Date" v-model="post_building.date" type="date" id="date" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="image">Image</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Image" v-model="post_building.image" type="text" id="image" />
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                                                <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas (Line)</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" value="Electricity (DESCO)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                                                <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity (DESCO)</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" value="Lift (Available)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                                                <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Lift (Available)</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+                                            <div>
+                                                <select v-model="post_building.parking" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">Parking Facility</option>
+                                                    <option value="Available">Available</option>
+                                                    <option value="Not Available">Not Available</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                <select v-model="post_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">Area</option>
+
+                                                    <option value="Mirpur-1">Mirpur-1</option>
+                                                    <option value="Mirpur-2">Mirpur-2</option>
+                                                    <option value="Mirpur-6">Mirpur-6</option>
+                                                    <option value="Mirpur-7">Mirpur-7</option>
+                                                    <option value="Mirpur-10">Mirpur-10</option>
+                                                    <option value="Mirpur-11">Mirpur-11</option>
+                                                    <option value="Mirpur-12">Mirpur-12</option>
+                                                    <option value="Mirpur-13">Mirpur-13</option>
+                                                    <option value="Mirpur-14">Mirpur-14</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                <select v-model="post_building.city" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">City</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                                            <select v-model="post_building.district" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                <option disabled value="">District</option>
+                                                <option value="Dhaka">Dhaka</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+
+                                            <div>
+                                                <select v-model="post_building.postal_code" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">Postal Code</option>
+                                                    <option value="1216">1216</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <button type="submit" class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto">
+                                                Create
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
             </dialog>
             <dialog id="my_modal_3" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                    <!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+                    <section class="bg-gray-100">
+                        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+                                <div class="lg:col-span-2 lg:py-12">
+                                    <p class="max-w-xl text-lg">
+                                        At the same time, the fact that we are wholly owned and totally independent from
+                                        manufacturer and other group control gives you confidence that we will only recommend what
+                                        is right for you.
+                                    </p>
+
+                                    <div class="mt-8">
+                                        <a href="" class="text-2xl font-bold text-pink-600"> 0151 475 4450 </a>
+
+                                        <address class="mt-2 not-italic">282 Kevin Brook, Imogeneborough, CA 58517</address>
+                                    </div>
+                                </div>
+
+                                <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                                    <form @submit.prevent="updateBuilding" class="space-y-4">
+
+                                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                                            <input hidden class="w-full rounded-lg  border-gray-200 p-3 text-sm" placeholder="id" v-model="update_building.id" />
+                                            <input hidden class="w-full rounded-lg  border-gray-200 p-3 text-sm" placeholder="id" v-model="update_building.owner_Id" />
+                                            <div>
+                                                <label class="sr-only" for="name">Name</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Building Name" v-model="update_building.name" type="text" id="name" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="address">Address</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Building Address" v-model="update_building.address" type="text" id="email" />
+                                            </div>
+
+                                            <div>
+                                                <label class="sr-only" for="phone">Phone</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Developer" v-model="update_building.developer" type="text" id="phone" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="price_range">Price Range</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Price Range" v-model="update_building.price_range" type="text" id="price_range" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="date">Developed Date</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Date" v-model="update_building.date" type="date" id="date" />
+                                            </div>
+                                            <div>
+                                                <label class="sr-only" for="image">Image</label>
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Image" v-model="update_building.image" type="text" id="image" />
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                                                <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas (Line)</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" value="Electricity (DESCO)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                                                <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity (DESCO)</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" value="Lift (Available)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
+                                                <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Lift (Available)</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+                                            <div>
+                                                <select v-model="update_building.parking" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">Parking Facility</option>
+                                                    <option value="Available">Available</option>
+                                                    <option value="Not Available">Not Available</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                <select v-model="update_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">Area</option>
+
+                                                    <option value="Mirpur-1">Mirpur-1</option>
+                                                    <option value="Mirpur-2">Mirpur-2</option>
+                                                    <option value="Mirpur-6">Mirpur-6</option>
+                                                    <option value="Mirpur-7">Mirpur-7</option>
+                                                    <option value="Mirpur-10">Mirpur-10</option>
+                                                    <option value="Mirpur-11">Mirpur-11</option>
+                                                    <option value="Mirpur-12">Mirpur-12</option>
+                                                    <option value="Mirpur-13">Mirpur-13</option>
+                                                    <option value="Mirpur-14">Mirpur-14</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                <select v-model="update_building.city" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">City</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                                            <select v-model="update_building.district" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                <option disabled value="">District</option>
+                                                <option value="Dhaka">Dhaka</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+
+                                            <div>
+                                                <select v-model="update_building.postal_code" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
+                                                    <option disabled value="">Postal Code</option>
+                                                    <option value="1216">1216</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <button type="submit" class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+            <!-- <dialog id="my_modal_3" class="modal">
 
                 <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
-                    
 
                     <div class="p-4 -mt-10 text-center sm:p-6 md:col-span-2 lg:p-8">
                         <p class="text-sm font-semibold uppercase tracking-widest">
@@ -113,7 +394,7 @@
                         </select>
                         <select v-model="update_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
                             <option disabled value="">Area</option>
-                        
+
                             <option value="Mirpur-1">Mirpur-1</option>
                             <option value="Mirpur-2">Mirpur-2</option>
                             <option value="Mirpur-6">Mirpur-6</option>
@@ -147,11 +428,11 @@
                             <button v-on:click="updateBuilding" class="btn inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
                         </form>
 
-                        
                     </div>
                 </section>
 
-            </dialog>
+            </dialog> -->
+
             <dialog id="my_modal_1" class="modal">
 
                 <section class="modal-box overflow-hidden rounded-lg  shadow-2xl ">
@@ -196,7 +477,9 @@
                 </section>
 
             </dialog>
+
         </div>
+
         <div class="mb-10 mt-10">
             <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8 mt-24 h-auto">
 
@@ -234,12 +517,12 @@
 
     </div>
 
-    
 </body>
 </template>
 
 <script>
 import NavComponentOwner from './NavComponentOwner.vue'
+import Swal from 'sweetalert2'
 
 import axios from 'axios';
 export default {
@@ -250,6 +533,8 @@ export default {
 
             buildings: [],
             // building_Ids: [],for getting building id in a array then send it to the mounted parameter and use params to get data
+
+            facilities: [],
             post_building: {
 
                 post_id: '',
@@ -261,7 +546,10 @@ export default {
                 city: '',
                 district: '',
                 postal_code: '',
-                date: ''
+                date: '',
+                price_range: '',
+                image: '',
+
             },
             update_building: {
                 owner_Id: '',
@@ -274,14 +562,16 @@ export default {
                 city: '',
                 district: '',
                 postal_code: '',
-                date: ''
+                date: '',
+                price_range: '',
+                image: '',
             }
         }
 
     },
     components: {
         NavComponentOwner,
-        
+
     },
     methods: {
         async getBuildingId(id) {
@@ -305,11 +595,19 @@ export default {
                 city: this.update_building.city,
                 district: this.update_building.district,
                 postal_code: this.update_building.postal_code,
-                date: this.update_building.date
+                date: this.update_building.date,
+                price_range: this.update_building.price_range,
+                facilities: this.facilities.join(','),
+                image: this.update_building.image
             })
             console.warn(updateBuilding)
 
             if (updateBuilding.status == 200) {
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Updated Successfully!",
+                    icon: "success"
+                });
                 this.loadData();
             }
         },
@@ -335,8 +633,12 @@ export default {
                 city: this.post_building.city,
                 district: this.post_building.district,
                 postal_code: this.post_building.postal_code,
-                date: this.post_building.date
+                date: this.post_building.date,
+                price_range: this.post_building.price_range,
+                facilities: this.facilities.join(','),
+                image: this.post_building.image
             });
+            console.warn(this.post_building_data)
 
             if (post.data.status == true) {
                 this.loadData();

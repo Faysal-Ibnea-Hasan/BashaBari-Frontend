@@ -1,7 +1,13 @@
 <template>
 <body>
-    <NavComponentTenant />
-    <div class="h-auto">
+    <div v-if="isLogin">
+        <NavComponentTenant />
+    </div>
+    <div v-if="isNotLogin">
+        <NavComponent />
+    </div>
+
+    <div class=" h-auto">
         
         
         <div class="flex mt-10 mb-10 place-content-center">
@@ -71,7 +77,9 @@
 <script>
 import axios from 'axios'
 import NavComponentTenant from './NavComponentTenant.vue';
+
 import FooterComponent from './FooterComponent.vue';
+import NavComponent from './NavComponent.vue';
 
 export default {
     name: "FindBuildingComponentTenant",
@@ -79,20 +87,28 @@ export default {
         return {
             buildings: [],
             area: '',
+            isLogin: false,
+            isNotLogin: false
+            
         }
     },
     components: {
         NavComponentTenant,
-        FooterComponent
+        FooterComponent,
+        NavComponent
     },
     methods: {
         check_tenant() {
             let users = localStorage.getItem('tenant-info');
 
             if (!users) {
-                this.$router.push({
-                    name: 'LoginPageTenant'
-                })
+                this.isNotLogin = true
+                // this.$router.push({
+                //     name: 'LoginPageTenant'
+                // })
+            }
+            else if(users){
+                this.isLogin = true
             }
         },
         async get_buildings() {

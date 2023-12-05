@@ -18,7 +18,7 @@
         </div>
         <!-- End Announcement Banner -->
         <!--Create Flat Modal Start-->
-        <dialog id="my_modal_2" class="modal">
+        <!-- <dialog id="my_modal_0" class="modal">
 
             <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
 
@@ -64,6 +64,212 @@
                 </div>
             </section>
 
+        </dialog> -->
+        <!-- You can open the modal using ID.showModal() method -->
+
+        <dialog id="my_modal_2" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+
+                <section class="bg-gray-100">
+                    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+                            <div class="lg:col-span-2 lg:py-12">
+                                <p class="max-w-xl text-lg">
+                                    At the same time, the fact that we are wholly owned and totally independent from
+                                    manufacturer and other group control gives you confidence that we will only recommend what
+                                    is right for you.
+                                </p>
+
+                                <div class="mt-8">
+                                    <a href="" class="text-2xl font-bold text-pink-600"> 0151 475 4450 </a>
+
+                                    <address class="mt-2 not-italic">282 Kevin Brook, Imogeneborough, CA 58517</address>
+                                </div>
+                            </div>
+
+                            <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                                <form @submit.prevent="post_flat_details" class="space-y-4">
+
+                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                                        <input type="text" hidden placeholder="Owner ID" v-model="owner_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                                        <input type="text" hidden placeholder="Building ID" v-model="building_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                                        <div>
+                                            <label class="sr-only" for="unit_name">Unit Name</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Unit Name" v-model="create_flat_details.unit_name" type="text" id="unit_name" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="floor">Floor</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Floor" v-model="create_flat_details.floor" type="number" id="floor" />
+                                        </div>
+
+                                        <div>
+                                            <label class="sr-only" for="area">Area</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Area (square feet)" v-model="create_flat_details.area" type="text" id="area" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="room">Bed-Room</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Bed-Room" v-model="create_flat_details.room" type="number" id="room" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="washroom">Washroom</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Washroom" v-model="create_flat_details.washroom" type="number" id="washroom" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="balconi">Balconi</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Balconi" v-model="create_flat_details.balconi" type="number" id="balconi" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="rent_value">Rent Value</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Rent Value" v-model="create_flat_details.rent_value" type="text" id="rent_value" />
+                                        </div>
+                                        <div>
+                                            <select v-model="create_flat_details.status" class="w-full rounded-lg border-gray-200 p-3 text-sm">
+                                                <option disabled value="">Status</option>
+                                                <option value="Available">Available</option>
+                                                <option value="Not Available">Not Available</option>
+                                                <option value="Will Be Available">Will Be Available</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select v-model="create_flat_details.rent_type" class="w-full rounded-lg border-gray-200 p-3 text-sm">
+                                                <option disabled value="">Select Rent Type</option>
+                                                <option value="Family">Family</option>
+                                                <option value="Bachelor">Bachelor</option>
+                                                <option value="Sublet">Sublet</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select v-model="create_flat_details.rent_package" class="w-full rounded-lg border-gray-200 p-3 text-sm">
+                                                <option disabled value="">Select Rent Package</option>
+                                                <option value="Weekly">Weekly</option>
+                                                <option value="Monthly">Monthly</option>
+                                                <option value="Yearly">Yearly</option>
+                                                <option value="Unlimited">Unlimited</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <button type="submit" class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto">
+                                            Create
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+
+                <section class="bg-gray-100">
+                    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+                            <div class="lg:col-span-2 lg:py-12">
+                                <p class="max-w-xl text-lg">
+                                    At the same time, the fact that we are wholly owned and totally independent from
+                                    manufacturer and other group control gives you confidence that we will only recommend what
+                                    is right for you.
+                                </p>
+
+                                <div class="mt-8">
+                                    <a href="" class="text-2xl font-bold text-pink-600"> 0151 475 4450 </a>
+
+                                    <address class="mt-2 not-italic">282 Kevin Brook, Imogeneborough, CA 58517</address>
+                                </div>
+                            </div>
+
+                            <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                                <form @submit.prevent="update_flats" class="space-y-4">
+
+                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                                        <input type="text" hidden placeholder="Owner ID" v-model="owner_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                                        <input type="text" hidden placeholder="Building ID" v-model="building_Id" class="input input-bordered w-full max-w-xs mt-2" />
+                                        <div>
+                                            <label class="sr-only" for="unit_name">Unit Name</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Unit Name" v-model="update_flat_details.unit_name" type="text" id="unit_name" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="floor">Floor</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Floor" v-model="update_flat_details.floor" type="number" id="floor" />
+                                        </div>
+
+                                        <div>
+                                            <label class="sr-only" for="area">Area</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Area (square feet)" v-model="update_flat_details.area" type="text" id="area" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="room">Bed-Room</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Bed-Room" v-model="update_flat_details.room" type="number" id="room" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="washroom">Washroom</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Washroom" v-model="update_flat_details.washroom" type="number" id="washroom" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="balconi">Balconi</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Balconi" v-model="update_flat_details.balconi" type="number" id="balconi" />
+                                        </div>
+                                        <div>
+                                            <label class="sr-only" for="rent_value">Rent Value</label>
+                                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Rent Value" v-model="update_flat_details.rent_value" type="text" id="rent_value" />
+                                        </div>
+                                        <div>
+                                            <select v-model="update_flat_details.status" class="w-full rounded-lg border-gray-200 p-3 text-sm">
+                                                <option disabled value="">Status</option>
+                                                <option value="Available">Available</option>
+                                                <option value="Not Available">Not Available</option>
+                                                <option value="Will Be Available">Will Be Available</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select v-model="update_flat_details.rent_type" class="w-full rounded-lg border-gray-200 p-3 text-sm">
+                                                <option disabled value="">Select Rent Type</option>
+                                                <option value="Family">Family</option>
+                                                <option value="Bachelor">Bachelor</option>
+                                                <option value="Sublet">Sublet</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <select v-model="update_flat_details.rent_package" class="w-full rounded-lg border-gray-200 p-3 text-sm">
+                                                <option disabled value="">Select Rent Package</option>
+                                                <option value="Weekly">Weekly</option>
+                                                <option value="Monthly">Monthly</option>
+                                                <option value="Yearly">Yearly</option>
+                                                <option value="Unlimited">Unlimited</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <button type="submit" class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto">
+                                            Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
         </dialog>
         <!--Create Flat Modal End-->
         <!--Assign Tenant Modal Start-->
@@ -101,7 +307,7 @@
         </dialog>
         <!--Assign Tenant Modal End-->
         <!--Update Flat Modal Start-->
-        <dialog id="my_modal_1" class="modal">
+        <!-- <dialog id="my_modal_0" class="modal">
 
             <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
 
@@ -147,7 +353,7 @@
                 </div>
             </section>
 
-        </dialog>
+        </dialog> -->
         <!--Update Flat Modal End-->
 
         <!--Details Modal Start-->
@@ -199,6 +405,14 @@
                             <dt class="font-medium text-gray-900">Status</dt>
                             <dd class="text-gray-700 sm:col-span-2">{{ popup.status }}</dd>
                         </div>
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Rent Type</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.rent_type }}</dd>
+                        </div>
+                        <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                            <dt class="font-medium text-gray-900">Rent Package</dt>
+                            <dd class="text-gray-700 sm:col-span-2">{{ popup.rent_package }}</dd>
+                        </div>
 
                         <form method="dialog">
                             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -217,9 +431,8 @@
                 <span v-if="item.status == 'Not Available'" class="indicator-item badge badge-error">{{ item.status }}</span>
                 <span v-else-if="item.status == 'Will Be Available'" class="indicator-item badge badge-primary">{{ item.status }}</span>
                 <span v-else-if="item.status == 'Available'" class="indicator-item badge badge-success">{{ item.status }}</span>
-                
 
-                <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100" >
+                <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
                     <img alt="Home" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="h-56 w-full rounded-md object-cover" />
 
                     <div class="mt-2">
@@ -229,11 +442,17 @@
 
                                 <dd class="text-sm text-gray-500">৳{{ item.rent_value }}</dd>
                             </div>
+                            <div class="flex place-content-between">
+                                <div>
+                                    <dt class="sr-only">Unit Name</dt>
+                                    <dd class="font-medium">{{ item.unit_name }} | {{ item.flat_Id }}</dd>
+                                </div>
 
-                            <div>
-                                <dt class="sr-only">Unit Name</dt>
+                                <div class="flex flex-row gap-2">
+                                    <dd class="w-auto ps-2 pe-2 text-sm text-center text-white rounded-full bg-cyan-500">{{ item.rent_type }}</dd>
+                                    <dd class="w-auto ps-2 pe-2 text-sm text-center text-white rounded-full bg-cyan-500">{{ item.rent_package }}</dd>
+                                </div>
 
-                                <dd class="font-medium">{{ item.unit_name }} | {{ item.flat_Id }}</dd>
                             </div>
                         </dl>
                         <div class="flex place-content-center">
@@ -321,7 +540,7 @@
         <!--Card End-->
 
     </div>
-    
+
 </body>
 </template>
 
@@ -346,7 +565,7 @@ export default {
                 building_Id: '',
                 flat_Id: '',
                 tenant_Id: '',
-                joined_at:'',
+                joined_at: '',
             },
             create_flat_details: {
 
@@ -358,6 +577,8 @@ export default {
                 balconi: '',
                 rent_value: '',
                 status: '',
+                rent_type: '',
+                rent_package: '',
             },
             update_flat_details: {
                 id: '',
@@ -369,12 +590,14 @@ export default {
                 balconi: '',
                 rent_value: '',
                 status: '',
+                rent_type: '',
+                rent_package: '',
             }
         }
     },
     components: {
         NavComponentOwner,
-        
+
     },
     methods: {
         check_owner() {
@@ -411,6 +634,8 @@ export default {
                 balconi: this.create_flat_details.balconi,
                 rent_value: this.create_flat_details.rent_value,
                 status: this.create_flat_details.status,
+                rent_type: this.create_flat_details.rent_type,
+                rent_package: this.create_flat_details.rent_package,
             });
             if (post_flat_details.data.status == true) {
                 this.get_building_flats();
@@ -443,6 +668,8 @@ export default {
                 balconi: this.update_flat_details.balconi,
                 rent_value: this.update_flat_details.rent_value,
                 status: this.update_flat_details.status,
+                rent_type: this.update_flat_details.rent_type,
+                rent_package: this.update_flat_details.rent_package,
             });
             console.warn(update_flats);
             if (update_flats.data.status == true) {
@@ -455,14 +682,14 @@ export default {
                 building_Id: this.building_Id,
                 flat_Id: this.flat_Id,
                 tenant_Id: this.post_assignData.tenant_Id,
-                joined_at:this.post_assignData.joined_at
+                joined_at: this.post_assignData.joined_at
             });
             let responselog = await axios.post("https://shomadhan.top/admin/api/Api/RentLog/Create_Form_Post", {
                 owner_Id: this.owner_Id,
                 building_Id: this.building_Id,
                 flat_Id: this.flat_Id,
                 tenant_Id: this.post_assignData.tenant_Id,
-                joined_at:this.post_assignData.joined_at
+                joined_at: this.post_assignData.joined_at
             });
             if (response.data.status == true) {
                 let update_flat_status = await axios.put("https://shomadhan.top/admin/api/Api/Flat/Updated/" + this.update_flat_details.id, {

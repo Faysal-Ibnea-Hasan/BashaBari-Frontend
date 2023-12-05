@@ -92,6 +92,21 @@
                 </div>
 
                 <div class="sm:col-span-3">
+                    <label for="af-account-email" class="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
+                        Email
+                    </label>
+
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-9">
+                    <div class="sm:flex">
+                        <input v-model="update_owner_details.email" id="af-account-email" type="email" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="example@gmail.com">
+
+                    </div>
+                </div>
+                <!-- End Col -->
+                <div class="sm:col-span-3">
                     <label for="af-account-address" class="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
                         Address
                     </label>
@@ -163,6 +178,7 @@ export default {
                 password: '',
                 address: '',
                 nid: '',
+                email:'',
 
             },
             current_password: '',
@@ -198,6 +214,7 @@ export default {
                     password: this.updated_password,
                     address: this.update_owner_details.address,
                     nid: this.update_owner_details.nid,
+                    email: this.update_owner_details.email
                 })
                 if (update_owner.data.status == true) {
                     Swal.fire({

@@ -132,10 +132,17 @@
                                 <dd class="text-sm text-gray-500">৳{{ item.rent_value }}</dd>
                             </div>
 
-                            <div>
-                                <dt class="sr-only">Unit Name</dt>
+                            <div class="flex place-content-between">
+                                <div>
+                                    <dt class="sr-only">Unit Name</dt>
+                                    <dd class="font-medium">{{ item.unit_name }}</dd>
+                                </div>
 
-                                <dd class="font-medium">{{ item.unit_name }}</dd>
+                                <div class="flex flex-row gap-2">
+                                    <dd class="w-auto ps-2 pe-2 text-sm text-center text-white rounded-full bg-cyan-500">{{ item.rent_type }}</dd>
+                                    <dd class="w-auto ps-2 pe-2 text-sm text-center text-white rounded-full bg-cyan-500">{{ item.rent_package }}</dd>
+                                </div>
+
                             </div>
                         </dl>
                         <div class="flex">

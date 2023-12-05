@@ -124,10 +124,10 @@
                 <form @submit.prevent="registerTenant" class="mt-8 grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                         <label for="Fullname" class="block text-sm font-medium text-gray-700">
-                            Full Name (optional)
+                            Full Name*
                         </label>
 
-                        <input v-model="tenants.name" type="text" id="Fullname" class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
+                        <input v-model="tenants.name" type="text" id="Fullname" required class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
@@ -136,6 +136,14 @@
                         </label>
 
                         <input v-model="tenants.mobile" type="text" id="Mobile" required  class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                            Email (optional)
+                        </label>
+
+                        <input v-model="tenants.email" type="email" id="email"  class="mt-1 w-full h-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm hover:shadow-lg" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
@@ -221,7 +229,9 @@ export default {
                 mobile: '',
                 address: '',
                 nid: '',
-                password: ''
+                password: '',
+                email: '',
+                assign_status: 0,
             },
             initial_password: '',
             // isVisible: false,
@@ -237,7 +247,9 @@ export default {
                     mobile: this.tenants.mobile,
                     address: this.tenants.address,
                     nid: this.tenants.nid,
-                    password: this.tenants.password
+                    password: this.tenants.password,
+                    email: this.tenants.email,
+                    assign_status: this.tenants.assign_status
                 });
                 if (result.data.status == true) {
                     Swal.fire({
