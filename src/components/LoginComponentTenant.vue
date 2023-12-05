@@ -40,7 +40,6 @@
 
 <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-lg">
-       
 
         <form @submit.prevent="login" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
             <p class="text-center text-lg font-medium">Sign in to your account</p>
@@ -97,7 +96,7 @@ export default {
         return {
             mobile: '',
             password: '',
-            tenant_Id: '',
+
             // isVisible: false,
             // backgroundImage: ('src/assets/images/scattered-forcefields.svg')
             showPassword: false
@@ -115,12 +114,7 @@ export default {
 
             if (result.data.status == true) {
                 localStorage.setItem("tenant-info", JSON.stringify(result.data.data));
-                let tenant_Id = localStorage.getItem("tenant-info");
-                this.tenant_Id = JSON.parse(tenant_Id).tenant_Id;
-                console.warn(this.tenant_Id)
-                let get_assign_by_tenantID = await axios.get("https://shomadhan.top/admin/api/Api/Rent/Tenant/" + this.tenant_Id)
-                localStorage.setItem("status", JSON.stringify(get_assign_by_tenantID.data.status));
-                console.warn(get_assign_by_tenantID)
+
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -143,12 +137,6 @@ export default {
         },
         togglePassword() {
             this.showPassword = !this.showPassword;
-        },
-        showAlart() {
-            this.isVisible = true;
-            setTimeout(() => {
-                this.isVisible = false;
-            }, 5000)
         },
 
     }

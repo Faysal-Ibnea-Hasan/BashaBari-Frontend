@@ -692,21 +692,20 @@ export default {
                 joined_at: this.post_assignData.joined_at
             });
             if (response.data.status == true) {
-                let update_flat_status = await axios.put("https://shomadhan.top/admin/api/Api/Flat/Updated/" + this.update_flat_details.id, {
-                    owner_Id: this.owner_Id,
-                    building_Id: this.building_Id,
-                    unit_name: this.update_flat_details.unit_name,
-                    floor: this.update_flat_details.floor,
-                    area: this.update_flat_details.area,
-                    room: this.update_flat_details.room,
-                    washroom: this.update_flat_details.washroom,
-                    balconi: this.update_flat_details.balconi,
-                    rent_value: this.update_flat_details.rent_value,
+                this.update_assign_status();
+                let update_flat_status = await axios.post("https://shomadhan.top/admin/api/Api/Flat/Status/Updated/" + this.flat_Id, {
                     status: this.status_notavailable
                 })
                 this.get_building_flats();
+
             }
         },
+        async update_assign_status() {
+            let update_assign_status = await axios.post("https://shomadhan.top/admin/api/Api/Tenant/UpdatedStatus/" + this.post_assignData.tenant_Id, {
+
+                assign_status: 1
+            })
+        }
 
     },
     mounted() {
