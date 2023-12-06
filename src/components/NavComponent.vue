@@ -31,13 +31,13 @@
                         </summary>
                         <ul class="w-48 p-2 bg-base-100">
                             <li><router-link to="/find-buildings">Search Rentals</router-link></li>
-                            <li><a>Create Search Agent</a></li>
+                            <li><router-link to="/create-search-agent">Create Search Agent</router-link></li>
                             <li><a>FAQ</a></li>
                             <li><router-link to="/login-tenant">Login</router-link></li>
                         </ul>
                     </details>
                 </li>
-                <li><a>Create Search Agent</a></li>
+                <li><router-link to="/create-search-agent">Create Search Agent</router-link></li>
                 <li><a>Blog</a></li>
                 <li><router-link class="hover:bg-green-400" to="/find-buildings">Search Properties</router-link></li>
             </ul>

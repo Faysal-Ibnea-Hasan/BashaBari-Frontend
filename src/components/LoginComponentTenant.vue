@@ -42,7 +42,7 @@
     <div class="mx-auto max-w-lg">
 
         <form @submit.prevent="login" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
-            <p class="text-center text-lg font-medium">Sign in to your account</p>
+            <p class="text-center text-lg font-medium">Sign in to your account | Tenant</p>
 
             <div>
                 <label for="mobile" class="sr-only">Mobile</label>

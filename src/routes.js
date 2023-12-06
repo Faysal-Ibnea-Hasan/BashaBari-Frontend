@@ -21,6 +21,7 @@ import ProblemAndSupportTenant from './components/ProblemAndSupportTenant.vue'
 import ProblemDashboardTenant from './components/ProblemDashboardTenant.vue'
 import ProfileComponentOwner from './components/ProfileComponentOwner.vue'
 import ProfileComponentTenant from './components/ProfileComponentTenant.vue'
+import CreateSearchAgentComponent from './components/CreateSearchAgentComponent.vue'
 
 const routes =[
     {
@@ -156,6 +157,12 @@ const routes =[
         path:'/tenant-profile',
         base:'https://shomadhan.top/',   
         component:ProfileComponentTenant,
+    },
+    {
+        name:'CreateSearchAgentComponent',
+        path:'/create-search-agent',
+        base:'https://shomadhan.top/',   
+        component:CreateSearchAgentComponent,
     },
 ]
 const router = createRouter({
