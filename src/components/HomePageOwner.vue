@@ -74,7 +74,7 @@ export default {
             owner: [],
             name: null,
             mobile: null,
-            image: null,
+            image: JSON.parse(localStorage.getItem('users-info')).image,
             id: '',
             isVisible: false,
             currentDateTime: '',
@@ -130,11 +130,12 @@ export default {
         const id = JSON.parse(users).id
         let getData = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + id);
         this.owner = getData.data.data //fetch all the data in the getData response
+        
 
-        const getApiImages = getData.data.data.image //fetch only images in the getData response
-        let getImage = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Image/" + getApiImages);
-        this.image = getImage.config.url //for getting the image url and use it in the blade
-        console.log(getApiImages);
+        // const getApiImages = getData.data.data.image //fetch only images in the getData response
+        // let getImage = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Image/" + getApiImages);
+        // this.image = getImage.config.url //for getting the image url and use it in the blade
+        // console.log(getApiImages);
 
         // this.showAlart();
 

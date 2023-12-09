@@ -30,10 +30,10 @@
 
         <div class="grid mt-10 mb-10 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
             
-                <router-link :to="'/find-flats/' + item.building_Id" href="#" class="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8" v-for="item in buildings" :key="item.id">
+                <router-link :to="'/find-flats/' + item.building_Id" href="#" class="relative block overflow-hidden rounded-lg border shadow-xl border-gray-100 p-4 sm:p-6 lg:p-8" v-for="item in buildings" :key="item.id">
                 <span class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
 
-                <div class="sm:flex sm:justify-between sm:gap-4">
+                <div class="sm:flex sm:justify-between sm:gap-4 ">
                     <div>
                         <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
                             {{ item.name }}
@@ -43,13 +43,18 @@
                     </div>
 
                     <div class="hidden sm:block sm:shrink-0">
-                        <img alt="Paul Clapton" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" class="h-16 w-16 rounded-lg object-cover shadow-sm" />
+                        <img alt="Paul Clapton" :src="item.image" class="h-32 w-32 rounded-lg object-cover shadow-sm" />
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <p class="max-w-[40ch] text-sm text-gray-500">
                         {{ item.address }}
+                    </p>
+                </div>
+                <div class="mt-4">
+                    <p class="max-w-[40ch] text-sm text-gray-500">
+                        {{ item.facilities }}
                     </p>
                 </div>
 
@@ -62,6 +67,12 @@
                     <div class="flex flex-col-reverse">
                         <dt class="text-sm font-medium text-gray-600">Parking Facility</dt>
                         <dd class="text-xs text-gray-500">{{ item.parking }}</dd>
+                    </div>
+                    
+
+                    <div class="flex flex-col-reverse">
+                        <dt class="text-sm font-medium text-gray-600">Price Range</dt>
+                        <dd class="text-xs text-gray-500">{{ item.price_range }}</dd>
                     </div>
                 </dl>
             </router-link>

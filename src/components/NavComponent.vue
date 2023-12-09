@@ -49,6 +49,6 @@
 
 <script>
 export default {
-    name: 'NavComponent'
+    name: 'NavComponent',
 }
 </script>

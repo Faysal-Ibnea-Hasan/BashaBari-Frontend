@@ -182,7 +182,7 @@ export default {
     name: "ProfileComponenttenant",
     data() {
         return {
-            image: '',
+            image: JSON.parse(localStorage.getItem('tenant-info')).image,
             id: ref(null),
             tenant_details: [],
             update_tenant_details: {
@@ -192,7 +192,7 @@ export default {
                 address: '',
                 nid: '',
                 email: '',
-                assign_status: '',
+                assign_status: JSON.parse(localStorage.getItem('tenant-info')).assign_status,
 
             },
             current_password: '',

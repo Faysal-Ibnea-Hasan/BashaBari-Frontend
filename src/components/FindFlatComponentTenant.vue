@@ -1,6 +1,11 @@
 <template>
 <body>
-    <NavComponentTenant />
+    <div v-if="isLogin">
+        <NavComponentTenant />
+    </div>
+    <div v-if="isNotLogin">
+        <NavComponent />
+    </div>
     <div class="h-auto">
         <div class="details mt-5 flex place-content-center">
 
@@ -244,6 +249,8 @@ export default {
             buildings_flats: [],
             building_details: [],
             status: '',
+            isLogin: false,
+            isNotLogin: false
             
         }
     },
@@ -256,9 +263,13 @@ export default {
             let users = localStorage.getItem('tenant-info');
 
             if (!users) {
-                this.$router.push({
-                    name: 'LoginPageTenant'
-                })
+                this.isNotLogin = true
+                // this.$router.push({
+                //     name: 'LoginPageTenant'
+                // })
+            }
+            else if(users){
+                this.isLogin = true
             }
         },
         async get_building_flats() {

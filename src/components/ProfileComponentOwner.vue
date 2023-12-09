@@ -203,7 +203,8 @@ export default {
         async get_owner_details() {
             let get_owner_details = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + this.id)
             this.update_owner_details = get_owner_details.data.data
-            console.warn(this.update_owner_details)
+            this.image = get_owner_details.data.data.image
+            //console.warn(this.update_owner_details)
         },
         async update_owner() {
             if (this.current_password == this.update_owner_details.password) {
@@ -239,7 +240,9 @@ export default {
     mounted() {
         this.check_owner();
         this.get_owner_details();
-    }
+    },
+    
+    
 }
 </script>
 

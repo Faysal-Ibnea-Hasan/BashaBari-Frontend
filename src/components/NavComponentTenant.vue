@@ -10,6 +10,9 @@
                 <router-link to="/find-buildings">
                     <li><a>Find your next home</a></li>
                 </router-link>
+                <router-link to="/create-search-agent">
+                    <li><a>Create Search Agent</a></li>
+                </router-link>
                 <li>
                     <a>Parent</a>
                     <ul class="p-2">
@@ -33,6 +36,9 @@
         <ul class="menu menu-horizontal px-1">
             <router-link to="/find-buildings">
                 <li><a>Find your next home</a></li>
+            </router-link>
+            <router-link to="/create-search-agent">
+                <li><a>Create Search Agent</a></li>
             </router-link>
 
             <li tabindex="0">
@@ -108,7 +114,7 @@ export default {
 
     data() {
         return {
-            image: '',
+            image: JSON.parse(localStorage.getItem('tenant-info')).image,
             tenant: {
                 assign_status: JSON.parse(localStorage.getItem('tenant-info')).assign_status,
             },

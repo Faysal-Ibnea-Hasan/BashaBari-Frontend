@@ -158,7 +158,7 @@ export default {
             let responseData1 = get_tenant_building_details.data.data;
             this.building_details = responseData1;
 
-            const get_tenant_flat_details = await axios.get("https://shomadhan.top/admin/api/Api/Flat/TableByFlatID/" + this.flat_Id);
+            const get_tenant_flat_details = await axios.get(`https://shomadhan.top/admin/api/Api/Flat/TableByFlatID?flat_Id=${this.flat_Id}`);
             let responseData2 = get_tenant_flat_details.data.data
             this.flat_details = responseData2
             //console.warn(get_tenant_flat_details);

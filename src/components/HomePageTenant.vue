@@ -54,7 +54,7 @@
 
                 <div class="sm:self-end col-span-12 sm:col-span-5 md:col-span-4 lg:col-span-3">
                     <!-- Card -->
-                    <a class="group relative block rounded-xl overflow-hidden" href="#">
+                    <router-link to="/create-search-agent" class="group relative block rounded-xl overflow-hidden" >
                         <div class="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
                             <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description">
                         </div>
@@ -63,7 +63,7 @@
                                 Create Search Agent
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                     <!-- End Card -->
                 </div>
                 <!-- End Col -->

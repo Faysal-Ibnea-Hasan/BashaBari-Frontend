@@ -162,6 +162,7 @@ export default {
                     text: "Your request has been registered!",
                     icon: "success"
                 });
+                
             }
         }
     }
