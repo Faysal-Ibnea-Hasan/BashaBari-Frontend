@@ -1,5 +1,7 @@
 <template>
-<!-- Card Section -->
+<body>
+    <NavComponentTenant/>
+    <!-- Card Section -->
 <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Card -->
     <div class="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
@@ -168,6 +170,7 @@
 </div>
 
 <!-- End Card Section -->
+</body>
 </template>
 
     
@@ -177,9 +180,13 @@ import Swal from 'sweetalert2'
 import {
     ref
 } from 'vue';
+import NavComponentTenant from './NavComponentTenant.vue';
 
 export default {
     name: "ProfileComponenttenant",
+    components:{
+        NavComponentTenant
+    },
     data() {
         return {
             image: JSON.parse(localStorage.getItem('tenant-info')).image,

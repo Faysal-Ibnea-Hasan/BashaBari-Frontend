@@ -14,10 +14,10 @@
                 
                 <li>
                     <details>
-                        <summary>
+                        <summary @mouseenter="isVisible=true">
                             Owner
                         </summary>
-                        <ul class="w-32 p-2 bg-base-100">
+                        <ul v-if="isVisible" @mouseleave="isVisible=false" class="w-32 p-2 bg-base-100">
                             <li><a>Add Listing</a></li>
                             <li><a>How It Works</a></li>
                             <li><router-link to="/login-owner">Login</router-link></li>
@@ -26,14 +26,15 @@
                 </li>
                 <li>
                     <details>
-                        <summary>
+                        <summary @mouseenter="isVisible=true">
                             Tenant
                         </summary>
-                        <ul class="w-48 p-2 bg-base-100">
+                        <ul v-if="isVisible" @mouseleave="isVisible=false" class="w-48 p-2 bg-base-100">
                             <li><router-link to="/find-buildings">Search Rentals</router-link></li>
                             <li><router-link to="/create-search-agent">Create Search Agent</router-link></li>
                             <li><a>FAQ</a></li>
                             <li><router-link to="/login-tenant">Login</router-link></li>
+                            <li><router-link to="/register-tenant">Register</router-link></li>
                         </ul>
                     </details>
                 </li>
@@ -50,5 +51,10 @@
 <script>
 export default {
     name: 'NavComponent',
+    data(){
+        return{
+            isVisible: false
+        }
+    }
 }
 </script>

@@ -24,7 +24,7 @@
                 <!-- head -->
                 <thead>
                     <tr>
-                        <th>Owner ID</th>
+                        <th>SN</th>
                         <th>Building ID</th>
                         <th>Flat ID</th>
                         <th>Tenant</th>
@@ -36,9 +36,9 @@
                 <tbody>
                     <!-- row 1 -->
 
-                    <tr v-for="item in assignData" :key="item.id">
+                    <tr v-for="item,index in assignData" :key="item.id">
 
-                        <td>{{ item.owner_Id }}</td>
+                        <td>{{ index + 1 }}</td>
                         <td>{{ item.building_Id }}</td>
                         <td>{{ item.flat_Id }}</td>
                         <td>{{ item.tenants.name }} ({{ item.tenant_Id }})</td>

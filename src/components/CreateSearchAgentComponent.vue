@@ -4,9 +4,9 @@
     <div>
 
         <section class="bg-gray-100">
-            <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8 bg-slate-300 rounded-lg">
                 <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-                    <div class="lg:col-span-2 lg:py-12">
+                    <div class="lg:col-span-2 lg:py-12 ">
                         <p class="max-w-xl text-2xl font-bold mb-3">
                             Create Search Agent
                         </p>
@@ -17,7 +17,7 @@
                         <div class="mt-8">
 
                             <p class="max-w-xl text-base font-medium">
-                                You will be notified via email once we have found your required home!
+                                You will be notified via email once we have found your desired home!
                             </p>
 
                         </div>

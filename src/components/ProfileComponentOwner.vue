@@ -1,5 +1,7 @@
 <template>
-<!-- Card Section -->
+    <body>
+        <NavComponentOwner/>
+      <!-- Card Section -->
 <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Card -->
     <div class="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
@@ -155,18 +157,23 @@
     <!-- End Card -->
 </div>
 
-<!-- End Card Section -->
+<!-- End Card Section -->  
+    </body>
+
 </template>
 
 <script>
 import axios from 'axios';
 import Swal from 'sweetalert2'
+
 import {
     ref
 } from 'vue';
+import NavComponentOwner from './NavComponentOwner.vue';
 
 export default {
     name: "ProfileComponentOwner",
+    components:{NavComponentOwner},
     data() {
         return {
             image: '',
