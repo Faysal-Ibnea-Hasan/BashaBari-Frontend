@@ -19,71 +19,7 @@
         <!-- End Announcement Banner -->
 
         <div>
-            <!-- Open the modal using ID.showModal() method -->
-
-            <!-- <dialog id="my_modal_2" class="modal">
-
-                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
-
-                    <div class="text-center -mt-10 h-max sm:p-6 md:col-span-2 lg:p-8">
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" hidden placeholder="Building Name" v-model="post_building.post_id" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" placeholder="Building Name" v-model="post_building.name" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" placeholder="Building Address" v-model="post_building.address" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" placeholder="Developer" v-model="post_building.developer" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <select v-model="post_building.parking" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">Parking Facility</option>
-                            <option value="Available">Available</option>
-                            <option value="Not Available">Not Available</option>
-                        </select>
-                        <select v-model="post_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">Area</option>
-
-                            <option value="Mirpur-1">Mirpur-1</option>
-                            <option value="Mirpur-2">Mirpur-2</option>
-                            <option value="Mirpur-6">Mirpur-6</option>
-                            <option value="Mirpur-7">Mirpur-7</option>
-                            <option value="Mirpur-10">Mirpur-10</option>
-                            <option value="Mirpur-11">Mirpur-11</option>
-                            <option value="Mirpur-12">Mirpur-12</option>
-                            <option value="Mirpur-13">Mirpur-13</option>
-                            <option value="Mirpur-14">Mirpur-14</option>
-                        </select>
-                        <select v-model="post_building.city" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">City</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <select v-model="post_building.district" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">District</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <select v-model="post_building.postal_code" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">Postal Code</option>
-                            <option value="1216">1216</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="date" placeholder="Developed Date" v-model="post_building.date" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <form method="dialog">
-                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            <button v-on:click="post_building_data" class="btn  inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">create</button>
-                        </form>
-
-                    </div>
-                </section>
-
-            </dialog> -->
-            <!-- You can open the modal using ID.showModal() method -->
+            
 
             <dialog id="my_modal_2" class="modal">
                 <div class="modal-box w-11/12 max-w-5xl">
@@ -140,7 +76,8 @@
                                             </div>
                                             <div>
                                                 <label class="sr-only" for="image">Image</label>
-                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Image" v-model="post_building.image" type="text" id="image" />
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Image" type="file" @change="handleFileUpload" id="image" />
+                                                
                                             </div>
                                             <div>
                                                 <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
@@ -281,7 +218,7 @@
                                             </div>
                                             <div>
                                                 <label class="sr-only" for="image">Image</label>
-                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Image" v-model="update_building.image" type="text" id="image" />
+                                                <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Image" type="file" @change="handleFileUpload" id="image" />
                                             </div>
                                             <div>
                                                 <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
@@ -367,71 +304,7 @@
                 </div>
             </dialog>
 
-            <!-- <dialog id="my_modal_3" class="modal">
-
-                <section class="modal-box overflow-hidden rounded-lg  shadow-2xl md:grid md:grid-cols-1">
-
-                    <div class="p-4 -mt-10 text-center sm:p-6 md:col-span-2 lg:p-8">
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" hidden placeholder="Building Name" v-model="update_building.owner_Id" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" hidden placeholder="Building Name" v-model="update_building.id" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" name="name" placeholder="Building Name" v-model="update_building.name" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" name="address" placeholder="Building Address" v-model="update_building.address" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="text" name="developer" placeholder="Developer" v-model="update_building.developer" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <select v-model="update_building.parking" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">Parking Facility</option>
-                            <option value="Available">Available</option>
-                            <option value="Not Available">Not Available</option>
-                        </select>
-                        <select v-model="update_building.area" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">Area</option>
-
-                            <option value="Mirpur-1">Mirpur-1</option>
-                            <option value="Mirpur-2">Mirpur-2</option>
-                            <option value="Mirpur-6">Mirpur-6</option>
-                            <option value="Mirpur-7">Mirpur-7</option>
-                            <option value="Mirpur-10">Mirpur-10</option>
-                            <option value="Mirpur-11">Mirpur-11</option>
-                            <option value="Mirpur-12">Mirpur-12</option>
-                            <option value="Mirpur-13">Mirpur-13</option>
-                            <option value="Mirpur-14">Mirpur-14</option>
-                        </select>
-                        <select v-model="update_building.city" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">City</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <select v-model="update_building.district" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">District</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <select v-model="update_building.postal_code" class="select select-bordered w-full max-w-xs mt-2 text-sm font-semibold uppercase tracking-widest">
-                            <option disabled value="">Postal Code</option>
-                            <option value="1216">1216</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <p class="text-sm font-semibold uppercase tracking-widest">
-                            <input type="date" name="date" placeholder="Developed Date" v-model="update_building.date" class="input input-bordered w-full max-w-xs mt-2" />
-                        </p>
-                        <form method="dialog">
-                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            <button v-on:click="updateBuilding" class="btn inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white">Update</button>
-                        </form>
-
-                    </div>
-                </section>
-
-            </dialog> -->
+           
 
             <dialog id="my_modal_1" class="modal">
 
@@ -523,6 +396,9 @@
 <script>
 import NavComponentOwner from './NavComponentOwner.vue'
 import Swal from 'sweetalert2'
+import {
+    ref
+} from 'vue'
 
 import axios from 'axios';
 export default {
@@ -530,6 +406,7 @@ export default {
     data() {
         return {
             owner: [],
+            selectedFile: ref(null),
 
             buildings: [],
             // building_Ids: [],for getting building id in a array then send it to the mounted parameter and use params to get data
@@ -548,7 +425,6 @@ export default {
                 postal_code: '',
                 date: '',
                 price_range: '',
-                image: '',
 
             },
             update_building: {
@@ -585,21 +461,39 @@ export default {
             let users = localStorage.getItem('users-info');
 
             this.update_building.owner_Id = JSON.parse(users).id
-            const updateBuilding = await axios.put("https://shomadhan.top/admin/api/Api/Building/Updated/" + this.update_building.id, {
-                owner_Id: this.update_building.owner_Id,
-                name: this.update_building.name,
-                address: this.update_building.address,
-                developer: this.update_building.developer,
-                area: this.update_building.area,
-                parking: this.update_building.parking,
-                city: this.update_building.city,
-                district: this.update_building.district,
-                postal_code: this.update_building.postal_code,
-                date: this.update_building.date,
-                price_range: this.update_building.price_range,
-                facilities: this.facilities.join(','),
-                image: this.update_building.image
-            })
+            const formData = new FormData();
+
+            formData.append('image', this.selectedFile);
+            formData.append('owner_Id', this.update_building.owner_Id);
+            formData.append('name', this.update_building.name);
+            formData.append('address', this.update_building.address);
+            formData.append('developer', this.update_building.developer);
+            formData.append('area', this.update_building.area);
+            formData.append('parking', this.update_building.parking);
+            formData.append('city', this.update_building.city);
+            formData.append('district', this.update_building.district);
+            formData.append('postal_code', this.update_building.postal_code);
+            formData.append('date', this.update_building.date);
+            formData.append('price_range', this.update_building.price_range);
+            formData.append('facilities', this.facilities.join(','));
+
+            const updateBuilding = await axios.post("https://shomadhan.top/admin/api/Api/Building/Updated/" + this.update_building.id,formData)
+
+            // const updateBuilding = await axios.post("https://shomadhan.top/admin/api/Api/Building/Updated/" + this.update_building.id, {
+            //     owner_Id: this.update_building.owner_Id,
+            //     name: this.update_building.name,
+            //     address: this.update_building.address,
+            //     developer: this.update_building.developer,
+            //     area: this.update_building.area,
+            //     parking: this.update_building.parking,
+            //     city: this.update_building.city,
+            //     district: this.update_building.district,
+            //     postal_code: this.update_building.postal_code,
+            //     date: this.update_building.date,
+            //     price_range: this.update_building.price_range,
+            //     facilities: this.facilities.join(','),
+            //      image: this.update_building.image
+            // })
             console.warn(updateBuilding)
 
             if (updateBuilding.status == 200) {
@@ -617,28 +511,32 @@ export default {
                 this.loadData();
             }
         },
-
+        handleFileUpload(event) {
+            this.selectedFile = event.target.files[0];
+            console.warn(this.selectedFile)
+        },
+        
         async post_building_data() {
             let users = localStorage.getItem('users-info');
 
             this.post_building.post_id = JSON.parse(users).id
-
-            const post = await axios.post("https://shomadhan.top/admin/api/Api/Building/Create_Form_Post", {
-                owner_Id: this.post_building.post_id,
-                name: this.post_building.name,
-                address: this.post_building.address,
-                developer: this.post_building.developer,
-                area: this.post_building.area,
-                parking: this.post_building.parking,
-                city: this.post_building.city,
-                district: this.post_building.district,
-                postal_code: this.post_building.postal_code,
-                date: this.post_building.date,
-                price_range: this.post_building.price_range,
-                facilities: this.facilities.join(','),
-                image: this.post_building.image
-            });
-            console.warn(this.post_building_data)
+            
+            const formData = new FormData();
+            formData.append('image', this.selectedFile);
+            formData.append('owner_Id', this.post_building.post_id);
+            formData.append('name', this.post_building.name);
+            formData.append('address', this.post_building.address);
+            formData.append('developer', this.post_building.developer);
+            formData.append('area', this.post_building.area);
+            formData.append('parking', this.post_building.parking);
+            formData.append('city', this.post_building.city);
+            formData.append('district', this.post_building.district);
+            formData.append('postal_code', this.post_building.postal_code);
+            formData.append('date', this.post_building.date);
+            formData.append('price_range', this.post_building.price_range);
+            formData.append('facilities', this.facilities.join(','));
+            
+            const post = await axios.post("https://shomadhan.top/admin/api/Api/Building/Create_Form_Post",formData);
 
             if (post.data.status == true) {
                 this.loadData();
@@ -665,7 +563,7 @@ export default {
 
             let getBuildings = await axios.get("https://shomadhan.top/admin/api/Api/Building/Owner/" + id);
             this.buildings = getBuildings.data.data
-            console.warn(this.buildings);
+           // console.warn(this.buildings);
 
             // let getBuilding = await axios.get("https://shomadhan.top/admin/api/Api/Building/Table/" + this.building_Ids); //send array of building_Ids to get data from api
             // this.buildings = getBuilding.data.data

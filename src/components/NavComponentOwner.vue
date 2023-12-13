@@ -86,7 +86,7 @@ export default {
     name: 'NavComponentOwner',
     data(){
         return{
-            image: JSON.parse(localStorage.getItem('users-info')).image,
+            image: null,
         }
     },
     methods: {
@@ -104,7 +104,13 @@ export default {
         
         
         const id = JSON.parse(users).id
-        let getData = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + id);
+        let getData = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + id)
+        .then(response=>{
+            this.image=response.data.data.image
+        })
+        .catch(error=>{
+            console.error(error)
+        });
         //fetch all the data in the getData response
         //console.warn(getData.data.data.image)
 

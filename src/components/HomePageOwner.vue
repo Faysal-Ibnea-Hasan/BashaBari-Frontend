@@ -74,7 +74,7 @@ export default {
             owner: [],
             name: null,
             mobile: null,
-            image: JSON.parse(localStorage.getItem('users-info')).image,
+            image: null,
             id: '',
             isVisible: false,
             currentDateTime: '',
@@ -130,6 +130,7 @@ export default {
         const id = JSON.parse(users).id
         let getData = await axios.get("https://shomadhan.top/admin/api/Api/Owner/Table/" + id);
         this.owner = getData.data.data //fetch all the data in the getData response
+        this.image = getData.data.data.image //fetch all the data in the getData response
         
 
         // const getApiImages = getData.data.data.image //fetch only images in the getData response
