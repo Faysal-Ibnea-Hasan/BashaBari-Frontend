@@ -157,13 +157,23 @@ export default {
                 status: this.create_search_agent.status,
             })
             if (create_search_agent.data.status == true) {
-                Swal.fire({
-                    title: "Success!",
-                    text: "Your request has been registered!",
-                    icon: "success"
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
                 });
-                
+                Toast.fire({
+                    icon: "success",
+                    title: "Your request has been registered"
+                });
             }
+            
         }
     }
 }

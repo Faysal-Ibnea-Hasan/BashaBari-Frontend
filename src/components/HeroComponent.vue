@@ -9,7 +9,7 @@
                 <h1 class="text-3xl font-extrabold sm:text-5xl">Welcome To BashaBari!</h1>
                 <p class="mt-4 sm:text-xl/relaxed">"Welcome to the future of hassle-free living! At BashaBari, we're dedicated to simplifying the journey of finding your perfect home. Explore a world of rental possibilities where your dream space is just a click away. Start your search today and open the door to a new beginning."</p>
                 <!-- You can open the modal using ID.showModal() method -->
-                <button class="mt-8 inline-block rounded bg-primary px-12 py-3 text-sm font-medium text-white transition hover:bg-primary-focus focus:outline-none focus:ring" onclick="my_modal_3.showModal()">Get Started</button>
+                <!-- <button class="mt-8 inline-block rounded bg-primary px-12 py-3 text-sm font-medium text-white transition hover:bg-primary-focus focus:outline-none focus:ring" onclick="my_modal_3.showModal()">Get Started</button>
                 <dialog id="my_modal_3" class="modal">
                     <div class="modal-box">
                         <form method="dialog">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                     </div>
-                </dialog>
+                </dialog> -->
             </div>
         </div>
     </div>
@@ -336,17 +336,17 @@
                 <!-- Grid -->
                 <div class="grid grid-cols-12 gap-2 sm:gap-6 items-center lg:-translate-x-10">
                     <div class="col-span-4">
-                        <img class="rounded-xl" src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80" alt="Image Description">
+                        <img class="rounded-xl" src="../assets/images/pic-2.jpg" alt="Image Description">
                     </div>
                     <!-- End Col -->
 
                     <div class="col-span-3">
-                        <img class="rounded-xl" src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description">
+                        <img class="rounded-xl" src="../assets/images/pic-3.jpg" alt="Image Description">
                     </div>
                     <!-- End Col -->
 
                     <div class="col-span-5">
-                        <img class="rounded-xl" src="https://images.unsplash.com/photo-1600194992440-50b26e0a0309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description">
+                        <img class="rounded-xl" src="../assets/images/pic-4.jpg" alt="Image Description">
                     </div>
                     <!-- End Col -->
                 </div>
