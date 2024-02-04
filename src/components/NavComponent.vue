@@ -18,7 +18,7 @@
                             Owner
                         </summary>
                         <ul v-if="isVisible" @mouseleave="isVisible=false" class="w-32 p-2 bg-base-100">
-                            <li><a>Add Listing</a></li>
+                            <li><router-link to="/add-listing">Add Listing</router-link></li>
                             <li><a>How It Works</a></li>
                             <li><router-link to="/login-owner">Login</router-link></li>
                         </ul>
