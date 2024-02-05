@@ -23,7 +23,7 @@
                         </div>
                         <div class="flex items-center">
                             <div class="inline-flex rounded-lg shadow-sm">
-                                <button @click="building_form" type="button" class="py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                                <button @click="building_form" type="button" :class="defaultBtn">
                                     Building
                                 </button>
                                 <button @click="flat_form" type="button" class="py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
@@ -128,42 +128,42 @@
                     <div v-if="isFlat" class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                         <form @submit.prevent="" class="space-y-4">
                             <div>
-                                <label class="sr-only" for="name">Unit Name*</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Unit Name*" type="text" id="name" required />
+                                <label class="sr-only" for="unit_name">Unit Name*</label>
+                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Unit Name*" type="text" id="unit_name" required />
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
-                                    <label class="sr-only" for="address">Building Address*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Building Address*" type="text" id="address" required />
+                                    <label class="sr-only" for="floor">Floor*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Which floor is your flat?" type="number" id="floor" required />
                                 </div>
 
                                 <div>
-                                    <label class="sr-only" for="developer">Developer</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="text" id="developer" required />
+                                    <label class="sr-only" for="area">Area*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="How much square feet is your flat?" type="text" id="area" required />
                                 </div>
                             </div>
                             <div>
-                                <label class="sr-only" for="date">Date</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="date" id="date" required />
+                                <label class="sr-only" for="building_Id">Building ID*</label>
+                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Your building ID* (If you don't have your building listed please list first)" type="text" id="building_Id" required />
                             </div>
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
-                                    <label class="sr-only" for="area">Area*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the area?*" type="text" id="area" required />
+                                    <label class="sr-only" for="room">Room*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="How many rooms exist in the flat?*" type="number" id="room" required />
                                 </div>
                                 <div>
-                                    <label class="sr-only" for="city">City*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the city?*" type="text" id="city" required />
+                                    <label class="sr-only" for="washroom">Washroom*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="How many washrooms exist in the flat?*" type="number" id="washroom" required />
                                 </div>
 
                                 <div>
-                                    <label class="sr-only" for="district">District</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district" type="text" id="district" required />
+                                    <label class="sr-only" for="balconi">Balconi</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="How many balconi exist in the flat?*" type="number" id="balconi" required />
                                 </div>
                                 <div>
-                                    <label class="sr-only" for="postal_code">Postal Code</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area" type="text" id="postal_code" required />
+                                    <label class="sr-only" for="rent_value">Rent Value</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="How much is the rent value of the flat?*" type="text" id="rent_value" required />
                                 </div>
                             </div>
 
@@ -173,34 +173,31 @@
                                     <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the avg price range of the flats of the building?*" type="text" id="price_range" required />
                                 </div>
                             </div>
-                            <div class="flex flex-row gap-12">
-                                <div>
-                                    <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas (Line)</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="Electricity (DESCO)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity (DESCO)</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="Lift (Available)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Lift (Available)</label>
-                                </div>
-                            </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                                 <select class="w-full rounded-lg border-2 p-3 text-sm">
-                                    <option>Is parking available?</option>
+                                    <option>Is your flat available for rent?</option>
                                     <option value="Available">Yes</option>
                                     <option value="Not Available">No</option>
+                                    <option value="Will Be Available">Will be available</option>
                                 </select>
-
                             </div>
-
-                            <div>
-                                <label class="sr-only" for="image">Additional Requirements</label>
-
-                                <input class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Image" type="file" id="image">
+                            <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
+                                <select class="w-full rounded-lg border-2 p-3 text-sm">
+                                    <option>What is the type of your flat?</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Bachelor">Bachelor</option>
+                                    <option value="Sublet">Sublet</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
+                                <select class="w-full rounded-lg border-2 p-3 text-sm">
+                                    <option>What is the rent package of the flat?</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Yearly">Yearly</option>
+                                    <option value="Unlimited">Unlimited</option>
+                                </select>
                             </div>
 
                             <div class="mt-4">
@@ -399,6 +396,9 @@ export default {
             isFlat: false,
             isShop: false,
             isOffice: false,
+            defaultBtn:'py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white  text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700',
+            clickBtn:'py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-black  text-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none',
+            
         }
     },
     components: {
@@ -410,6 +410,7 @@ export default {
             this.isFlat = false;
             this.isShop = false;
             this.isOffice = false;
+            
         },
         flat_form() {
             this.isBuilding = false;
