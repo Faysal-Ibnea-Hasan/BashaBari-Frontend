@@ -22,11 +22,14 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
+            <router-link to="/home-owner">
+                <li><a>Home</a></li>
+            </router-link>
             <router-link to="/list-tenant">
                 <li><a>Tenants</a></li>
             </router-link>
 
-            <li tabindex="0">
+            <!-- <li tabindex="0">
                 <details>
                     <summary>Properties</summary>
                     <ul class="p-2">
@@ -39,7 +42,7 @@
                         
                     </ul>
                 </details>
-            </li>
+            </li> -->
             <router-link to="/assign-tenant">
                 <li><a>Assign Details</a></li>
             </router-link>

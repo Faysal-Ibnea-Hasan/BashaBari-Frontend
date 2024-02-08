@@ -40,51 +40,52 @@
                     </div>
                     <!-- BUILDING -->
                     <div v-if="isBuilding" class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-                        <form @submit.prevent="" class="space-y-4">
+                        <form @submit.prevent="add_building" class="space-y-4">
+                            <input hidden class="w-full rounded-lg border p-3 text-sm" v-model="addBuilding.post_id" placeholder="Owner ID" type="text" id="owner_Id" />
                             <div>
                                 <label class="sr-only" for="name">Building Name*</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Building Name*" type="text" id="name" required />
+                                <input v-model="addBuilding.name" class="w-full rounded-lg border p-3 text-sm" placeholder="Building Name*" type="text" id="name" required />
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
                                     <label class="sr-only" for="address">Building Address*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Building Address*" type="text" id="address" required />
+                                    <input v-model="addBuilding.address" class="w-full rounded-lg border p-3 text-sm" placeholder="Building Address*" type="text" id="address" required />
                                 </div>
 
                                 <div>
                                     <label class="sr-only" for="developer">Developer</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="text" id="developer" required />
+                                    <input v-model="addBuilding.developer" class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="text" id="developer" required />
                                 </div>
                             </div>
                             <div>
                                 <label class="sr-only" for="date">Date</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="date" id="date" required />
+                                <input v-model="addBuilding.date" class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="date" id="date" required />
                             </div>
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
                                     <label class="sr-only" for="area">Area*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the area?*" type="text" id="area" required />
+                                    <input v-model="addBuilding.area" class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the area?*" type="text" id="area" required />
                                 </div>
                                 <div>
                                     <label class="sr-only" for="city">City*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the city?*" type="text" id="city" required />
+                                    <input v-model="addBuilding.city" class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the city?*" type="text" id="city" required />
                                 </div>
 
                                 <div>
                                     <label class="sr-only" for="district">District</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district" type="text" id="district" required />
+                                    <input v-model="addBuilding.district" class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district" type="text" id="district" required />
                                 </div>
                                 <div>
                                     <label class="sr-only" for="postal_code">Postal Code</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area" type="text" id="postal_code" required />
+                                    <input v-model="addBuilding.postal_code" class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area" type="text" id="postal_code" required />
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                                 <div>
                                     <label class="sr-only" for="price_range">Price Range*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the avg price range of the flats of the building?*" type="text" id="price_range" required />
+                                    <input v-model="addBuilding.price_range" class="w-full rounded-lg border p-3 text-sm" placeholder="What is the avg price range of the flats of the building?*" type="text" id="price_range" required />
                                 </div>
                             </div>
                             <div class="flex flex-row gap-12">
@@ -103,8 +104,8 @@
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
-                                <select class="w-full rounded-lg border-2 p-3 text-sm">
-                                    <option>Is parking available?</option>
+                                <select v-model="addBuilding.parking" class="w-full rounded-lg border-2 p-3 text-sm">
+                                    <option disabled>Is parking available?</option>
                                     <option value="Available">Yes</option>
                                     <option value="Not Available">No</option>
                                 </select>
@@ -112,9 +113,8 @@
                             </div>
 
                             <div>
-                                <label class="sr-only" for="image">Additional Requirements</label>
 
-                                <input class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Image" type="file" id="image">
+                                <input @change="handleFileUpload" class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Image" type="file" id="image">
                             </div>
 
                             <div class="mt-4">
@@ -387,7 +387,13 @@
 </template>
 
 <script>
+import axios from 'axios';
 import NavComponent from './NavComponent.vue';
+import Swal from 'sweetalert2';
+import {
+    ref
+} from 'vue';
+
 export default {
     name: 'AddListingComponent',
     data() {
@@ -396,9 +402,23 @@ export default {
             isFlat: false,
             isShop: false,
             isOffice: false,
-            defaultBtn:'py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white  text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 active:bg-black active:text-white',
-            clickBtn:'py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-black  text-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none',
-            
+            defaultBtn: 'py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white  text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 active:bg-black active:text-white',
+            clickBtn: 'py-3 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-black  text-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none',
+            facilities: [],
+            selectedFile: ref(null),
+            addBuilding: {
+                post_id: '',
+                name: '',
+                address: '',
+                developer: '',
+                area: '',
+                parking: 'Is parking available?',
+                city: '',
+                district: '',
+                postal_code: '',
+                date: '',
+                price_range: '',
+            }
         }
     },
     components: {
@@ -410,7 +430,7 @@ export default {
             this.isFlat = false;
             this.isShop = false;
             this.isOffice = false;
-            
+
         },
         flat_form() {
             this.isBuilding = false;
@@ -429,8 +449,63 @@ export default {
             this.isFlat = false;
             this.isShop = false;
             this.isOffice = true;
+        },
+        handleFileUpload(event) {
+            this.selectedFile = event.target.files[0];
+            //console.warn(this.selectedFile)
+        },
+        async add_building() {
+            let users = localStorage.getItem('users-info');
+
+            if (!users) {
+                this.$router.push({
+                    name: 'LoginPageOwner'
+                })
+            } else {
+                this.addBuilding.post_id = JSON.parse(users).id
+
+                const formData = new FormData();
+                formData.append('image', this.selectedFile);
+                formData.append('owner_Id', this.addBuilding.post_id);
+                formData.append('name', this.addBuilding.name);
+                formData.append('address', this.addBuilding.address);
+                formData.append('developer', this.addBuilding.developer);
+                formData.append('area', this.addBuilding.area);
+                formData.append('parking', this.addBuilding.parking);
+                formData.append('city', this.addBuilding.city);
+                formData.append('district', this.addBuilding.district);
+                formData.append('postal_code', this.addBuilding.postal_code);
+                formData.append('date', this.addBuilding.date);
+                formData.append('price_range', this.addBuilding.price_range);
+                formData.append('facilities', this.facilities.join(','));
+                const add_building = await axios.post("https://shomadhan.top/admin/api/Api/Building/Create_Form_Post", formData);
+
+                if (add_building.data.status == true) {
+                    const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Your listing has been added successfully"
+                });
+                setTimeout(() => {
+                    this.$router.push({
+                    name: 'BuildingComponentOwner'
+                })
+                }, 1500);
+                }
+            }
+
         }
-    }
+    },
 
 }
 </script>
