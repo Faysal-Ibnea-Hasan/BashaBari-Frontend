@@ -210,26 +210,24 @@
                     <!-- SHOP -->
                     <div v-if="isShop" class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                         <form @submit.prevent="" class="space-y-4">
+                            <input hidden class="w-full rounded-lg border p-3 text-sm" placeholder="Owner_Id" type="text" id="owner_Id" required />
                             <div>
-                                <label class="sr-only" for="name">Shop Name*</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Shop Name*" type="text" id="name" required />
+                                <label class="sr-only" for="space">Space*</label>
+                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="How much square feet is your shop space?*" type="text" id="space" required />
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
-                                    <label class="sr-only" for="address">Building Address*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Building Address*" type="text" id="address" required />
+                                    <label class="sr-only" for="location">Location*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the location?*" type="text" id="location" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="floor">Floor*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Which floor is your shop on?*" type="text" id="floor" required />
                                 </div>
 
-                                <div>
-                                    <label class="sr-only" for="developer">Developer</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="text" id="developer" required />
-                                </div>
                             </div>
-                            <div>
-                                <label class="sr-only" for="date">Date</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="date" id="date" required />
-                            </div>
+
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
                                     <label class="sr-only" for="area">Area*</label>
@@ -242,38 +240,50 @@
 
                                 <div>
                                     <label class="sr-only" for="district">District</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district" type="text" id="district" required />
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district?*" type="text" id="district" required />
                                 </div>
                                 <div>
                                     <label class="sr-only" for="postal_code">Postal Code</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area" type="text" id="postal_code" required />
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area?*" type="text" id="postal_code" required />
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                                 <div>
                                     <label class="sr-only" for="price_range">Price Range*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the avg price range of the flats of the building?*" type="text" id="price_range" required />
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the price range of your shop?*" type="text" id="price_range" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="available_from">Available From*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="From when shop will be available for rent?*" type="text" id="available_from" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="protection_money">Advance Payment/Protection Money*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the amount of protection money?*" type="text" id="protection_money" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="agreement_year">Agreement Year(min)*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Agreement Year(min)*" type="text" id="agreement_year" required />
                                 </div>
                             </div>
                             <div class="flex flex-row gap-12">
                                 <div>
                                     <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas (Line)</label>
+                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" value="Electricity (DESCO)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity (DESCO)</label>
+                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" value="Lift (Available)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Lift (Available)</label>
+                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Water</label>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                                 <select class="w-full rounded-lg border-2 p-3 text-sm">
-                                    <option>Is parking available?</option>
+                                    <option>Is shop available now?</option>
                                     <option value="Available">Yes</option>
                                     <option value="Not Available">No</option>
                                 </select>
@@ -281,9 +291,12 @@
                             </div>
 
                             <div>
-                                <label class="sr-only" for="image">Additional Requirements</label>
-
                                 <input class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Image" type="file" id="image">
+                            </div>
+                            <div>
+                                <label class="sr-only" for="additional_condition">Additional Conditions</label>
+
+                                <textarea class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Additional Conditions" rows="8" id="additional_condition"></textarea>
                             </div>
 
                             <div class="mt-4">
@@ -296,26 +309,24 @@
                     <!-- OFFICE -->
                     <div v-if="isOffice" class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                         <form @submit.prevent="" class="space-y-4">
+                            <input hidden class="w-full rounded-lg border p-3 text-sm" placeholder="Owner_Id" type="text" id="owner_Id" required />
                             <div>
-                                <label class="sr-only" for="name">Office Name*</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Office Name*" type="text" id="name" required />
+                                <label class="sr-only" for="space">Space*</label>
+                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="How much square feet is your office space?*" type="text" id="space" required />
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
-                                    <label class="sr-only" for="address">Building Address*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Building Address*" type="text" id="address" required />
+                                    <label class="sr-only" for="location">Location*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the location?*" type="text" id="location" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="floor">Floor*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Which floor is your office space on?*" type="text" id="floor" required />
                                 </div>
 
-                                <div>
-                                    <label class="sr-only" for="developer">Developer</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="text" id="developer" required />
-                                </div>
                             </div>
-                            <div>
-                                <label class="sr-only" for="date">Date</label>
-                                <input class="w-full rounded-lg border p-3 text-sm" placeholder="Developer Name" type="date" id="date" required />
-                            </div>
+
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
                                     <label class="sr-only" for="area">Area*</label>
@@ -328,38 +339,50 @@
 
                                 <div>
                                     <label class="sr-only" for="district">District</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district" type="text" id="district" required />
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the name of the district?*" type="text" id="district" required />
                                 </div>
                                 <div>
                                     <label class="sr-only" for="postal_code">Postal Code</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area" type="text" id="postal_code" required />
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the postal code of the area?*" type="text" id="postal_code" required />
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                                 <div>
                                     <label class="sr-only" for="price_range">Price Range*</label>
-                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the avg price range of the flats of the building?*" type="text" id="price_range" required />
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the price range of your office space?*" type="text" id="price_range" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="available_from">Available From*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="From when office space will be available for rent?*" type="text" id="available_from" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="protection_money">Advance Payment/Protection Money*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="What is the amount of protection money?*" type="text" id="protection_money" required />
+                                </div>
+                                <div>
+                                    <label class="sr-only" for="agreement_year">Agreement Year(min)*</label>
+                                    <input class="w-full rounded-lg border p-3 text-sm" placeholder="Agreement Year(min)*" type="text" id="agreement_year" required />
                                 </div>
                             </div>
                             <div class="flex flex-row gap-12">
                                 <div>
                                     <input type="checkbox" value="Gas (Line)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas (Line)</label>
+                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Gas</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" value="Electricity (DESCO)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity (DESCO)</label>
+                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Electricity</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" value="Lift (Available)" v-model="facilities" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox">
-                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Lift (Available)</label>
+                                    <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Water</label>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                                 <select class="w-full rounded-lg border-2 p-3 text-sm">
-                                    <option>Is parking available?</option>
+                                    <option>Is office space available now?</option>
                                     <option value="Available">Yes</option>
                                     <option value="Not Available">No</option>
                                 </select>
@@ -367,9 +390,12 @@
                             </div>
 
                             <div>
-                                <label class="sr-only" for="image">Additional Requirements</label>
-
                                 <input class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Image" type="file" id="image">
+                            </div>
+                            <div>
+                                <label class="sr-only" for="additional_condition">Additional Conditions</label>
+
+                                <textarea class="w-full rounded-lg border-2 p-3 text-sm" placeholder="Additional Conditions" rows="8" id="additional_condition"></textarea>
                             </div>
 
                             <div class="mt-4">
@@ -482,25 +508,25 @@ export default {
 
                 if (add_building.data.status == true) {
                     const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
 
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: "Your listing has been added successfully"
-                });
-                setTimeout(() => {
-                    this.$router.push({
-                    name: 'BuildingComponentOwner'
-                })
-                }, 1500);
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Your listing has been added successfully"
+                    });
+                    setTimeout(() => {
+                        this.$router.push({
+                            name: 'BuildingComponentOwner'
+                        })
+                    }, 1500);
                 }
             }
 

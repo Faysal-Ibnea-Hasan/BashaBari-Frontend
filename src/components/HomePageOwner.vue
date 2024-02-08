@@ -70,7 +70,7 @@
             <!-- End Icon Block -->
 
             <!-- Icon Block -->
-            <div class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
+            <router-link to="" class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
                 <!-- Icon -->
                 <div class="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mx-auto">
                     <svg class="h-8 w-8" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2">
@@ -89,11 +89,11 @@
                         Shops
                     </h3>
                 </div>
-            </div>
+            </router-link>
             <!-- End Icon Block -->
 
             <!-- Icon Block -->
-            <div class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
+            <router-link to="" class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
                 <!-- Icon -->
                 <div class="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mx-auto">
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -106,7 +106,7 @@
                         Office
                     </h3>
                 </div>
-            </div>
+            </router-link>
             <!-- Icon Block -->
             <router-link to="/add-listing" class=" h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
                 <!-- Icon -->
@@ -122,7 +122,7 @@
                 </div>
             </router-link>
             <!-- Icon Block -->
-            <div class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
+            <router-link to="" class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
                 <!-- Icon -->
                 <div class="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mx-auto">
                     <svg class="h-8 w-8" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path style="fill:#ffffff" d="M64 74.172a5.961 5.961 0 1 0-5.961-5.961A5.967 5.967 0 0 0 64 74.172zm0-8.422a2.461 2.461 0 1 1-2.461 2.461A2.463 2.463 0 0 1 64 65.75z"/><path style="fill:#fefeff" d="M115.64 86.371 96.865 79v-6.362l1.283.794a4.942 4.942 0 0 0 5.2-8.4l-13.257-8.211a28 28 0 0 0 1.083-3.286h6.445a1.75 1.75 0 0 0 1.75-1.75V41.452a1.75 1.75 0 0 0-1.75-1.75h-6.444A27.7 27.7 0 0 0 88.1 32.3l4.56-4.559a1.749 1.749 0 0 0 0-2.475l-7.307-7.307a1.749 1.749 0 0 0-2.475 0l-4.56 4.559a27.68 27.68 0 0 0-7.405-3.07V13a1.75 1.75 0 0 0-1.75-1.75h-10.33a1.75 1.75 0 0 0-1.75 1.75v6.445a27.68 27.68 0 0 0-7.405 3.07l-4.56-4.559a1.749 1.749 0 0 0-2.475 0l-7.307 7.307a1.749 1.749 0 0 0 0 2.475L39.9 32.3a27.7 27.7 0 0 0-3.075 7.4h-6.444a1.75 1.75 0 0 0-1.75 1.75v10.336a1.75 1.75 0 0 0 1.75 1.75h6.445a28 28 0 0 0 1.083 3.285l-13.258 8.207a4.942 4.942 0 0 0 1.469 9.012 4.978 4.978 0 0 0 1.142.133 4.906 4.906 0 0 0 2.592-.742l1.281-.793V79L12.36 86.371A1.749 1.749 0 0 0 11.25 88v27a1.75 1.75 0 0 0 1.75 1.75h102a1.75 1.75 0 0 0 1.75-1.75V88a1.749 1.749 0 0 0-1.11-1.629zm-75.7-34.928a1.749 1.749 0 0 0-1.716-1.408h-6.093V43.2h6.093a1.749 1.749 0 0 0 1.716-1.408 24.288 24.288 0 0 1 3.639-8.775 1.75 1.75 0 0 0-.219-2.208L39.049 26.5l4.832-4.832 4.311 4.31a1.75 1.75 0 0 0 2.208.222 24.278 24.278 0 0 1 8.774-3.637 1.751 1.751 0 0 0 1.408-1.716V14.75h6.834v6.093a1.751 1.751 0 0 0 1.408 1.716A24.278 24.278 0 0 1 77.6 26.2a1.75 1.75 0 0 0 2.209-.218l4.311-4.31 4.831 4.828-4.311 4.31a1.75 1.75 0 0 0-.219 2.208 24.288 24.288 0 0 1 3.639 8.775 1.749 1.749 0 0 0 1.716 1.407h6.093v6.833h-6.093a1.749 1.749 0 0 0-1.716 1.408 24.382 24.382 0 0 1-.988 3.509l-6.457-4a17.168 17.168 0 1 0-33.229 0l-6.458 4a24.378 24.378 0 0 1-.989-3.507zM50.542 49a13.668 13.668 0 1 1 26.917 0L66.6 42.28a4.912 4.912 0 0 0-5.2 0zM28.011 70.456A1.442 1.442 0 0 1 26.493 68l36.748-22.744a1.453 1.453 0 0 1 1.518 0L101.507 68a1.442 1.442 0 0 1 .466 1.984 1.469 1.469 0 0 1-1.984.467L64.921 48.747a1.748 1.748 0 0 0-1.842 0zM14.75 89.193l16.385-6.429v30.486H14.75zm19.885-18.722L64 52.293l29.365 18.179v42.917H77.819V91a1.75 1.75 0 0 0-1.75-1.75H51.931a1.75 1.75 0 0 0-1.75 1.75v22.388H34.635zm39.685 42.917H53.681V92.75h20.638zm38.931-.138H96.865V82.764l16.385 6.429z"/></svg>
@@ -134,9 +134,9 @@
                         Support
                     </h3>
                 </div>
-            </div>
+            </router-link>
             <!-- Icon Block -->
-            <div class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
+            <router-link to="" class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
                 <!-- Icon -->
                 <div class="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mx-auto">
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -149,9 +149,9 @@
                         Office
                     </h3>
                 </div>
-            </div>
+            </router-link>
             <!-- Icon Block -->
-            <div class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
+            <router-link to="" class="h-36 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-gray-700 hover:shadow-lg">
                 <!-- Icon -->
                 <div class="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mx-auto">
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -164,7 +164,7 @@
                         Office
                     </h3>
                 </div>
-            </div>
+            </router-link>
             <!-- End Icon Block -->
         </div>
         <!-- End Grid -->
